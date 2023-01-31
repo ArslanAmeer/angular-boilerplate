@@ -65,4 +65,6 @@ _You can see all change logs [Here](/CHANGELOG.md)._
 <p align="right"> &nbsp;</p>
 
 ----------------------------
-Synares Systems
+Authors:
+
+Arslan Ameer
