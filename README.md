@@ -67,4 +67,4 @@ _You can see all change logs [Here](/CHANGELOG.md)._
 ----------------------------
 Authors:
 
-Arslan Ameer
+[Arslan Ameer](www.arslanameer.com) | [GitHub](https://github.com/ArslanAmeer)
