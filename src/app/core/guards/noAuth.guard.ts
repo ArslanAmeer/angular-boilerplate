@@ -4,6 +4,7 @@ import {Observable, of} from 'rxjs';
 import {AuthService} from '../services/auth/auth.service';
 import {switchMap} from 'rxjs/operators';
 import {GetUserTypeRoute} from '@core/utils/custom-user-type-routes';
+import {UserType} from '@core/constants/users.constant';
 
 @Injectable({
   providedIn: 'root'
@@ -68,12 +69,13 @@ export class NoAuthGuard implements CanActivate, CanActivateChild, CanMatch {
     // Check the authentication status
     return this._authService.check()
       .pipe(
-        switchMap((authenticated) => {
+        switchMap((authenticated: boolean) => {
 
           // If the user is authenticated...
           if (authenticated) {
 
-            const userRoute = GetUserTypeRoute(this._authService.getUserType());
+
+            const userRoute = GetUserTypeRoute(this._authService.getUserType() ?? UserType.USER);
 
             // Redirect to the root
             this._router.navigate([userRoute]).then();

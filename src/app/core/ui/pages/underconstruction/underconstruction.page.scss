@@ -1,0 +1,25 @@
+.under-construction{
+  font-family: 'Roboto', sans-serif;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  overflow: hidden;
+  img{
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 20px;
+  }
+  h1{
+    font-size: 3rem;
+    font-weight: 700;
+    color: #333;
+    margin: 0;
+  }
+  p{
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: #333;
+  }
+}

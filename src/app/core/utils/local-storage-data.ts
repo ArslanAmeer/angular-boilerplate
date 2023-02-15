@@ -1,3 +1,4 @@
+import ls from 'localstorage-slim';
 import {environment} from '@env/environment';
 
 /**
@@ -11,6 +12,8 @@ export enum LocalStorageKeys {
   USER_DETAILS = 'user_detail',
   USER_ID = 'user_id'
 }
+
+const prefix = '@WebApp:';
 
 const prodEnv = environment.production;
 
@@ -36,33 +39,29 @@ export const RemoveAuthData = () => {
   }
 };
 
-// const encryptStorage = new EncryptStorage('this-will-be-our-web-secret', {
-//   prefix: '@web',
-//   storageType: 'localStorage',
-//   encAlgorithm: 'AES',
-// });
+ls.config.encrypt = true;
+ls.config.decrypt = true;
 
 const saveDataToLocalStorage = (key: any, value: any) => {
-  // if (prodEnv) {
-  //   encryptStorage.setItem(key, value);
-  //   return;
-  // }
+  key = prefix + key.toString();
+  if (prodEnv) {
+    ls.set(key, value);
+    return;
+  }
   localStorage.setItem(key, JSON.stringify(value));
 };
 
 const getDataFromLocalStorage = (key: any) => {
-  // if (prodEnv) {
-  //   return encryptStorage.getItem(key);
-  // }
+  key = prefix + key.toString();
+  if (prodEnv) {
+    return ls.get(key);
+  }
   const data = localStorage.getItem(key);
   return JSON.parse(data!);
 };
 
 const removeDataFromLocalStorage = (key: any) => {
-  // if (prodEnv) {
-  //   encryptStorage.removeItem(key);
-  //   return;
-  // }
+  key = prefix + key.toString();
   localStorage.removeItem(key);
 };
 

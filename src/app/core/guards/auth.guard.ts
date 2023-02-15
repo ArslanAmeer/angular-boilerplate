@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {ActivatedRouteSnapshot, CanActivate, CanLoad, CanMatch, Route, Router, RouterStateSnapshot, UrlSegment} from '@angular/router';
+import {ActivatedRouteSnapshot, CanActivate, CanMatch, Route, Router, RouterStateSnapshot, UrlSegment} from '@angular/router';
 import {AuthService} from '../services/auth/auth.service';
 import {Observable, of, switchMap} from 'rxjs';
 import {RemoveAuthData} from '@core/utils/local-storage-data';
@@ -60,7 +60,8 @@ export class AuthGuard implements CanActivate, CanMatch {
           }
 
           // Allow the access
-          return this._authService.getUserDetails();
+          // return this._authService.getUserDetails();
+          return of(true);
         })
       );
   }

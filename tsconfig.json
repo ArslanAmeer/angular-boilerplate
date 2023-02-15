@@ -41,11 +41,13 @@
     },
     "useDefineForClassFields": false
   },
+  "emitDecoratorMetadata": true,
+  "experimentalDecorators": true,
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
-    "strictTemplates": false,
-    "strictPropertyInitialization": false
+    "strictTemplates": true,
+    "strictPropertyInitialization": true
   }
 }

@@ -1,9 +1,10 @@
-import {HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from "@angular/common/http";
-import {Observable, throwError} from "rxjs";
-import {AuthService} from "../services/auth/auth.service";
-import {catchError} from "rxjs/operators";
-import {Injectable} from "@angular/core";
-import {AuthUtils} from "./auth.utils";
+import {HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from '@angular/common/http';
+import {Observable, throwError} from 'rxjs';
+import {AuthService} from '../services/auth/auth.service';
+import {catchError} from 'rxjs/operators';
+import {Injectable} from '@angular/core';
+import {AuthUtils} from './auth.utils';
+import {ClearStorage} from '@core/utils/local-storage-data';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
@@ -35,6 +36,7 @@ export class AuthInterceptor implements HttpInterceptor {
           headers: newReq.headers.set('If-Match', req.body._etag)
         });
       }
+
     }
 
     // Response
@@ -43,8 +45,10 @@ export class AuthInterceptor implements HttpInterceptor {
 
         // Catch "401 Unauthorized" responses
         if (error instanceof HttpErrorResponse && error.status === 401) {
+
           // Sign out
-          this.authService.logout();
+          ClearStorage();
+          this.authService.authenticated = false;
 
           // Navigating USer to SignIn page instead of reload.
           // sometimes app stuck on infinite loop on reloading app
