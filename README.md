@@ -1,3 +1,49 @@
+---
+
+<center style="font-size:40px; font-weight: bold">Angular Boiler Plate</center>
+<center>
+<img src="https://cdn.worldvectorlogo.com/logos/angular-icon-1.svg" alt="angular" width="80">
+<img src="https://cdn-icons-png.flaticon.com/512/1408/1408941.png" alt="document" width="80">
+</center>
+
+A Scalable Angular Boiler Plate, contains all the necessary files and folders to start a new project without needing to create them from scratch. 
+It also contains a lot of features that are required in most of the projects including authentication, lazy loading, guards, etc.
+### This boilerplate includes the following features:
+
+
+- [x] Scalable folder structure.
+- [x] Separation of concerns (Adapting Domain Driven Design).
+- [x] Modularization of components, services, pipes, directives, etc.
+- [x] Lazy loading of modules.
+- [x] Routing with guards.
+- [x] Complete authentication system (Auth service, guard, interceptors etc ).
+- [x] Authentication with JWT.
+- [x] Guards for authentication and authorization.
+- [x] Interceptors.
+- [x] Error handling.
+- [x] Class based entities. (Adapting Domain Driven Design)
+- [x] Implementation of Class Transformers so that we can transform our entities to and from backend data models. Usually apis return data in snake case and we need to 
+  convert them to camel case and vice versa.
+- [x] Environments for development and production.
+- [x] Utility functions for common tasks.
+- [x] Helper functions for common tasks.
+
+And many more...
+
+Please note that this boilerplate is not a complete solution for all the projects. It is just a starting point for your project.
+You can use this boilerplate as a starting point for your project and then add or remove features as per your requirements.
+The features and folder structure of this boilerplate are based on my experience of working on several projects.
+
+This boilerplate will remain updated with the latest versions of Angular and other dependencies.
+It will also be updated with new features as they are required in most of the projects. 
+
+
+
+---
+This is a template for README.md file for your project. You can use this template to create your own README.md file for your project.
+
+**Note:** <small style="color: red"> You can remove this with all the above lines and use rest in your documentation.</small>
+
 # Web Front-End
 
 Status Badges

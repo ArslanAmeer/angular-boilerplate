@@ -36,8 +36,8 @@ The project uses both ES and Typescript. Config for Typescript compiler is _allo
 
 ### Code organization
 
-We use `views` folder in `app` folder to manage individual user's dashboard containing all required screens for that specific user.
-And `_shared` folder within `views` folder  containing views that are shared across multiple users.
+We use `pages` folder in `app` folder to manage individual user's dashboard containing all required screens for that specific user.
+And `_shared` folder within `pages` folder containing views.pages that are shared across multiple users.
 
 ```console
 
@@ -45,6 +45,8 @@ And `_shared` folder within `views` folder  containing views that are shared acr
 │   ├───@core
 │   │   ├───constants
 │   │   │   └─── constants set in the whole
+│   │   ├───entities
+│   │   │   └─── Entity models used in the app
 │   │   ├───guards
 │   │   │   ├─── access.guard.ts
 │   │   │   ├─── auth.guard.ts
@@ -52,17 +54,17 @@ And `_shared` folder within `views` folder  containing views that are shared acr
 │   │   │   └─── noAuth.guard.ts
 │   │   ├───helpers
 │   │   │   └─── helpers files to support the app
-│   │   ├───models
-│   │   │   └─── Entity models used in the app
 │   │   ├───services
 │   │   │   └─── services files used to fetch data from the backend only
 │   │   ├───ui
 │   │   │   ├───components
 │   │   │   │   │───sidebar
 │   │   │   │   └───topbar
-│   │   │   └───views
-│   │   │   │   │───access-restricted
-│   │   │   │   └───not-found
+│   │   │   └───pages
+│   │   │       │───access-restricted
+│   │   │       └───not-found
+│   │   ├───usecases
+│   │   │   └─── usecases/compositions files used to get data from the services, mutate or manipulate and pass it to the views.
 │   │   └───utils
 │   │       └─── utils files containing utility functions
 │   ├───shared
@@ -72,11 +74,11 @@ And `_shared` folder within `views` folder  containing views that are shared acr
 │   │   │   └─── Shared Directives to be available in whole app (for reusability)
 │   │   └───pipes
 │   │       └─── Shared Pipes to be available in whole app (for reusability)
-│   └───views
+│   └───pages
 │       ├───_shared
-│       │   └─── Shared views to be used with in other views scoped in views folder.
+│       │   └─── Shared pages to be used with in other views scoped in pages folder.
 │       └─── All other folders inside are scoped as an individual Dashboard of a user e.g; 
-             Licensee Dashboard as licensee with all its views inside licensee folder.
+             User type 2 Dashboard will have all its views.pages inside User type 2 folder.
 ├───assets
 └───environments
 ```
