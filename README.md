@@ -39,7 +39,7 @@ It will also be updated with new features as they are required in most of the pr
 
 This is a template for README.md file for your project. You can use this template to create your own README.md file for your project.
 
-**Note:** <small style="color: red"> You can remove this with all the above lines and use rest in your documentation.</small>
+> ## **Note:** <small style="color: red"> You can remove this with all the above lines and use rest in your documentation.</small>
 
 # Web Front-End
 
@@ -108,6 +108,6 @@ _You can see all change logs [Here](/CHANGELOG.md)._
 <p align="right"> &nbsp;</p>
 
 ----------------------------
-Authors:
+Author:
 
 [Arslan Ameer](www.arslanameer.com) | [GitHub](https://github.com/ArslanAmeer)
