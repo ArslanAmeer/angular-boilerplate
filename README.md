@@ -1,10 +1,9 @@
----
+# <p style="font-size:40px; font-weight: bold; text-align: center" align="center">Angular Boiler Plate</p>
 
-<center style="font-size:40px; font-weight: bold">Angular Boiler Plate</center>
-<center>
-<img src="https://cdn.worldvectorlogo.com/logos/angular-icon-1.svg" alt="angular" width="80">
-<img src="https://cdn-icons-png.flaticon.com/512/1408/1408941.png" alt="document" width="80">
-</center>
+<p align="center" float="left">
+     <img src="https://cdn.worldvectorlogo.com/logos/angular-icon-1.svg" alt="angular" width="80">
+  <img src="https://cdn-icons-png.flaticon.com/512/1408/1408941.png" alt="document" width="80">
+</p>
 
 A Scalable Angular Boiler Plate, contains all the necessary files and folders to start a new project without needing to create them from scratch. 
 It also contains a lot of features that are required in most of the projects including authentication, lazy loading, guards, etc.
@@ -38,8 +37,6 @@ This boilerplate will remain updated with the latest versions of Angular and oth
 It will also be updated with new features as they are required in most of the projects. 
 
 
-
----
 This is a template for README.md file for your project. You can use this template to create your own README.md file for your project.
 
 **Note:** <small style="color: red"> You can remove this with all the above lines and use rest in your documentation.</small>
