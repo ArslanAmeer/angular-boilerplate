@@ -11,17 +11,17 @@ It also contains a lot of features that are required in most of the projects inc
 
 
 - [x] Scalable folder structure.
-- [x] Separation of concerns (Adapting Domain Driven Design).
+- [x] Separation of concerns (Adapting [Domain Driven Design](https://en.wikipedia.org/wiki/Domain-driven_design)).
 - [x] Modularization of components, services, pipes, directives, etc.
-- [x] Lazy loading of modules.
-- [x] Routing with guards.
+- [x] [Lazy loading](https://angular.io/guide/lazy-loading-ngmodules) of modules.
+- [x] [Routing](https://angular.io/guide/router) with [guards](https://angular.io/api/router/CanActivate).
 - [x] Complete authentication system (Auth service, guard, interceptors etc ).
-- [x] Authentication with JWT.
-- [x] Guards for authentication and authorization.
-- [x] Interceptors.
+- [x] Authentication with [JWT](https://jwt.io/).
+- [x] [Guards](https://angular.io/api/router/CanActivate) for authentication and authorization.
+- [x] [Interceptors](https://angular.io/api/common/http/HttpInterceptor).
 - [x] Error handling.
-- [x] Class based entities. (Adapting Domain Driven Design)
-- [x] Implementation of Class Transformers so that we can transform our entities to and from backend data models. Usually apis return data in snake case and we need to 
+- [x] Class based entities. (Adapting [Domain Driven Design](https://en.wikipedia.org/wiki/Domain-driven_design)).
+- [x] Implementation of [Class Transformers](https://github.com/typestack/class-transformer) so that we can transform our entities to and from backend data models. Usually apis return data in snake case and we need to 
   convert them to camel case and vice versa.
 - [x] Environments for development and production.
 - [x] Utility functions for common tasks.
