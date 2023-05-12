@@ -25,6 +25,7 @@ It also contains a lot of features that are required in most of the projects inc
   convert them to camel case and vice versa.
 - [x] Environments for development and production.
 - [x] Utility functions for common tasks.
+  - [x] Local storage obfuscation with getters and setters which automatically encrypt and decrypt data on production and can add more functions as per requirements.
 - [x] Helper functions for common tasks.
 
 And many more...
