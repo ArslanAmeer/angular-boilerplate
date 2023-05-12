@@ -50,7 +50,7 @@ Status Badges
 ## 💻 Current Stack Version:
 
 - Node `^v18`
-- Angular `^v15`
+- Angular `^v16`
 
 <p align="right"> &nbsp;</p>
 
