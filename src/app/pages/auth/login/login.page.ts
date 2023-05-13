@@ -4,8 +4,8 @@ import {Subscription} from 'rxjs';
 import {ActivatedRoute, Router} from '@angular/router';
 import {AuthService} from '@core/services/auth/auth.service';
 import {GetUserTypeRoute} from '@core/utils/custom-user-type-routes';
-import {MarkInvalidFormControls} from '@core/utils/mark-invalid-form-controls';
 import {GetUserType} from '@core/utils/local-storage-data';
+import {markInvalidFormControls} from 'mark-invalid-form-controls';
 
 @Component({
     selector: 'app-login',
@@ -66,7 +66,7 @@ export class LoginPage implements OnInit, OnDestroy {
                 }
             }));
         } else {
-            MarkInvalidFormControls(this.$LoginForm, this.el);
+            markInvalidFormControls(this.$LoginForm, this.el);
             // Your additional code here
             console.log('Login Failed, Please enter required fields')
             this.isLoading = false;

@@ -27,6 +27,7 @@
     "@angular/router": "^16.0.1",
     "class-transformer": "^0.5.1",
     "jwt-decode": "^3.1.2",
+    "mark-invalid-form-controls": "^1.0.6",
     "reflect-metadata": "^0.1.13",
     "rxjs": "~7.8.0",
     "ts-node": "^10.9.1",
