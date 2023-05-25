@@ -5,7 +5,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {AuthService} from '@core/services/auth/auth.service';
 import {GetUserTypeRoute} from '@core/utils/custom-user-type-routes';
 import {GetUserType} from '@core/utils/local-storage-data';
-import {markInvalidFormControls} from 'mark-invalid-form-controls';
+import {markInvalidFormControls} from "@core/utils";
 
 @Component({
     selector: 'app-login',
