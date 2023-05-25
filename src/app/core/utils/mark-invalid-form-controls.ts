@@ -9,14 +9,14 @@
 import {AbstractControl, FormArray, FormControl, FormGroup} from '@angular/forms';
 import {ElementRef} from '@angular/core';
 
-export function MarkInvalidFormControls<T extends AbstractControl>(control: T, elRef: ElementRef): void {
+export function markInvalidFormControls<T extends AbstractControl>(control: T, elRef: ElementRef): void {
 
   if (control instanceof FormGroup) {
     const controls = control.controls;
     control.markAllAsTouched();
     Object.keys(controls).forEach(key => {
       controls[key].markAsDirty();
-      MarkInvalidFormControls(controls[key], elRef);
+      markInvalidFormControls(controls[key], elRef);
     });
     scrollToFirstInvalidControl(elRef);
   } else if (control instanceof FormArray) {

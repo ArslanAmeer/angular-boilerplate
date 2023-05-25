@@ -4342,14 +4342,6 @@ make-fetch-happen@^11.0.0, make-fetch-happen@^11.0.1, make-fetch-happen@^11.1.0:
     socks-proxy-agent "^7.0.0"
     ssri "^10.0.0"
 
-mark-invalid-form-controls@^1.0.6:
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/mark-invalid-form-controls/-/mark-invalid-form-controls-1.0.6.tgz#ab6b4ea8493fb509a6eb4dc444ba29f795120d6a"
-  integrity sha512-BK6XVvunylRK3HhuoK+4y87AACUC9lsA2TzpeVaHt+r5sjnjhwmMlUryVnHe1rDdbW8tTYC0L5ISog58mcrX3Q==
-  dependencies:
-    "@angular/core" "^16.0.1"
-    "@angular/forms" "^16.0.1"
-
 media-typer@0.3.0:
   version "0.3.0"
   resolved "https://registry.npmjs.org/media-typer/-/media-typer-0.3.0.tgz"
