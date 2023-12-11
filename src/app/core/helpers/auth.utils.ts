@@ -5,14 +5,7 @@
 // https://github.com/auth0/angular2-jwt
 // -----------------------------------------------------------------------------------------------------
 
-
 export class AuthUtils {
-  /**
-   * Constructor
-   */
-  constructor() {
-  }
-
   // -----------------------------------------------------------------------------------------------------
   // @ Private methods
   // -----------------------------------------------------------------------------------------------------
@@ -24,7 +17,6 @@ export class AuthUtils {
    * @param offsetSeconds
    */
   static isTokenExpired(token: string, offsetSeconds?: number): boolean {
-
     // Return if there is no token
     if (!token || token === '' || token === 'undefined') {
       return true;
@@ -57,9 +49,7 @@ export class AuthUtils {
     str = String(str).replace(/=+$/, '');
 
     if (str.length % 4 === 1) {
-      throw new Error(
-        '\'atob\' failed: The string to be decoded is not correctly encoded.'
-      );
+      throw new Error("'atob' failed: The string to be decoded is not correctly encoded.");
     }
 
     /* tslint:disable */
@@ -70,12 +60,10 @@ export class AuthUtils {
       (buffer = str.charAt(idx++));
       // character found in table? initialize bit storage and add its ascii value;
       ~buffer &&
-      (
-        (bs = bc % 4 ? bs * 64 + buffer : buffer),
-          // and if not first of each 4 characters,
-          // convert the first 8 bits to one ascii character
-        bc++ % 4
-      )
+      ((bs = bc % 4 ? bs * 64 + buffer : buffer),
+      // and if not first of each 4 characters,
+      // convert the first 8 bits to one ascii character
+      bc++ % 4)
         ? (output += String.fromCharCode(255 & (bs >> ((-2 * bc) & 6))))
         : 0
     ) {
@@ -146,7 +134,7 @@ export class AuthUtils {
     const parts = token.split('.');
 
     if (parts.length !== 3) {
-      throw new Error('The inspected token doesn\'t appear to be a JWT. Check to make sure it has three parts and see https://jwt.io for more.');
+      throw new Error("The inspected token doesn't appear to be a JWT. Check to make sure it has three parts and see https://jwt.io for more.");
     }
 
     // Decode the token using the Base64 decoder
@@ -170,13 +158,11 @@ export class AuthUtils {
    * @private
    */
   private static _getTokenExpirationDate(token: string): Date | null {
-
-
     // Get the decoded token
     const decodedToken = this._decodeToken(token);
 
     // Return if the decodedToken doesn't have an 'exp' field
-    if (!decodedToken.hasOwnProperty('exp')) {
+    if (!Object.prototype.hasOwnProperty.call(decodedToken, 'exp')) {
       return null;
     }
 

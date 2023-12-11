@@ -1,14 +1,16 @@
-import {Injectable} from '@angular/core';
-import {CanMatch, Route, Router, UrlSegment} from '@angular/router';
-import {AuthService} from '../services/auth/auth.service';
-import {Observable} from 'rxjs';
+import { Injectable } from '@angular/core';
+import { CanMatch, Route, Router, UrlSegment } from '@angular/router';
+import { AuthService } from '../services/auth/auth.service';
+import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class LogoutGuard implements CanMatch {
-  constructor(private _authService: AuthService, private _router: Router) {
-  }
+  constructor(
+    private _authService: AuthService,
+    private _router: Router
+  ) {}
 
   /**
    * Can load
@@ -20,6 +22,4 @@ export class LogoutGuard implements CanMatch {
     this._authService.logout();
     return false;
   }
-
-
 }
