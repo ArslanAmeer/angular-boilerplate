@@ -27,22 +27,35 @@
             "prefix": "app",
             "style": "kebab-case"
           }
+        ],
+        "@angular-eslint/component-class-suffix": [
+          "error",
+          {
+            "suffixes": ["Component", "Page"]
+          }
         ]
       }
     },
     {
       "files": ["*.html"],
       "excludedFiles": ["*inline-template-*.component.html"],
-      "extends": [
-        "plugin:@angular-eslint/template/recommended",
-        "plugin:@angular-eslint/template/accessibility",
-        "plugin:prettier/recommended"
-      ],
+      "extends": ["plugin:@angular-eslint/template/recommended", "plugin:@angular-eslint/template/accessibility", "plugin:prettier/recommended"],
       "rules": {
         "prettier/prettier": [
           "error",
           {
             "parser": "angular"
+          }
+        ],
+        "max-len": [
+          "error",
+          {
+            "code": 180,
+            "ignoreUrls": true,
+            "ignoreComments": false,
+            "ignoreRegExpLiterals": true,
+            "ignoreStrings": true,
+            "ignoreTemplateLiterals": true
           }
         ]
       }
