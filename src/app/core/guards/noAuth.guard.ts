@@ -1,5 +1,15 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, CanActivateChild, CanMatch, Route, Router, RouterStateSnapshot, UrlSegment, UrlTree } from '@angular/router';
+import {
+  ActivatedRouteSnapshot,
+  CanActivate,
+  CanActivateChild,
+  CanMatch,
+  Route,
+  Router,
+  RouterStateSnapshot,
+  UrlSegment,
+  UrlTree,
+} from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { AuthService } from '../services/auth/auth.service';
 import { switchMap } from 'rxjs/operators';
@@ -16,10 +26,7 @@ export class NoAuthGuard implements CanActivate, CanActivateChild, CanMatch {
    * @param {AuthService} _authService
    * @param {Router} _router
    */
-  constructor(
-    private _authService: AuthService,
-    private _router: Router
-  ) {}
+  constructor(private _authService: AuthService, private _router: Router) {}
 
   // -----------------------------------------------------------------------------------------------------
   // @ Private methods
@@ -31,7 +38,10 @@ export class NoAuthGuard implements CanActivate, CanActivateChild, CanMatch {
    * @param route
    * @param state
    */
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
+  canActivate(
+    route: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot
+  ): Observable<boolean> | Promise<boolean> | boolean {
     return this._check();
   }
 
@@ -45,7 +55,10 @@ export class NoAuthGuard implements CanActivate, CanActivateChild, CanMatch {
    * @param childRoute
    * @param state
    */
-  canActivateChild(childRoute: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+  canActivateChild(
+    childRoute: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot
+  ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     return this._check();
   }
 

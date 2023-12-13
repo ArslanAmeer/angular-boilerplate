@@ -7,7 +7,7 @@
 
 // import {IQueryBuilder} from '@core/models/others/queryBuilder';
 
-export const GetAdvanceUrl = (url: string, query: any) => {
+export const GetAdvanceUrl = (url: string, query: any): string => {
   let queryString = '';
   for (const key in query) {
     if (query.hasOwnProperty(key)) {
@@ -15,5 +15,4 @@ export const GetAdvanceUrl = (url: string, query: any) => {
     }
   }
   return `${url}?${queryString}`;
-
-}
+};

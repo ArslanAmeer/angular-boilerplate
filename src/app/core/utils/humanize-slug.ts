@@ -5,8 +5,9 @@
  */
 
 export function humanize(str: string) {
-  let i, frags = str.split('_');
-  if(str.includes('-')) frags = str.split('-');
+  let i,
+    frags = str.split('_');
+  if (str.includes('-')) frags = str.split('-');
   for (i = 0; i < frags.length; i++) {
     frags[i] = frags[i].charAt(0).toUpperCase() + frags[i].slice(1);
   }

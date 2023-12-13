@@ -7,10 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class LogoutGuard implements CanMatch {
-  constructor(
-    private _authService: AuthService,
-    private _router: Router
-  ) {}
+  constructor(private _authService: AuthService, private _router: Router) {}
 
   /**
    * Can load

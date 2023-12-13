@@ -25,8 +25,10 @@ export enum AuthStatuses {
 
 export const AuthStatusDescriptions = {
   [AuthStatuses.SUCCESSFUL_REGISTRATION]: 'Your account is successfully registered. Please login to continue',
-  [AuthStatuses.PENDING_VERIFICATION]: 'Your account is pending verification. Please check your email for verification link',
-  [AuthStatuses.SUCCESSFUL_REGISTRATION_PENDING_VERIFICATION]: 'Your account is successfully registered. Please check your email for verification link',
+  [AuthStatuses.PENDING_VERIFICATION]:
+    'Your account is pending verification. Please check your email for verification link',
+  [AuthStatuses.SUCCESSFUL_REGISTRATION_PENDING_VERIFICATION]:
+    'Your account is successfully registered. Please check your email for verification link',
   [AuthStatuses.VERIFIED_ACCOUNT]: 'Your account has been verified. Please login to continue',
   [AuthStatuses.ALREADY_VERIFIED]: 'Your account has already been verified. Please login to continue',
 };

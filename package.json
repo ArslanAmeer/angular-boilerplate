@@ -11,8 +11,12 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "prepare": "husky install",
-    "prettier": "npx prettier --write .",
-    "lint": "ng lint"
+    "lint": "ng lint && stylelint \"src/**/*.scss\"",
+    "write:env": "ngx-scripts env npm_package_version",
+    "prettier": "prettier --write \"./src/**/*.{ts,js,html,scss}\"",
+    "prettier:check": "prettier --list-different \"./src/**/*.{ts,js,html,scss}\"",
+    "postinstall": "npm run prettier -s && husky install",
+    "generate": "ng generate"
   },
   "private": true,
   "engines": {
@@ -29,10 +33,8 @@
     "@angular/platform-browser-dynamic": "^16.2.8",
     "@angular/router": "^16.2.8",
     "class-transformer": "^0.5.1",
-    "jwt-decode": "^3.1.2",
     "reflect-metadata": "^0.1.13",
     "rxjs": "~7.8.0",
-    "ts-node": "^10.9.1",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.0"
   },
@@ -45,23 +47,44 @@
     "@angular-eslint/template-parser": "16.3.1",
     "@angular/cli": "~16.2.5",
     "@angular/compiler-cli": "^16.2.8",
+    "@ngneat/until-destroy": "^10.0.0",
+    "@types/node": "^20.10.4",
     "@types/jasmine": "~4.3.0",
     "@typescript-eslint/eslint-plugin": "5.62.0",
     "@typescript-eslint/parser": "5.62.0",
     "eslint": "^8.51.0",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-prettier": "^5.0.1",
-    "husky": "^8.0.3",
+    "eslint-plugin-import": "latest",
+    "eslint-plugin-jsdoc": "latest",
+    "eslint-plugin-prefer-arrow": "latest",
     "jasmine-core": "~4.5.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.1.0",
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.0.0",
-    "lint-staged": "^15.2.0",
-    "prettier": "^3.1.1",
+    "jwt-decode": "^3.1.2",
+    "prettier": "^2.2.1",
+    "stylelint-config-prettier": "^9.0.3",
+    "pretty-quick": "^3.1.0",
+    "husky": "^8.0.1",
+    "stylelint": "~14.11.0",
+    "stylelint-config-recommended-scss": "~7.0.0",
+    "stylelint-config-standard": "~28.0.0",
+    "postcss": "^8.4.5",
     "prettier-eslint": "^16.1.2",
-    "typescript": "~4.9.4"
+    "typescript": "~4.9.4",
+    "ts-node": "^10.9.2"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "overrides": [
+      {
+        "files": "*.scss",
+        "options": {
+          "singleQuote": false
+        }
+      }
+    ]
   },
   "description": "Angular Web Boiler Plate",
   "main": "index.js",
@@ -70,8 +93,8 @@
     "url": "git+https://github.com/ArslanAmeer/angular-boilerplate.git"
   },
   "keywords": [
-    "travel industry solutions",
-    "tis"
+    "arslan ameer",
+    "https://arslanameer.com"
   ],
   "author": "ArslanAmeer",
   "license": "ISC",

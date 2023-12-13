@@ -1,5 +1,13 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivateFn, CanMatchFn, Route, Router, RouterStateSnapshot, UrlSegment } from '@angular/router';
+import {
+  ActivatedRouteSnapshot,
+  CanActivateFn,
+  CanMatchFn,
+  Route,
+  Router,
+  RouterStateSnapshot,
+  UrlSegment,
+} from '@angular/router';
 import { AuthService } from '../services/auth/auth.service';
 import { Observable, of, switchMap } from 'rxjs';
 import { RemoveAuthData } from '@core/utils/local-storage-data';
@@ -8,12 +16,12 @@ import { RemoveAuthData } from '@core/utils/local-storage-data';
   providedIn: 'root',
 })
 export class AuthGuard {
-  constructor(
-    private _authService: AuthService,
-    private _router: Router
-  ) {}
+  constructor(private _authService: AuthService, private _router: Router) {}
 
-  canActivate: CanActivateFn = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean => {
+  canActivate: CanActivateFn = (
+    route: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot
+  ): Observable<boolean> | Promise<boolean> | boolean => {
     const redirectUrl = state.url;
     return this._check(redirectUrl);
   };
@@ -39,7 +47,7 @@ export class AuthGuard {
   private _check(redirectURL: string, route?: Route): Observable<boolean> {
     // Check the authentication status
     return this._authService.check().pipe(
-      switchMap(authenticated => {
+      switchMap((authenticated) => {
         // If the user is not authenticated...
 
         if (!authenticated) {

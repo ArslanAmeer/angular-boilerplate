@@ -1,10 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;900&display=swap");
 
-body, html {
+body,
+html {
   margin: 0;
-  font-family: 'Poppins', "Lato", sans-serif;
+  font-family: "Poppins", "Lato", sans-serif;
   font-size: 14px;
   //background-color: #EDF1F5;
   scroll-behavior: smooth;
@@ -15,13 +16,12 @@ body, html {
   box-shadow: 0 0 0 0 rgba(0, 0, 0, 0) !important;
 }
 
-
 /*
  Temporary Styling for auth screens.
  No framework is added, you can add framework of your choice.
  */
-.login-page, .register-page {
-
+.login-page,
+.register-page {
   margin: 0;
   padding: 0;
   display: flex;
@@ -40,7 +40,7 @@ body, html {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding-top: 30px ;
+    padding-top: 30px;
     padding-bottom: 30px;
 
     .card-header {
@@ -63,14 +63,13 @@ body, html {
         align-items: center;
         justify-content: center;
 
-
         .form-group {
           width: 100%;
           margin-bottom: 20px;
           display: flex;
-            flex-direction: column;
+          flex-direction: column;
 
-          small{
+          small {
             display: block;
           }
         }
@@ -82,7 +81,9 @@ body, html {
           display: block;
         }
 
-        input[type="text"],input[type="email"], input[type="password"] {
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
           //width: 100%;
           //height: 40px;
           border: 1px solid #ccc;
@@ -112,15 +113,12 @@ body, html {
           }
         }
 
-        .invalid-feedback{
+        .invalid-feedback {
           color: red;
           //font-size: 12px;
           margin-top: 5px;
         }
       }
-
     }
-
   }
-
 }

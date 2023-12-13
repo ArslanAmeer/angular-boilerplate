@@ -35,7 +35,7 @@ export class LoginPage implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.subscriptions.forEach(sub => sub.unsubscribe());
+    this.subscriptions.forEach((sub) => sub.unsubscribe());
   }
 
   initForm() {
@@ -57,7 +57,7 @@ export class LoginPage implements OnInit, OnDestroy {
 
       this.subscriptions.push(
         this._authService.login(this.$LoginForm.value).subscribe({
-          next: data => {
+          next: (data) => {
             // Your additional code here
             console.log('Login Success');
 

@@ -16,28 +16,17 @@
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "importHelpers": true,
+    "suppressImplicitAnyIndexErrors": true,
     "target": "ES2022",
     "module": "ES2022",
-    "lib": [
-      "ES2022",
-      "dom"
-    ],
+    "typeRoots": ["node_modules/@types"],
+    "lib": ["ES2022", "dom"],
     "paths": {
-      "@core/*": [
-        "src/app/core/*"
-      ],
-      "@assets/*": [
-        "src/assets/*"
-      ],
-      "@pages/*": [
-        "src/app/pages/*"
-      ],
-      "@shared/*": [
-        "src/app/shared/*"
-      ],
-      "@env/*": [
-        "src/environments/*"
-      ]
+      "@core/*": ["src/app/core/*"],
+      "@assets/*": ["src/assets/*"],
+      "@pages/*": ["src/app/pages/*"],
+      "@shared/*": ["src/app/shared/*"],
+      "@env/*": ["src/environments/*"]
     },
     "useDefineForClassFields": false
   },
@@ -45,6 +34,7 @@
   "experimentalDecorators": true,
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
+    "fullTemplateTypeCheck": true,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
     "strictTemplates": true,

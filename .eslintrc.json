@@ -4,13 +4,11 @@
   "overrides": [
     {
       "files": ["*.ts"],
-      "extends": [
-        "eslint:recommended",
-        "plugin:@typescript-eslint/recommended",
-        "plugin:@angular-eslint/recommended",
-        "plugin:@angular-eslint/template/process-inline-templates",
-        "plugin:prettier/recommended"
-      ],
+      "parserOptions": {
+        "project": ["tsconfig.json"],
+        "createDefaultProgram": true
+      },
+      "extends": ["plugin:@angular-eslint/recommended", "plugin:@angular-eslint/template/process-inline-templates"],
       "rules": {
         "@angular-eslint/directive-selector": [
           "error",
@@ -28,37 +26,13 @@
             "style": "kebab-case"
           }
         ],
-        "@angular-eslint/component-class-suffix": [
-          "error",
-          {
-            "suffixes": ["Component", "Page"]
-          }
-        ]
+        "@angular-eslint/no-empty-lifecycle-method": "off"
       }
     },
     {
       "files": ["*.html"],
-      "excludedFiles": ["*inline-template-*.component.html"],
-      "extends": ["plugin:@angular-eslint/template/recommended", "plugin:@angular-eslint/template/accessibility", "plugin:prettier/recommended"],
-      "rules": {
-        "prettier/prettier": [
-          "error",
-          {
-            "parser": "angular"
-          }
-        ],
-        "max-len": [
-          "error",
-          {
-            "code": 180,
-            "ignoreUrls": true,
-            "ignoreComments": false,
-            "ignoreRegExpLiterals": true,
-            "ignoreStrings": true,
-            "ignoreTemplateLiterals": true
-          }
-        ]
-      }
+      "extends": ["plugin:@angular-eslint/template/recommended"],
+      "rules": {}
     }
   ]
 }
