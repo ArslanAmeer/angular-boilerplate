@@ -1,4 +1,4 @@
-import {environment} from '@env/environment';
+import { environment } from '@env/environment';
 
 /**
  * List of local storage keys
@@ -8,7 +8,7 @@ export enum LocalStorageKeys {
   REFRESH_TOKEN = 'refresh_token',
   USER_TYPE = 'user_type',
   USER_DETAILS = 'user_detail',
-  USER_ID = 'user_id'
+  USER_ID = 'user_id',
 }
 
 const prefix = '@WebApp:';

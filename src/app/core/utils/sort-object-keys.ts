@@ -4,7 +4,7 @@
  * @returns Object
  */
 
-export function sortObjectByKeys(obj:any) {
+export function sortObjectByKeys(obj: any) {
   return Object.keys(obj)
     .sort()
     .reduce((accumulator, key) => {

@@ -3,13 +3,18 @@
  */
 
 function diff_to_GMT(dt: any) {
-  return (-dt.getTimezoneOffset() < 0 ? '-' : '+') + (Math.abs(dt.getTimezoneOffset() / 60) < 10 ? '0' : '') + (Math.abs(dt.getTimezoneOffset() / 60)) + ':00';
+  return (
+    (-dt.getTimezoneOffset() < 0 ? '-' : '+') +
+    (Math.abs(dt.getTimezoneOffset() / 60) < 10 ? '0' : '') +
+    Math.abs(dt.getTimezoneOffset() / 60) +
+    ':00'
+  );
 }
 
 export function DateTime(input: any) {
   const dt = input;
-  const format = (new Date(new Date(dt!).toString().split('GMT')[0] + ' UTC').toISOString().split('.')[0]);
-  return (format.concat(diff_to_GMT(dt)).toString());
+  const format = new Date(new Date(dt!).toString().split('GMT')[0] + ' UTC').toISOString().split('.')[0];
+  return format.concat(diff_to_GMT(dt)).toString();
 }
 
 //Date of Birth Formatter //
@@ -33,7 +38,6 @@ export function BackendTimeFormatter(input: string) {
 
 //Time Clock using currentTime and Backend Time
 export function CalculateTimeDifference(time1: number, time2: number) {
-
   const res = Math.abs(time1 - time2) / 1000;
   // get hours
   const hours = Math.floor(res / 3600) % 24;
@@ -52,7 +56,7 @@ export function DecimalHoursToMinute(time: any) {
   return date.toTimeString().slice(0, 5);
 }
 
-export function CompareTime(time1: string, time2: string){
+export function CompareTime(time1: string, time2: string) {
   return +new Date(time1) < +new Date(time2);
 }
 
@@ -60,16 +64,15 @@ export function CompareTime(time1: string, time2: string){
 export function DateAgoTransformer(time: any) {
   if (time) {
     const seconds = Math.floor((+new Date() - +new Date(time)) / 1000);
-    if (seconds < 29)
-      return 'Just now';
+    if (seconds < 29) return 'Just now';
     const intervals = {
-      'year': 31536000,
-      'month': 2592000,
-      'week': 604800,
-      'day': 86400,
-      'hr': 3600,
-      'min': 60,
-      'second': 1
+      year: 31536000,
+      month: 2592000,
+      week: 604800,
+      day: 86400,
+      hr: 3600,
+      min: 60,
+      second: 1,
     };
     let counter;
     for (const i in intervals) {

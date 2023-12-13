@@ -1,4 +1,4 @@
-import {AbstractControl, ValidatorFn} from '@angular/forms';
+import { AbstractControl, ValidatorFn } from '@angular/forms';
 
 export default class MatchValidator {
   static match(controlName: string, checkControlName: string): ValidatorFn {
@@ -9,8 +9,8 @@ export default class MatchValidator {
         return null;
       }
       if (control?.value !== checkControl?.value) {
-        controls.get(checkControlName)?.setErrors({doNotMatch: true});
-        return {doNotMatch: true};
+        controls.get(checkControlName)?.setErrors({ doNotMatch: true });
+        return { doNotMatch: true };
       } else {
         return null;
       }

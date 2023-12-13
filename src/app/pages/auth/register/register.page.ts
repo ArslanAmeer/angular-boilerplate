@@ -3,8 +3,6 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-register',
   templateUrl: './register.page.html',
-  styleUrls: ['./register.page.scss']
+  styleUrls: ['./register.page.scss'],
 })
-export class RegisterPage {
-
-}
+export class RegisterPage {}

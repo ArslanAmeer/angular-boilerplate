@@ -1,16 +1,16 @@
-import {NgModule} from '@angular/core';
-import {RouterModule, Routes} from '@angular/router';
-import {UnderconstructionPage} from '@core/ui/pages/underconstruction/underconstruction.page';
-import {DashboardPage} from '@pages/home/dashboard/dashboard.page';
-import {AuthGuard} from '@core/guards/auth.guard';
-import {NoAuthGuard} from '@core/guards/noAuth.guard';
-import {LogoutGuard} from '@core/guards/logout.guard';
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { UnderconstructionPage } from '@core/ui/pages/underconstruction/underconstruction.page';
+import { DashboardPage } from '@pages/home/dashboard/dashboard.page';
+import { AuthGuard } from '@core/guards/auth.guard';
+import { NoAuthGuard } from '@core/guards/noAuth.guard';
+import { LogoutGuard } from '@core/guards/logout.guard';
 
 const routes: Routes = [
   {
     path: '',
     redirectTo: 'under-construction',
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
 
   // -------------------- Auth Routes --------------------
@@ -18,7 +18,7 @@ const routes: Routes = [
   {
     path: 'auth',
     canMatch: [NoAuthGuard],
-    loadChildren: () => import('./pages/auth/auth.module').then(m => m.AuthModule)
+    loadChildren: () => import('./pages/auth/auth.module').then((m) => m.AuthModule),
   },
   {
     path: 'login',
@@ -33,14 +33,14 @@ const routes: Routes = [
   {
     path: 'logout',
     canMatch: [LogoutGuard],
-    loadChildren: () => import('./pages/auth/auth.module').then(m => m.AuthModule)
+    loadChildren: () => import('./pages/auth/auth.module').then((m) => m.AuthModule),
   },
   // -------------------- Home Routes --------------------
 
   {
     path: 'home',
     component: DashboardPage,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
   },
 
   // -------------------- Auxiliary Routes --------------------
@@ -52,12 +52,11 @@ const routes: Routes = [
   {
     path: '**',
     redirectTo: 'under-construction',
-  }
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule {
-}
+export class AppRoutingModule {}

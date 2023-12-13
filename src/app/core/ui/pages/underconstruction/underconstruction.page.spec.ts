@@ -8,9 +8,8 @@ describe('UnderconstructionPage', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UnderconstructionPage ]
-    })
-    .compileComponents();
+      declarations: [UnderconstructionPage],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(UnderconstructionPage);
     component = fixture.componentInstance;

@@ -1,13 +1,23 @@
-import {Injectable} from '@angular/core';
-import {ActivatedRouteSnapshot, CanActivate, CanActivateChild, CanLoad, CanMatch, Route, Router, RouterStateSnapshot, UrlSegment, UrlTree} from '@angular/router';
-import {Observable, of} from 'rxjs';
-import {AuthService} from '../services/auth/auth.service';
-import {switchMap} from 'rxjs/operators';
-import {GetUserTypeRoute} from '@core/utils/custom-user-type-routes';
-import {UserType} from '@core/constants/users.constant';
+import { Injectable } from '@angular/core';
+import {
+  ActivatedRouteSnapshot,
+  CanActivate,
+  CanActivateChild,
+  CanMatch,
+  Route,
+  Router,
+  RouterStateSnapshot,
+  UrlSegment,
+  UrlTree,
+} from '@angular/router';
+import { Observable, of } from 'rxjs';
+import { AuthService } from '../services/auth/auth.service';
+import { switchMap } from 'rxjs/operators';
+import { GetUserTypeRoute } from '@core/utils/custom-user-type-routes';
+import { UserType } from '@core/constants/users.constant';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class NoAuthGuard implements CanActivate, CanActivateChild, CanMatch {
   /**
@@ -16,11 +26,7 @@ export class NoAuthGuard implements CanActivate, CanActivateChild, CanMatch {
    * @param {AuthService} _authService
    * @param {Router} _router
    */
-  constructor(
-    private _authService: AuthService,
-    private _router: Router
-  ) {
-  }
+  constructor(private _authService: AuthService, private _router: Router) {}
 
   // -----------------------------------------------------------------------------------------------------
   // @ Private methods
@@ -32,7 +38,10 @@ export class NoAuthGuard implements CanActivate, CanActivateChild, CanMatch {
    * @param route
    * @param state
    */
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
+  canActivate(
+    route: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot
+  ): Observable<boolean> | Promise<boolean> | boolean {
     return this._check();
   }
 
@@ -46,7 +55,10 @@ export class NoAuthGuard implements CanActivate, CanActivateChild, CanMatch {
    * @param childRoute
    * @param state
    */
-  canActivateChild(childRoute: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+  canActivateChild(
+    childRoute: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot
+  ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     return this._check();
   }
 
@@ -67,26 +79,22 @@ export class NoAuthGuard implements CanActivate, CanActivateChild, CanMatch {
    */
   private _check(): Observable<boolean> {
     // Check the authentication status
-    return this._authService.check()
-      .pipe(
-        switchMap((authenticated: boolean) => {
+    return this._authService.check().pipe(
+      switchMap((authenticated: boolean) => {
+        // If the user is authenticated...
+        if (authenticated) {
+          const userRoute = GetUserTypeRoute(this._authService.getUserType() ?? UserType.USER);
 
-          // If the user is authenticated...
-          if (authenticated) {
+          // Redirect to the root
+          this._router.navigate([userRoute]).then();
 
+          // Prevent the access
+          return of(false);
+        }
 
-            const userRoute = GetUserTypeRoute(this._authService.getUserType() ?? UserType.USER);
-
-            // Redirect to the root
-            this._router.navigate([userRoute]).then();
-
-            // Prevent the access
-            return of(false);
-          }
-
-          // Allow the access
-          return of(true);
-        })
-      );
+        // Allow the access
+        return of(true);
+      })
+    );
   }
 }

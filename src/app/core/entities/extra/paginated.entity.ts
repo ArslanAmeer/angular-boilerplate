@@ -1,5 +1,5 @@
 export class Paginated {
-  count: number = 0;
-  next: number = 0;
-  previous: number = 0;
+  count = 0;
+  next = 0;
+  previous = 0;
 }
