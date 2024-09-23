@@ -16,7 +16,7 @@ import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
   styleUrl: './app.component.scss',
 })
 export class AppComponent implements OnInit, OnDestroy {
-  title = 'new-angular-boilerplate';
+  title = 'angular-boilerplate-v18';
 
   constructor(
     private readonly _router: Router,
@@ -37,7 +37,7 @@ export class AppComponent implements OnInit, OnDestroy {
         const titles = this.getTitle(this._router.routerState, this._router.routerState.root);
 
         if (titles.length === 0) {
-          this._titleService.setTitle(this._translateService.instant('Dashboard'));
+          this._titleService.setTitle(this._translateService.instant('Home'));
         } else {
           const translatedTitles = titles.map((titlePart) => this._translateService.instant(titlePart));
           const allTitlesSame = translatedTitles.every((title, _, arr) => title === arr[0]);

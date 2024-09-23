@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "new-angular-boilerplate": {
+    "angular-boilerplate-v18": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/new-angular-boilerplate",
+            "outputPath": "dist/angular-boilerplate-v18",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": ["zone.js", "@angular/localize/init"],
@@ -66,10 +66,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "new-angular-boilerplate:build:production"
+              "buildTarget": "angular-boilerplate-v18:build:production"
             },
             "development": {
-              "buildTarget": "new-angular-boilerplate:build:development"
+              "buildTarget": "angular-boilerplate-v18:build:development"
             }
           },
           "defaultConfiguration": "development"

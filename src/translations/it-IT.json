@@ -1,4 +1,6 @@
 {
   "APP_NAME": "Angular v18 Boiler Plate",
-  "Hello World": "Hola Mundo"
+  "LANGUAGE": "Italiano",
+  "Hello World": "Ciao mondo",
+  "Home": "Casa"
 }
