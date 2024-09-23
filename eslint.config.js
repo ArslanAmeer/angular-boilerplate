@@ -125,7 +125,6 @@ module.exports = tseslint.config(
         'error',
         {
           singleQuote: true,
-          parser: 'flow',
         },
       ],
     },

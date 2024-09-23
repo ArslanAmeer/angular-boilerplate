@@ -7,7 +7,13 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "lint": "ng lint"
+    "lint": "ng lint",
+    "format-staged": "pretty-quick --staged",
+    "write:env": "ngx-scripts env npm_package_version",
+    "prettier": "prettier --write \"./src/**/*.{ts,js,html,scss}\"",
+    "prettier:check": "prettier --list-different \"./src/**/*.{ts,js,html,scss}\"",
+    "postinstall": "npm run prettier -s",
+    "prepare": "husky"
   },
   "private": true,
   "dependencies": {
@@ -49,6 +55,7 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "pinst": "^3.0.0",
     "postcss": "^8.4.47",
     "prettier": "^3.3.3",
     "pretty-quick": "^4.0.0",
@@ -62,7 +69,6 @@
   },
   "prettier": {
     "singleQuote": true,
-    "parser": "flow",
     "overrides": [
       {
         "files": "*.scss",
