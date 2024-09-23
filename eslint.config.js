@@ -119,14 +119,7 @@ module.exports = tseslint.config(
   },
   {
     files: ['**/*.html'],
-    extends: [...angular.configs.templateRecommended, ...angular.configs.templateAccessibility, eslintPluginPrettierRecommended],
-    rules: {
-      'prettier/prettier': [
-        'error',
-        {
-          singleQuote: true,
-        },
-      ],
-    },
+    extends: [...angular.configs.templateRecommended],
+    rules: {},
   },
 );

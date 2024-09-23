@@ -1,6 +1,7 @@
 {
   "name": "new-angular-boilerplate",
   "version": "0.0.0",
+  "packageManager": "yarn@1.22.22",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -25,6 +26,9 @@
     "@angular/platform-browser": "^18.2.0",
     "@angular/platform-browser-dynamic": "^18.2.0",
     "@angular/router": "^18.2.0",
+    "@ngneat/until-destroy": "^10.0.0",
+    "@ngx-translate/core": "^15.0.0",
+    "@ngx-translate/http-loader": "^8.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.10"
@@ -33,6 +37,8 @@
     "@angular-devkit/build-angular": "^18.2.5",
     "@angular/cli": "^18.2.5",
     "@angular/compiler-cli": "^18.2.0",
+    "@angular/language-service": "^18.2.5",
+    "@angular/localize": "18.2.5",
     "@biesbjerg/ngx-translate-extract": "^7.0.4",
     "@biesbjerg/ngx-translate-extract-marker": "^1.0.0",
     "@eslint/js": "^9.11.0",
@@ -77,6 +83,5 @@
         }
       }
     ]
-  },
-  "packageManager": "yarn@1.22.22"
+  }
 }
