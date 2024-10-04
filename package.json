@@ -14,7 +14,7 @@
     "prettier": "prettier --write \"./src/**/*.{ts,js,html,scss}\"",
     "prettier:check": "prettier --list-different \"./src/**/*.{ts,js,html,scss}\"",
     "postinstall": "npm run prettier -s",
-    "prepare": "husky"
+    "prepare": "husky install"
   },
   "private": true,
   "dependencies": {
@@ -85,5 +85,10 @@
         }
       }
     ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run format-staged"
+    }
   }
 }

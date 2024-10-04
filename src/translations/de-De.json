@@ -2,5 +2,8 @@
   "APP_NAME": "Angular v18 Boiler Plate",
   "LANGUAGE": "Deutsch",
   "Hello World": "Hallo Welt",
-  "Home": "Heim"
+  "Home": "Heim",
+  "Login": "Anmeldung",
+  "Username": "Nutzername",
+  "Password": "Passwort"
 }

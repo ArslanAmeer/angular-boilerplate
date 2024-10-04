@@ -12,7 +12,7 @@ import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet, LanguageSelectorComponent, TranslateModule],
-  templateUrl: './app.component.html',
+  template: '<router-outlet></router-outlet>',
   styleUrl: './app.component.scss',
 })
 export class AppComponent implements OnInit, OnDestroy {

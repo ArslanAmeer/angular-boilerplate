@@ -1,0 +1,22 @@
+<nav>
+  <p class="title">Angular Boiler Plate V18</p>
+  <!--  <div [tippy]="menu" className="popper-menu" variation="popper">-->
+  <!--    <p class="username">{{ 'john_doe' | humanize }}</p>-->
+  <!--    <p class="role">Admin</p>-->
+  <!--  </div>-->
+</nav>
+
+<!-- Popover menu -->
+<ng-template #menu let-hide>
+  <!-- This menu-content is generic class can be override with custom style as well, adjust width value directly as per need -->
+  <div class="popper-menu-content" style="width: 150px">
+    <ul>
+      <li (click)="hide()">
+        <label translate>Profile</label>
+      </li>
+      <li (click)="hide()" routerLink="/logout">
+        <label translate>Logout</label>
+      </li>
+    </ul>
+  </div>
+</ng-template>

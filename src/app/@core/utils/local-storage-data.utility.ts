@@ -6,15 +6,8 @@ import { Credentials } from '@core/entities';
 export enum LocalStorageKeys {
   TOKEN = 'token',
   REFRESH_TOKEN = 'refreshToken',
-  USER_ID = 'userId',
-  TEAM_ID = 'teamId',
-  MEMBER_ID = 'memberId',
-  DATABASE_ID = 'databaseId',
+  USER_ID = 'id',
   CREDENTIALS = 'credentials',
-  ALLOW_ADVERTISMENT = 'allowAdvertisement',
-  KEYCLOAK_ID = 'id',
-  PUSH_NOTIFICATION_SEEN = 'pushNotificationSeen',
-  HEADLINE_OPTION = 'headlineOption',
 }
 
 // const prefix = '@tineon:';
@@ -24,6 +17,7 @@ export enum LocalStorageKeys {
 // const secretKeyValue = 'xx1029384756';
 
 export const GetCredentials = () => getDataFromLocalStorage(LocalStorageKeys.CREDENTIALS) as Credentials;
+
 export const SetCredentials = (credentials: Credentials) => saveDataToLocalStorage(LocalStorageKeys.CREDENTIALS, credentials);
 
 export const GetToken = () => getDataFromLocalStorage(LocalStorageKeys.CREDENTIALS)[LocalStorageKeys.TOKEN];
@@ -31,30 +25,6 @@ export const GetToken = () => getDataFromLocalStorage(LocalStorageKeys.CREDENTIA
 export const GetRefreshToken = () => getDataFromLocalStorage(LocalStorageKeys.CREDENTIALS)[LocalStorageKeys.REFRESH_TOKEN];
 
 export const GetUserId = () => getDataFromLocalStorage(LocalStorageKeys.CREDENTIALS)[LocalStorageKeys.USER_ID];
-
-export const GetKeycloakId = () => getDataFromLocalStorage(LocalStorageKeys.CREDENTIALS)[LocalStorageKeys.KEYCLOAK_ID];
-
-export const GetMemberId = () => getDataFromLocalStorage(LocalStorageKeys.CREDENTIALS)[LocalStorageKeys.MEMBER_ID];
-
-export const GetTeamId = () => getDataFromLocalStorage(LocalStorageKeys.CREDENTIALS)[LocalStorageKeys.TEAM_ID];
-
-export const GetDatabaseId = () => getDataFromLocalStorage(LocalStorageKeys.CREDENTIALS)[LocalStorageKeys.DATABASE_ID];
-
-export const GetAllowAdvertisement = () => getDataFromLocalStorage(LocalStorageKeys.CREDENTIALS)[LocalStorageKeys.ALLOW_ADVERTISMENT];
-
-export const SetPushNotificationSeen = () => localStorage.setItem(LocalStorageKeys.PUSH_NOTIFICATION_SEEN, 'true');
-
-export const GetPushNotificationSeen = () => localStorage.getItem(LocalStorageKeys.PUSH_NOTIFICATION_SEEN) === 'true';
-
-export const ClearPushNotificationSeen = () => localStorage.removeItem(LocalStorageKeys.PUSH_NOTIFICATION_SEEN);
-
-export const GetHeadlineOption = () => getDataFromLocalStorage(LocalStorageKeys.CREDENTIALS)[LocalStorageKeys.HEADLINE_OPTION];
-
-export const SetHeadlineOption = (headlineOption: 0 | 1) => {
-  const credentials = GetCredentials();
-  credentials[LocalStorageKeys.HEADLINE_OPTION] = headlineOption;
-  SetCredentials(credentials);
-};
 
 export const ClearStorage = () => clearStorage();
 

@@ -1,7 +1,7 @@
 export interface NavMenuItem {
   title: string;
-  icon: string;
-  href?: string;
+  href: string;
+  icon?: string;
   url?: string;
   active?: boolean;
   subItems?: NavMenuItem[];

@@ -28,8 +28,10 @@
     "lib": ["ES2022", "dom"],
     "paths": {
       "@app/*": ["src/app/*"],
-      "@auth/*": ["src/app/auth"],
+      "@auth": ["src/app/auth"],
       "@core/*": ["src/app/@core/*"],
+      "@pages/*": ["src/app/pages/*"],
+      "@shared/*": ["src/app/shared/*"],
       "@env/*": ["src/environments/*"]
     },
     "useDefineForClassFields": false

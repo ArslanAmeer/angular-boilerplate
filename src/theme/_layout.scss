@@ -19,8 +19,7 @@
     flex: 1;
     overflow: hidden;
 
-    header.web-header,
-    header.mobile-header {
+    header.main-header {
       -webkit-box-shadow: 0 1px 5px -3px rgba(173, 171, 173, 0.5);
       -moz-box-shadow: 0 1px 5px -3px rgba(173, 171, 173, 0.5);
       box-shadow: 0 1px 5px -3px rgba(173, 171, 173, 0.5);
@@ -33,7 +32,7 @@
       z-index: 20;
     }
 
-    .web-side-nav {
+    .side-nav {
       position: fixed;
       bottom: 0;
       width: 100%;

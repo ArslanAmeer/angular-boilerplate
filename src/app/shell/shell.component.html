@@ -1,0 +1,13 @@
+<div [ngClass]="{ overlay: isSidebarActive }" class="shell layout-wrapper">
+  <aside class="side-nav">
+    <app-sidebar></app-sidebar>
+  </aside>
+  <main>
+    <header class="main-header">
+      <app-header></app-header>
+    </header>
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+  </main>
+</div>

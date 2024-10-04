@@ -4,6 +4,7 @@ import { PreloadAllModules, provideRouter, withEnabledBlockingInitialNavigation,
 import { routes } from './app.routes';
 import { TranslateModule } from '@ngx-translate/core';
 import { environment } from '@env/environment';
+import { ShellModule } from './shell/shell.module';
 
 if (environment.production) {
   enableProdMode();
@@ -12,6 +13,7 @@ if (environment.production) {
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
+    importProvidersFrom(TranslateModule.forRoot(), ShellModule),
     provideRouter(
       routes,
       withRouterConfig({
@@ -25,6 +27,5 @@ export const appConfig: ApplicationConfig = {
       }),
       withPreloading(PreloadAllModules),
     ),
-    importProvidersFrom(TranslateModule.forRoot()),
   ],
 };
