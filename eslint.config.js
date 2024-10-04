@@ -115,6 +115,7 @@ module.exports = tseslint.config(
           accessibility: 'no-public',
         },
       ],
+      '@typescript-eslint/no-extraneous-class': 'off',
     },
   },
   {

@@ -1,2 +1,2 @@
 // Misc Services
-export * from './misc/logger.service';
+export * from './misc';
