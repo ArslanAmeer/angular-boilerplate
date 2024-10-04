@@ -16,7 +16,7 @@ import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
   styleUrl: './app.component.scss',
 })
 export class AppComponent implements OnInit, OnDestroy {
-  title = 'angular-boilerplate-v18';
+  title = 'angular-boilerplate';
 
   constructor(
     private readonly _router: Router,

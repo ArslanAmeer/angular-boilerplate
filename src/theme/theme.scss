@@ -1,0 +1,101 @@
+/*
+ * Global application theme.
+ * All global classes and theme styles for html elements and classes should be defined here.
+ */
+
+// For Example
+// Custom Input Fields Global Styles
+label {
+  display: block;
+  color: var(--text-color-dark);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+input[type="password"],
+input[type="date"],
+input[type="search"],
+input[type="file"],
+input[type="url"],
+input[type="time"],
+textarea {
+  width: 100%;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-color-medium);
+  outline: none;
+  background-color: var(--white);
+  border: 1px solid var(--gray);
+  box-sizing: border-box;
+  //box-shadow: 0px 0px 6px rgba(23, 43, 77, 0.04);
+  border-radius: 6px;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+input[type="number"]:focus,
+input[type="password"]:focus,
+input[type="date"]:focus,
+input[type="search"]:focus,
+input[type="file"]:focus,
+input[type="url"]:focus,
+input[type="time"]:focus,
+textarea:focus {
+  border: 1px solid var(--deep-slate-gray);
+  outline: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+textarea {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  max-height: 200px;
+}
+
+// set color of all text elements
+label,
+p,
+span,
+a,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--text-color-dark);
+}
+
+// set style to all disabled text elements
+label[disabled],
+p[disabled],
+span[disabled],
+a[disabled],
+li[disabled],
+h1[disabled],
+h2[disabled],
+h3[disabled],
+h4[disabled],
+h5[disabled],
+h6[disabled] {
+  color: var(--gray) !important;
+  pointer-events: none;
+  cursor: default;
+}

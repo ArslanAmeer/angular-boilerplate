@@ -1,5 +1,5 @@
 {
-  "name": "angular-boilerplate-v18",
+  "name": "angular-boilerplate",
   "version": "0.0.0",
   "packageManager": "yarn@1.22.22",
   "scripts": {
@@ -29,7 +29,9 @@
     "@ngneat/until-destroy": "^10.0.0",
     "@ngx-translate/core": "^15.0.0",
     "@ngx-translate/http-loader": "^8.0.0",
+    "bootstrap": "^5.3.3",
     "rxjs": "~7.8.0",
+    "sanitize.css": "^13.0.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.10"
   },

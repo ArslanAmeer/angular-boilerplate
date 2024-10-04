@@ -1,0 +1,69 @@
+/*
+ * Application global variables.
+ */
+
+// Light Theme Colors
+:root {
+  // Colors
+  --light-teal: #3dc19a;
+  --dark-teal: #44a085;
+  --dark-blue: #3e71bd;
+  --orange: #e9380b;
+  --light-orange: #ec5c37;
+  --dull-orange: #dd5741;
+  --orange-opaque: rgba(233, 56, 11, 0.12);
+  --teal-opaque: rgba(61, 193, 154, 0.2);
+  --blue-opaque: rgba(62, 113, 189, 0.2);
+  --yellow: #fbc52d;
+  --dark-yellow: #ebb106;
+  --deep-yellow: #fec41a;
+  --yellow-opaque: rgba(235, 177, 6, 0.14);
+  --slate-gray: #667085;
+  --dull-gray: #ffffff80;
+  --dark-charcoal: #333843;
+  --deep-gray: #393b3d;
+  --deep-slate-gray: #323338;
+  --red: #dc3545;
+  --green: #389f6e;
+
+  // Theme Colors
+  --surface-1: #fafafa;
+  --text-color-light: #ffffff;
+  --text-color-medium: #667085;
+  --text-color-dark: #333843;
+  --sidebar-icon-color: #787878;
+  --icon-hover: #667085;
+
+  // Grayscale
+
+  --white: #fff;
+  --gray: #e1e3e6;
+  --gray-100: #f8f9fa;
+  --gray-150: #f1f3f4;
+  --gray-200: #e9ecef;
+  --gray-300: #dee2e6;
+  --gray-400: #ced4da;
+  --gray-500: #adb5bd;
+  --gray-600: #868e96;
+  --gray-700: #495057;
+  --gray-800: #343a40;
+  --gray-900: #212529;
+  --black: #000;
+  --minor-gray: #f2f2f5;
+
+  // Gradient for Light Theme
+  --gradient-primary-light: linear-gradient(173deg, #e73609 -96.7%, #e9496e 17.35%, #ffc51a 111.15%);
+  --gradient-primary-light-opaque: linear-gradient(173deg, rgba(231, 54, 9, 0.6) -96.7%, rgba(233, 73, 110, 0.6) 17.35%, rgba(255, 197, 26, 0.6) 111.15%);
+  --shadow-light: 0px 6px 19px 0px rgba(120, 120, 120, 0.19);
+}
+
+$blue: #0073dd;
+$indigo: #6610f2;
+$purple: #6f42c1;
+$pink: #e83e8c;
+$red: #dc3545;
+$orange: #fd7e14;
+$yellow: #ffc107;
+$green: #28a745;
+$teal: #20c997;
+$cyan: #17a2b8;

@@ -1,0 +1,80 @@
+/*
+ *  Sets up base styles for the application like body background, font family, etc.
+ */
+
+// font import
+
+@font-face {
+  font-family: "Manrope";
+  src: url("../assets/fonts/Manrope-Regular.ttf") format("truetype");
+  font-weight: 400; // Regular weight
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Manrope";
+  src: url("../assets/fonts/Manrope-Medium.ttf") format("truetype");
+  font-weight: 500; // Medium weight
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Manrope";
+  src: url("../assets/fonts/Manrope-SemiBold.ttf") format("truetype");
+  font-weight: 600; // SemiBold weight
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Manrope";
+  src: url("../assets/fonts/Manrope-Bold.ttf") format("truetype");
+  font-weight: 700; // Bold weight
+  font-style: normal;
+  font-display: swap;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Manrope", sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--surface-1);
+}
+
+*::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  width: 18px;
+  height: 18px;
+}
+
+*::-webkit-scrollbar-track,
+body::-webkit-scrollbar-track {
+  background-color: #f2f2f2;
+  border-radius: 20px;
+  border: 6px solid transparent;
+  background-clip: content-box;
+}
+
+*::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-thumb {
+  background-color: #cfd0d1;
+  border-radius: 20px;
+  border: 6px solid transparent;
+  background-clip: content-box;
+}
+
+*[routerLink] {
+  cursor: pointer !important;
+}
+
+*:focus-visible {
+  outline: 1px solid var(--deep-slate-gray);
+}

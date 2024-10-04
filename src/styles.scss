@@ -1,1 +1,29 @@
-/* You can add global styles to this file, and also import other style files */
+/*
+ * Entry point of global application style.
+ * Component-specific style should not go here and be included directly as part of the components.
+ */
+
+// Sanitize.css
+@import "sanitize.css/sanitize.css";
+
+// Theme variables
+@import "theme/variables";
+
+// Base and layout styles
+@import "theme/base";
+@import "theme/layout";
+
+// 3rd party libraries
+@import "bootstrap/scss/bootstrap-grid";
+
+// Mixins
+@import "theme/mixins";
+
+// Overrides
+@import "theme/overrides";
+
+// Utilities
+@import "theme/utilities";
+
+// theme customization
+@import "theme/theme";
