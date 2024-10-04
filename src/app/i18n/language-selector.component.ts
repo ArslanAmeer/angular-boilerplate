@@ -47,7 +47,7 @@ export class LanguageSelectorComponent {
 
   setLanguage(language: string) {
     this._i18nService.language = language;
-    this.toggleDropdown();
+    this.isDropdownOpen = false;
   }
 
   getLanguageCode(language: string): string {
