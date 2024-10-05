@@ -8,9 +8,10 @@ import { RandomUserEntity } from '@core/entities';
   styleUrl: './list.component.scss',
 })
 export class ListComponent implements OnInit {
-  private readonly _useRandomUser = new UseRandomUser();
   users: RandomUserEntity[] = [];
   isLoading = true;
+
+  private readonly _useRandomUser = new UseRandomUser();
 
   ngOnInit() {
     this._useRandomUser.getAllUsers().subscribe({
