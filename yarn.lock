@@ -1983,6 +1983,20 @@
   resolved "https://registry.yarnpkg.com/@msgpackr-extract/msgpackr-extract-win32-x64/-/msgpackr-extract-win32-x64-3.0.3.tgz#0aa5502d547b57abfc4ac492de68e2006e417242"
   integrity sha512-x0fWaQtYp4E6sktbsdAqnehxDgEc/VwM7uLsRCYWaiGu0ykYdZPiS8zCWdnjHwyiumousxfBm4SO31eXqwEZhQ==
 
+"@ngneat/hot-toast@7":
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/@ngneat/hot-toast/-/hot-toast-7.0.0.tgz#74c4c5726e3a6f7fc0b2f0697a77edd3c4053ec1"
+  integrity sha512-t/7msPgtZT534HBxAPjvr6dovP0jyf/intibceUq6i+woa4gnt44jSMsAmI3WVz8UoOmwG1wBwJOKu0zdLmCOA==
+  dependencies:
+    tslib "^2.3.0"
+
+"@ngneat/overview@6.0.0":
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/@ngneat/overview/-/overview-6.0.0.tgz#344a843db7bd922014f6825efe1c8406e6d74be5"
+  integrity sha512-pm4bAEYtnUl8q82dwjh5NN9HF0WTFEI58VtR12izp9Oaa2dtseX82VUArfb4fadmlbHpPMUwXHrsm0ORyWii2A==
+  dependencies:
+    tslib "^2.0.0"
+
 "@ngneat/until-destroy@^10.0.0":
   version "10.0.0"
   resolved "https://registry.yarnpkg.com/@ngneat/until-destroy/-/until-destroy-10.0.0.tgz#105db43d858bc1cec2f36272a296af68bed7bf43"
@@ -7097,12 +7111,7 @@ readdirp@~3.6.0:
   dependencies:
     picomatch "^2.2.1"
 
-reflect-metadata@0.2.1:
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/reflect-metadata/-/reflect-metadata-0.2.1.tgz#8d5513c0f5ef2b4b9c3865287f3c0940c1f67f74"
-  integrity sha512-i5lLI6iw9AU3Uu4szRNPPEkomnkjRTaVt9hy/bn5g/oSzekBSMeLZblcjP74AW0vBabqERLLIrz+gR8QYR54Tw==
-
-reflect-metadata@^0.2.0:
+reflect-metadata@^0.2.0, reflect-metadata@^0.2.2:
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/reflect-metadata/-/reflect-metadata-0.2.2.tgz#400c845b6cba87a21f2c65c4aeb158f4fa4d9c5b"
   integrity sha512-urBwgfrvVP/eAyXx4hluJivBKzuEbSQs9rKWCrCkbSxNv8mxPcUZKeuoF3Uy4mJl3Lwprp6yy5/39VWigZ4K6Q==

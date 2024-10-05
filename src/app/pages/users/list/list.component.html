@@ -15,7 +15,7 @@
       <tbody>
         @if (!isLoading) {
           @for (user of users; track user.id) {
-            <tr>
+            <tr (click)="userClicked()">
               <td>
                 <img [src]="user.picture.thumbnail" alt="{{ user.name.first }}'s avatar" />
               </td>
