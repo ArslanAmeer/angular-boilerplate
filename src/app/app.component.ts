@@ -6,6 +6,7 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { environment } from '@env/environment';
 import { filter, merge } from 'rxjs';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
+import { AppUpdateService, Logger } from '@core/services';
 
 @UntilDestroy()
 @Component({
@@ -23,9 +24,15 @@ export class AppComponent implements OnInit, OnDestroy {
     private readonly _titleService: Title,
     private readonly _translateService: TranslateService,
     private readonly _i18nService: I18nService,
+    private readonly _updateService: AppUpdateService,
   ) {}
 
   ngOnInit() {
+    // Setup logger
+    if (environment.production) {
+      Logger.enableProductionMode();
+    }
+
     // Initialize i18nService with default language and supported languages
     this._i18nService.init(environment.defaultLanguage, environment.supportedLanguages);
 
@@ -49,6 +56,9 @@ export class AppComponent implements OnInit, OnDestroy {
           // window.location.reload();
         }
       });
+
+    // update service
+    this._updateService.subscribeForUpdates();
   }
 
   getTitle(state: any, parent: any): any[] {
