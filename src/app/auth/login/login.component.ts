@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { environment } from '@env/environment';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { AuthenticationService } from '@app/auth';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @UntilDestroy()
 @Component({
@@ -16,6 +16,7 @@ export class LoginComponent {
 
   constructor(
     private readonly _router: Router,
+    private readonly _route: ActivatedRoute,
     private readonly _authService: AuthenticationService,
   ) {}
 
@@ -33,7 +34,7 @@ export class LoginComponent {
           // Navigate to the home page or any other page after successful login.
           if (res) {
             console.log('Login successful');
-            this._router.navigate(['/dashboard']).then(() => {
+            this._router.navigate([this._route.snapshot.queryParams['redirect'] || '/dashboard'], { replaceUrl: true }).then(() => {
               // Handle the navigation
               console.log('Navigated to dashboard');
             });
