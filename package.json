@@ -63,7 +63,6 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
-    "pinst": "^3.0.0",
     "postcss": "^8.4.47",
     "prettier": "^3.3.3",
     "pretty-quick": "^4.0.0",
@@ -85,10 +84,5 @@
         }
       }
     ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run format-staged"
-    }
   }
 }
