@@ -1,6 +1,6 @@
 import { Route, Router, Routes } from '@angular/router';
 
-import { PERMISSIONS, PermissionService } from '@app/auth';
+import { AuthenticationGuard, PERMISSIONS, PermissionService } from '@app/auth';
 import { ShellComponent } from '@app/shell/shell.component';
 import { BehaviorSubject } from 'rxjs';
 import { Injectable } from '@angular/core';
@@ -20,6 +20,8 @@ export class Shell {
       path: '',
       component: ShellComponent,
       children: routes,
+      canActivate: [AuthenticationGuard],
+
       data: { reuse: true },
     };
   }

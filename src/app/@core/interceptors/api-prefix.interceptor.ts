@@ -3,6 +3,7 @@ import { HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest
 import { Observable, Subject, takeUntil, throwError } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
 import { catchError, finalize } from 'rxjs/operators';
+import { CredentialsService } from '@auth';
 
 @Injectable({
   providedIn: 'root',
@@ -10,7 +11,10 @@ import { catchError, finalize } from 'rxjs/operators';
 export class ApiPrefixInterceptor implements HttpInterceptor {
   private readonly _ongoingRequests = new Map<string, Subject<any>>();
 
-  constructor(private readonly _translateService: TranslateService) {}
+  constructor(
+    private readonly _credentialsService: CredentialsService,
+    private readonly _translateService: TranslateService,
+  ) {}
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     // If the request has the 'noauth' header, don't add the Authorization header
@@ -19,8 +23,7 @@ export class ApiPrefixInterceptor implements HttpInterceptor {
     }
 
     let headers = request.headers;
-    // TODO: Implement a proper way to get the token
-    const { token } = { token: null };
+    const { token } = this._credentialsService.credentials || {};
     const currentLang = this._translateService.currentLang.substring(0, 2);
 
     if (token) {
@@ -51,7 +54,7 @@ export class ApiPrefixInterceptor implements HttpInterceptor {
         takeUntil(cancelSubject),
         catchError((error: HttpErrorResponse) => {
           if (error.status === 401 || error.status === 403) {
-            // TODO: Implement a proper way to reset your authentication state, in most cases local storage will be cleared
+            this._credentialsService.setCredentials();
             window.location.href = '/login';
           }
           return throwError(error);

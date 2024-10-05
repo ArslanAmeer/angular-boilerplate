@@ -1,0 +1,36 @@
+<section class="main-container">
+  <h2>Users List</h2>
+
+  <div class="user-table-container">
+    <table class="user-table">
+      <thead>
+        <tr>
+          <th>Avatar</th>
+          <th>Full Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Location</th>
+        </tr>
+      </thead>
+      <tbody>
+        @if (!isLoading) {
+          @for (user of users; track user.id) {
+            <tr>
+              <td>
+                <img [src]="user.picture.thumbnail" alt="{{ user.name.first }}'s avatar" />
+              </td>
+              <td>{{ user.name.title }} {{ user.name.first }} {{ user.name.last }}</td>
+              <td>{{ user.email }}</td>
+              <td>{{ user.phone }}</td>
+              <td>{{ user.location.city }}, {{ user.location.country }}</td>
+            </tr>
+          }
+        } @else {
+          <tr>
+            <td colspan="5" style="text-align: center">Loading...</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</section>

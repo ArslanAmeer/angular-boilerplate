@@ -13,6 +13,7 @@
     "declaration": false,
     "moduleResolution": "node",
     "downlevelIteration": true,
+    "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "importHelpers": true,
     "noImplicitAny": false,
