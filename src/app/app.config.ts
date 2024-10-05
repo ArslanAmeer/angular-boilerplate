@@ -1,4 +1,4 @@
-import { ApplicationConfig, enableProdMode, importProvidersFrom, provideZoneChangeDetection, isDevMode } from '@angular/core';
+import { ApplicationConfig, enableProdMode, importProvidersFrom, provideZoneChangeDetection } from '@angular/core';
 import { PreloadAllModules, provideRouter, RouteReuseStrategy, withEnabledBlockingInitialNavigation, withInMemoryScrolling, withPreloading, withRouterConfig } from '@angular/router';
 
 import { routes } from './app.routes';
@@ -9,6 +9,7 @@ import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi } from '@a
 import { ApiPrefixInterceptor, ErrorHandlerInterceptor } from '@core/interceptors';
 import { RouteReusableStrategy } from '@core/helpers';
 import { provideServiceWorker } from '@angular/service-worker';
+import { provideHotToastConfig } from '@ngneat/hot-toast';
 
 if (environment.production) {
   enableProdMode();
@@ -16,12 +17,20 @@ if (environment.production) {
 
 export const appConfig: ApplicationConfig = {
   providers: [
+    // provideZoneChangeDetection is required for Angular's zone.js
     provideZoneChangeDetection({ eventCoalescing: true }),
+
+    // import providers from other modules (e.g. TranslateModule, ShellModule), which follow the older pattern to import modules
     importProvidersFrom(TranslateModule.forRoot(), ShellModule),
+
+    // provideServiceWorker is required for Angular's service workers
     provideServiceWorker('ngsw-worker.js', {
-      enabled: !isDevMode(),
+      enabled: environment.production,
+      scope: '/',
       registrationStrategy: 'registerWhenStable:30000',
     }),
+
+    // provideRouter is required for Angular's router with additional configuration
     provideRouter(
       routes,
       withRouterConfig({
@@ -35,6 +44,17 @@ export const appConfig: ApplicationConfig = {
       }),
       withPreloading(PreloadAllModules),
     ),
+
+    // provideHotToastConfig is required for HotToastModule by ngneat
+    provideHotToastConfig({
+      reverseOrder: true,
+      dismissible: true,
+      autoClose: true,
+      position: 'top-right',
+      theme: 'snackbar',
+    }),
+
+    // provideHttpClient is required for Angular's HttpClient with additional configuration, which includes interceptors from DI (dependency injection) , means to use class based interceptors
     provideHttpClient(withInterceptorsFromDi()),
     {
       provide: HTTP_INTERCEPTORS,
