@@ -38,7 +38,6 @@ export class AuthenticationService {
       firstName: 'John',
       lastName: 'Doe',
     });
-    console.log('Credentials', credentials);
     this._credentialsService.setCredentials(credentials, context.remember);
 
     return of(credentials);
