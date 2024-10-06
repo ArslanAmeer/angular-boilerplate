@@ -1,4 +1,4 @@
-<div (click)="$event.stopPropagation(); $event.preventDefault()" [ngClass]="{ 'nav-item': inNavbar, open: isDropdownOpen }" class="language-selector">
+<div (click)="$event.stopPropagation(); $event.preventDefault()" [class.nav-item]="inNavbar" [class.open]="isDropdownOpen" class="language-selector">
   <div class="dropdown-toggle" (click)="$event.stopPropagation(); $event.preventDefault(); toggleDropdown()">Lang: {{ currentLanguage }}</div>
   @if (isDropdownOpen) {
     <div [ngClass]="{ above: openAbove }" class="selectable-list-popover">

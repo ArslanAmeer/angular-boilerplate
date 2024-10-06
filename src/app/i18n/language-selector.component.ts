@@ -10,7 +10,7 @@ import { NgClass, NgForOf } from '@angular/common';
   imports: [NgClass, NgForOf],
 })
 export class LanguageSelectorComponent {
-  @Input() inNavbar = false;
+  @Input() inNavbar = true;
   @Input() openAbove = false;
   isDropdownOpen = false;
   protected readonly open = open;
