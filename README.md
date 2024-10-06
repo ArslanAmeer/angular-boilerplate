@@ -68,6 +68,7 @@ Whether you’re developing a SaaS platform, building a dynamic web app, or desi
 
 This project will be regularly updated with the latest **Angular** releases, ensuring compatibility with the latest features and security updates. Stay tuned for new enhancements and features as they are added based on evolving development needs.
 
+> ## **Note:** <small style="color: red"> You can remove this with all the above lines and use rest in your documentation.</small>
 ---
 
 # Web Front-End
