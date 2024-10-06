@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 
+/* The ThemeService class provides methods to set light and dark theme colors by updating
+CSS variables in the document root element. */
 @Injectable({
   providedIn: 'root',
 })
