@@ -10,6 +10,7 @@ import { ApiPrefixInterceptor, ErrorHandlerInterceptor } from '@core/interceptor
 import { RouteReusableStrategy } from '@core/helpers';
 import { provideServiceWorker } from '@angular/service-worker';
 import { provideHotToastConfig } from '@ngneat/hot-toast';
+import { SocketIoModule } from '@core/socket-io';
 
 if (environment.production) {
   enableProdMode();
@@ -20,8 +21,17 @@ export const appConfig: ApplicationConfig = {
     // provideZoneChangeDetection is required for Angular's zone.js
     provideZoneChangeDetection({ eventCoalescing: true }),
 
-    // import providers from other modules (e.g. TranslateModule, ShellModule), which follow the older pattern to import modules
-    importProvidersFrom(TranslateModule.forRoot(), ShellModule),
+    // import providers from other modules (e.g. TranslateModule, ShellModule, socketModule), which follow the older pattern to import modules
+    importProvidersFrom(
+      TranslateModule.forRoot(),
+      ShellModule,
+      SocketIoModule.forRoot({
+        rootUrl: null, // TODO: provide your own socket.io server URL
+        options: {
+          transports: ['websocket'],
+        },
+      }),
+    ),
 
     // provideServiceWorker is required for Angular's service workers
     provideServiceWorker('ngsw-worker.js', {
@@ -29,7 +39,6 @@ export const appConfig: ApplicationConfig = {
       scope: '/',
       registrationStrategy: 'registerWhenStable:30000',
     }),
-
     // provideRouter is required for Angular's router with additional configuration
     provideRouter(
       routes,

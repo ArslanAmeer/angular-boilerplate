@@ -7,6 +7,7 @@ import { environment } from '@env/environment';
 import { filter, merge } from 'rxjs';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { AppUpdateService, Logger } from '@core/services';
+import { SocketIoService } from '@core/socket-io';
 
 @UntilDestroy()
 @Component({
@@ -24,6 +25,7 @@ export class AppComponent implements OnInit, OnDestroy {
     private readonly _titleService: Title,
     private readonly _translateService: TranslateService,
     private readonly _i18nService: I18nService,
+    private readonly _socketService: SocketIoService,
     private readonly _updateService: AppUpdateService,
   ) {}
 
@@ -56,6 +58,9 @@ export class AppComponent implements OnInit, OnDestroy {
           // window.location.reload();
         }
       });
+
+    // Connect to Socket
+    this._socketService.connect();
 
     // update service
     this._updateService.subscribeForUpdates();
