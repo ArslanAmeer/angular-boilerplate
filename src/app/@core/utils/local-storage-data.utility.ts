@@ -10,7 +10,7 @@ export enum LocalStorageKeys {
   CREDENTIALS = 'credentials',
 }
 
-// const prefix = '@tineon:';
+// const prefix = '@app:';
 // const prodEnv = environment.production;
 // const secretKey = 'a-quick-brown-fox-jumps-over-the-lazy-dog';
 // const secretKeyName = '@entry';

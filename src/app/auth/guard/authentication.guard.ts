@@ -7,6 +7,8 @@ import { CredentialsService } from '@app/auth';
 
 const log = new Logger('AuthenticationGuard');
 
+/* The `AlreadyLoggedCheckGuard` class is a guard in TypeScript that checks if a user is already
+authenticated and redirects them to the dashboard if they are. */
 @UntilDestroy()
 @Injectable({
   providedIn: 'root',
@@ -28,6 +30,8 @@ export class AlreadyLoggedCheckGuard {
   }
 }
 
+/* The AuthenticationGuard class in TypeScript is used to check if a user is authenticated and redirect
+to the login page if not. */
 @Injectable({
   providedIn: 'root',
 })

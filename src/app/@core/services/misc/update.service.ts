@@ -5,6 +5,8 @@ import { HotToastRef, HotToastService } from '@ngneat/hot-toast';
 import { concat, interval } from 'rxjs';
 import { first, startWith } from 'rxjs/operators';
 
+/* The `AppUpdateService` is responsible for checking for app updates using a
+service worker and displaying update alerts to the user. */
 @UntilDestroy()
 @Injectable({
   providedIn: 'root',

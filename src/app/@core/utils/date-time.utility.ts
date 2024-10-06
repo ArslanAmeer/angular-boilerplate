@@ -271,6 +271,13 @@ export class DateTimeUtility {
     return date.toISOString().replace(/[-:]/g, '').slice(0, 15) + 'Z'; // Formats as YYYYMMDDTHHMMSSZ
   }
 
+  /**
+   * The function `isDateToday` checks if a given date string represents today's date.
+   * @param {string} date - The `date` parameter in the `isDateToday` function is a string representing
+   * a date in a specific format. The function compares this date with the current date to determine if
+   * it is today's date.
+   * @returns A boolean value indicating whether the input date string represents today's date or not.
+   */
   static isDateToday(date: string): boolean {
     const today = new Date();
     const dateObj = new Date(date);

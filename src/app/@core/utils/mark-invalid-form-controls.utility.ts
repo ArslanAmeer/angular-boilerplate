@@ -1,9 +1,14 @@
 /**
- * This function marks a form as dirty and scroll to the first invalid control.
- * @param formGroup The form group to mark as dirty. Required Parameter.
- * @param refElement The reference element to scroll to.
- * refElement is required to scroll to the first invalid control. You can pass the ref element by invoking `private el: ElementRef` in
- * the constructor of the component and then pass `this.el` to function as a second parameter.
+ * This function recursively marks all form controls as dirty and touched, and scrolls to the first
+ * invalid control if provided with a reference element.
+ * @param {T} control - The `control` parameter in the `markInvalidFormControls` function represents a
+ * form control element in Angular forms. It can be of type `FormGroup`, `FormArray`, or `FormControl`.
+ * The function recursively marks all form controls as dirty and touched, and scrolls to the first
+ * invalid control if an
+ * @param {ElementRef} [elRef] - The `elRef` parameter in the `markInvalidFormControls` function is an
+ * optional parameter of type `ElementRef`. It is used to reference an element in the DOM, typically
+ * for scrolling purposes when marking form controls as invalid. If provided, the function will scroll
+ * to the first invalid control using
  */
 
 import { AbstractControl, FormArray, FormControl, FormGroup } from '@angular/forms';
