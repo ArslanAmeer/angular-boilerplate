@@ -1,53 +1,74 @@
-# <p style="font-size:40px; font-weight: bold; text-align: center" align="center">Angular Boiler Plate</p>
+# <p align="center" style="font-size:40px; font-weight: bold;">Angular Boilerplate</p>
 
-<p align="center" float="left">
+<p align="center">
      <img src="public/icons/icon-512x512.png" alt="angular" width="90">
-  <img src="https://cdn-icons-png.flaticon.com/512/1408/1408941.png" alt="document" width="90">
+     <img src="https://cdn-icons-png.flaticon.com/512/1408/1408941.png" alt="document" width="90">
 </p>
 
-A Scalable pre-configured Angular Boiler Plate, built with latest angular version 18 default standalone approach contains all the necessary pre-configured features with proper enterprise scalable structure to start a new project without needing to create them from scratch.
-It also contains a lot of features that are required in most of the projects including authentication, lazy loading, guards, interceptors etc.
+> ### A Fully-Configured Angular 18 Boilerplate for Enterprise-Grade Applications
 
-### This boilerplate includes the following features:
+Get started fast with this **Angular 18** boilerplate, crafted for **enterprise-level scalability**. It integrates critical features like **authentication**, **lazy loading**, **real-time socket communication**, **service workers**, **shell layout (header+sidebar)** making it ready to handle everything from SaaS platforms to enterprise dashboards. Built on the latest **Angular 18**, this template is packed with the newest capabilities and ensures that you adhere to **modern development best practices**.
 
-- [x] Angular 18.
-- [x] PWA (Progressive Web App) support.
-- [x] Scalable folder structure.
-- [x] Separation of concerns (Adapting [Domain Driven Design](https://en.wikipedia.org/wiki/Domain-driven_design)).
-- [x] Modularization of components, services, pipes, directives, etc.
-- [x] Both standalone and module based approach. App(initial component) configured as standalone and modules(pages, shell) are configured as modules.
-- [x] [Lazy loading](https://angular.io/guide/lazy-loading-ngmodules) of modules.
-- [x] [Routing](https://angular.io/guide/router) with [guards](https://angular.io/api/router/CanActivate).
-- [x] Complete authentication system (Auth service, guard, interceptors etc ).
-- [x] Authentication with [JWT](https://jwt.io/).
-- [x] [Guards](https://angular.io/api/router/CanActivate) for authentication and authorization.
-- [x] [Interceptors](https://angular.io/api/common/http/HttpInterceptor).
-- [x] Complete Translation i18n integration.
-- [x] Basic Error handler.
-- [x] Class based entities. (Adapting [Domain Driven Design](https://en.wikipedia.org/wiki/Domain-driven_design)).
-- [x] Implementation of [Class Transformers](https://github.com/typestack/class-transformer) so that we can transform our entities to and from backend data models. Usually apis return data in snake case and we need to
-      convert them to camel case and vice versa.
-- [x] [Socket.io](https://socket.io/) integration with proper modularization and angular friendly service.
-- [x] App updates in production.
-- [x] Environments for development and production.
-- [x] Utility functions for common tasks.
-  - [x] Local storage obfuscation with getters and setters which automatically encrypt and decrypt (not active by default) data on production and can add more functions as per requirements.
-- [x] Helper functions for common tasks.
-- [x] Proper documentation for setup, dependencies, coding style etc.
-- [x] Documented helper and utility functions.
+With a solid foundation of **PWA (Progressive Web App)**, **authentication**, **role-based permissions**, **HTTP interceptors**, **socket integration**, and more, this boilerplate takes care of the core setup so you can focus on building features.
 
-And many more...
+### Key Features:
 
-Please note that this boilerplate is not a complete solution for all the projects. It is just a starting point for your project.
-You can use this boilerplate as a starting point for your project and then add or remove features as per your requirements.
-The features and design of this boilerplate are based on my experience of working on several projects.
+- [x] **Angular 18**: Built with the latest version, utilizing improved standalone components and reactive forms.
+- [x] **PWA (Progressive Web App) support**: Fully configured to enable offline capabilities, background sync, and push notifications.
+- [x] **Scalable folder structure**: Optimized for enterprise-level applications with a modular design that adapts to growing project needs.
+- [x] **Separation of concerns**: Adopting [Domain-Driven Design (DDD)](https://en.wikipedia.org/wiki/Domain-driven_design) for a clear boundary between business logic and infrastructure code.
+- [x] **Modularization**: Components, services, pipes, and directives are split into reusable modules for easy maintenance and scalability.
+- [x] **Hybrid architecture**: Combines both standalone components and module-based structure, optimizing the initial app component as standalone and using modules for pages and shell.
+- [x] **[Lazy loading](https://angular.io/guide/lazy-loading-ngmodules)**: Efficiently loads only the necessary modules, improving app performance.
+- [x] **[Routing with guards](https://angular.io/guide/router)**: Robust routing system with [authentication and authorization guards](https://angular.io/api/router/CanActivate) for secured navigation.
+- [x] **Complete authentication system**: Pre-configured JWT-based authentication, including services, guards, and interceptors for seamless integration.
+- [x] **[Guards](https://angular.io/api/router/CanActivate)**: Role-based guards to protect routes and enforce permissions.
+- [x] **[Interceptors](https://angular.io/api/common/http/HttpInterceptor)**: Secure API communication with interceptors handling authentication and error management.
+- [x] **i18n Translation support**: Full [internationalization](https://angular.io/guide/i18n) for multi-language apps, with seamless integration of translation services.
+- [x] **Basic error handling**: Centralized error handling for smooth debugging and a better user experience.
+- [x] **Class-based entities**: Utilizing [Domain-Driven Design](https://en.wikipedia.org/wiki/Domain-driven_design) concepts for consistent and maintainable entity structures.
+- [x] **Implementation of [Class Transformers](https://github.com/typestack/class-transformer)**: Easily transform backend data models to frontend-friendly formats (e.g., snake_case to camelCase).
+- [x] **[Socket.io](https://socket.io/) integration**: Real-time updates with modular socket services that seamlessly integrate with the Angular ecosystem.
+- [x] **App updates in production**: Automatic app updates for production environments, ensuring users always get the latest features and fixes without manual intervention.
+- [x] **Environments for development and production**: Predefined configurations for different environments, ensuring smooth deployment and testing processes.
+- [x] **Utility functions**: A set of reusable functions to handle common tasks like:
+  - **Local storage obfuscation**: Getters and setters that automatically encrypt and decrypt data in production environments.
+- [x] **Helper functions**: Pre-configured helper functions for common development tasks, enhancing productivity and code quality.
+- [x] **Detailed documentation**: Comprehensive documentation for setup, dependencies, coding styles, utility functions, and more, to help developers get up to speed quickly.
+- [x] **Documented utility and helper functions**: Clearly explained and reusable across the application, with customization options.
 
-This boilerplate will remain updated with the latest versions of Angular and other dependencies.
-It will also be updated with new features as they are required in most of the projects.
+### Development Best Practices
 
-This is a template for README.md file for your project. You can use this template to create your own README.md file for your project.
+This boilerplate enforces **strict best practices** and includes a configured **ESLint flat config** to guide developers in writing clean, maintainable, and high-quality code:
 
-> ## **Note:** <small style="color: red"> You can remove this with all the above lines and use rest in your documentation.</small>
+- **Code Quality**: ESLint rules enforce coding standards like naming conventions, indentation, and eliminating unused code.
+- **No Direct Service Access**: Encourages a clean architecture by requiring components to interact with data via **UseCases**, keeping the service layer isolated.
+- **Modularization**: Promotes single-responsibility services, with each service handling only domain-specific tasks.
+- **Scoped Variables**: Enforces scoped use of variables and functions, reducing the risk of global state conflicts.
+- **Clean, Maintainable Code**: The **standalone component** and **module-based** hybrid structure optimizes performance and keeps the codebase organized.
+- **DRY Principle**: Adheres to **Don't Repeat Yourself (DRY)** principles, reducing redundancy and improving the maintainability of code.
+- **Security Awareness**: Built-in ESLint rules ensure you avoid common security pitfalls, ensuring secure and performant code.
+
+### ESLint Configuration Highlights:
+
+- **Strict Linting Rules**: Custom **ESLint flat config** enforces coding standards, ensuring consistent formatting and type checking across the codebase.
+- **Prettier Integration**: Maintains consistent code styling with automatic formatting on save or commit.
+- **Error Prevention**: Detects common issues early on, such as missing type declarations or direct DOM manipulations.
+- **Security Focused**: The configuration includes security-related rules to avoid risky code patterns.
+
+### Why Choose This Boilerplate?
+
+This Angular 18 boilerplate goes beyond just being a starting template—it's a **fully equipped foundation** for any **enterprise-level project**. From **fully configured authentication** and **lazy loading** to **role-based permissions** and **real-time communication**, it covers the most common requirements out-of-the-box.
+
+By enforcing **best coding practices** and strict **ESLint rules**, the boilerplate guarantees that every contributor to your project adheres to **high development standards**. Plus, the **modular, scalable architecture** and **cutting-edge Angular features** ensure that this project grows with you.
+
+Whether you’re developing a SaaS platform, building a dynamic web app, or designing an enterprise-level solution, this boilerplate gives you the tools you need—fast.
+
+### Continuous Updates
+
+This project will be regularly updated with the latest **Angular** releases, ensuring compatibility with the latest features and security updates. Stay tuned for new enhancements and features as they are added based on evolving development needs.
+
+---
 
 # Web Front-End
 
@@ -102,7 +123,7 @@ _(Latest)_
 
 <p align="right"> &nbsp;</p>
 
-## [Version 0.0.0] - 2023-01-20
+## [Version 0.0.0] - 2024-10-05
 
 ### Added
 
