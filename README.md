@@ -5,7 +5,20 @@
      <img src="https://cdn-icons-png.flaticon.com/512/1408/1408941.png" alt="document" width="90">
 </p>
 
+
+
+
 > ### A Fully-Configured Angular 18 Boilerplate for Enterprise-Grade Applications
+
+---
+[![Netlify Status](https://api.netlify.com/api/v1/badges/3f3d0969-3549-4300-863d-06a1d6785cd0/deploy-status)](https://app.netlify.com/sites/angular-boiler-palte/deploys)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![commitizen](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg?style=flat-square)]()
+[![PRs](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)]()
+
+[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/arslanameer)
+---
+
 
 Get started fast with this **Angular 18** boilerplate, crafted for **enterprise-level scalability**. It integrates critical features like **authentication**, **lazy loading**, **real-time socket communication**, **service workers**, **shell layout (header+sidebar)** making it ready to handle everything from SaaS platforms to enterprise dashboards. Built on the latest **Angular 18**, this template is packed with the newest capabilities and ensures that you adhere to **modern development best practices**.
 
@@ -67,6 +80,10 @@ Whether you’re developing a SaaS platform, building a dynamic web app, or desi
 ### Continuous Updates
 
 This project will be regularly updated with the latest **Angular** releases, ensuring compatibility with the latest features and security updates. Stay tuned for new enhancements and features as they are added based on evolving development needs.
+
+### Demo:
+
+Check out working demo [here](https://angular-boilerplate.arslanameer.com)
 
 > ## **Note:** <small style="color: red"> You can remove this with all the above lines and use rest in your documentation.</small>
 ---
@@ -145,3 +162,5 @@ _You can see all change logs [Here](/CHANGELOG.md)._
 Author:
 
 [Arslan Ameer](www.arslanameer.com) | [GitHub](https://github.com/ArslanAmeer)
+
+[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/arslanameer)
