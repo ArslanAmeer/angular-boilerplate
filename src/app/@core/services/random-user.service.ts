@@ -9,6 +9,12 @@ export class RandomUserService {
   constructor(private readonly _http: HttpClient) {}
 
   find() {
-    return this._http.get('https://randomuser.me/api/').pipe(map((response: any) => response.results));
+    return this._http
+      .get('https://randomuser.me/api/', {
+        headers: {
+          noauth: 'true', // Ad noauth header to bypass custom api prefix interceptor
+        },
+      })
+      .pipe(map((response: any) => response.results));
   }
 }
