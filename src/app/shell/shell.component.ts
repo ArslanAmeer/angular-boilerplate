@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-shell',
   templateUrl: './shell.component.html',
+  standalone: false,
 })
 export class ShellComponent implements OnInit {
   isSidebarActive = false;

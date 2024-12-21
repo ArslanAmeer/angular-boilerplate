@@ -5,26 +5,26 @@
 @use "@ngneat/hot-toast/src/styles/styles.scss";
 
 // Sanitize.css
-@import "sanitize.css/sanitize.css";
+@use "sanitize.css/sanitize.css";
 
 // Theme variables
-@import "theme/variables";
+@use "theme/variables";
 
 // Base and layout styles
-@import "theme/base";
-@import "theme/layout";
+@use "theme/base";
+@use "theme/layout";
 
 // 3rd party libraries
-@import "bootstrap/scss/bootstrap-grid";
+@use "bootstrap/scss/bootstrap-grid";
 
 // Mixins
-@import "theme/mixins";
+@use "theme/mixins";
 
 // Overrides
-@import "theme/overrides";
+@use "theme/overrides";
 
 // Utilities
-@import "theme/utilities";
+@use "theme/utilities";
 
 // theme customization
-@import "theme/theme";
+@use "theme/theme";
