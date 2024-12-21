@@ -12,8 +12,7 @@ import { SocketIoService } from '@core/socket-io';
 @UntilDestroy()
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet, LanguageSelectorComponent, TranslateModule],
+  imports: [RouterOutlet, TranslateModule],
   template: '<router-outlet></router-outlet>',
   styleUrl: './app.component.scss',
 })
