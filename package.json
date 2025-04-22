@@ -1,5 +1,5 @@
 {
-  "name": "angular-boilerplate",
+  "name": "hackason",
   "version": "0.0.0",
   "packageManager": "yarn@1.22.22",
   "scripts": {
@@ -7,7 +7,7 @@
     "start": "ng serve",
     "serve": "ng serve --host 0.0.0.0",
     "build": "ng build",
-    "build:serve": "npx http-server -p 8080 -c-1 dist/angular-boilerplate/browser",
+    "build:serve": "npx http-server -p 8080 -c-1 dist/hackason/browser",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint",
