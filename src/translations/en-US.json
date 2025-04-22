@@ -2,10 +2,10 @@
   "APP_NAME": "Angular v18 Boiler Plate",
   "LANGUAGE": "English",
   "Hello World": "Hello World",
-  "Home": "Home",
+  "Title": "Title",
   "Login": "Login",
   "Username": "Username",
   "Password": "Password",
-  "Angular Boiler Plate V18": "Angular Boiler Plate V18",
+  "Header": "Security is not a destination, it's a journey.",
   "Dashboard": "Dashboard"
 }

@@ -1,11 +1,11 @@
 {
-  "APP_NAME": "Angular v18 Boiler Plate",
+  "APP_NAME": "Hackason",
   "LANGUAGE": "Español",
   "Hello World": "Hola Mundo",
-  "Home": "Hogar",
-  "Login": "Iniciar",
-  "Username": "Nombre de usuario",
+  "Title": "Hackason",
+  "Login": "Inicio",
+  "Username": "Usuario",
   "Password": "Contraseña",
-  "Angular Boiler Plate V18": "Modelo repetitivo angular V18",
+  "Header": "La seguridad no es un destino, es un camino.",
   "Dashboard": "Panel"
 }

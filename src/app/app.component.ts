@@ -45,7 +45,7 @@ export class AppComponent implements OnInit, OnDestroy {
         const titles = this.getTitle(this._router.routerState, this._router.routerState.root);
 
         if (titles.length === 0) {
-          this._titleService.setTitle(this._translateService.instant('Home'));
+          this._titleService.setTitle(this._translateService.instant('Title'));
         } else {
           const translatedTitles = titles.map((titlePart) => this._translateService.instant(titlePart));
           const allTitlesSame = translatedTitles.every((title, _, arr) => title === arr[0]);
@@ -54,7 +54,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
         if (event['lang']) {
           // Uncomment the following line to force a reload of the page when the language changes if needed for translations from backend
-          // window.location.reload();
+          window.location.reload();
         }
       });
 

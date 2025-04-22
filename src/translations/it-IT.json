@@ -2,10 +2,10 @@
   "APP_NAME": "Angular v18 Boiler Plate",
   "LANGUAGE": "Italiano",
   "Hello World": "Ciao mondo",
-  "Home": "Casa",
+  "Title": "Casa",
   "Login": "Accesso",
   "Username": "Nome utente",
   "Password": "Parola d'ordine",
-  "Angular Boiler Plate V18": "Piastra caldaia angolare V18",
+  "Header": "Piastra caldaia angolare V18",
   "Dashboard": "Armaturenbrett"
 }
