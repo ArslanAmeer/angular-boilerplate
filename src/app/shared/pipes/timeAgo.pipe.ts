@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
+import { TranslateService } from '@ngx-translate/core/public-api';
 import { formatDate } from '@angular/common';
 
 @Pipe({

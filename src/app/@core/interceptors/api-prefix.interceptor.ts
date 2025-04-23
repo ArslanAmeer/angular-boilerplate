@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
 import { Observable, Subject, takeUntil, throwError } from 'rxjs';
-import { TranslateService } from '@ngx-translate/core';
+import { TranslateService } from '@ngx-translate/core/public-api';
 import { catchError, finalize } from 'rxjs/operators';
 import { CredentialsService } from '@auth';
 

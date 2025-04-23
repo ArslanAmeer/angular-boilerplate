@@ -7,7 +7,7 @@
  * @param toIndex
  */
 import { humanize } from '@core/utils/humanize-slug.utility';
-import { TranslateService } from '@ngx-translate/core';
+import { TranslateService } from '@ngx-translate/core/public-api';
 import { Logger } from '../services/misc/logger.service';
 
 const log = new Logger('Array Utility');
