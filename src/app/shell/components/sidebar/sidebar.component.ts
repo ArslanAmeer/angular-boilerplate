@@ -20,7 +20,7 @@ export class SidebarComponent implements OnInit {
   year: number = new Date().getFullYear();
   sidebarItems: NavMenuItem[] = [];
   sidebarExtendedItem = -1;
-  navExpanded = true;
+  //navExpanded = true;
 
   constructor(
     private readonly _router: Router,
@@ -44,10 +44,11 @@ export class SidebarComponent implements OnInit {
       /**
        * Change the second condition to mode === NavMode.Locked to make navbar by default collapsed
        */
-      this.navExpanded = mode === NavMode.Free;
+      //this.navExpanded = mode === NavMode.Free;
     });
   }
 
+  /*
   toggleSidebar(isEnterEvent: boolean): void {
     this.shellService.navMode$.pipe(untilDestroyed(this)).subscribe((mode) => {
       if (isEnterEvent) {
@@ -57,6 +58,7 @@ export class SidebarComponent implements OnInit {
       }
     });
   }
+  */
 
   activateSidebarItem(index: number): void {
     const item = this.sidebarItems[index];
