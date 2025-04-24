@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core/public-api';
+import { TranslateService } from '@ngx-translate/core';
 
 @Pipe({
   name: 'friendlyDate',

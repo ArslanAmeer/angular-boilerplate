@@ -1,4 +1,4 @@
-import { TranslateService } from '@ngx-translate/core/public-api';
+import { TranslateService } from '@ngx-translate/core';
 
 export class DateTimeUtility {
   /**
