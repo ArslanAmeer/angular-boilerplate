@@ -20,7 +20,7 @@
   - [Angular 18 Branch](https://github.com/ArslanAmeer/hackason/tree/angular-v18)
   - [Angular 16 Branch](https://github.com/ArslanAmeer/hackason/tree/angular-v16)
 
-Get started fast with this **Angular 19** boilerplate, crafted for **enterprise-level scalability**. It integrates critical features like **authentication**, **lazy loading**, **real-time socket communication**, **service workers**, **shell layout (header+sidebar)** making it ready to handle everything from SaaS platforms to enterprise dashboards. Built on the latest **Angular 19**, this template is packed with the newest capabilities and ensures that you adhere to **modern development best practices**.
+Get started fast with this **Angular 19** boilerplate, crafted for **enterprise-level scalability**. It integrates critical features like **authentication**, **lazy loading**, **real-time socket communication**, **service workers**, **shell layout (header+navmenu)** making it ready to handle everything from SaaS platforms to enterprise dashboards. Built on the latest **Angular 19**, this template is packed with the newest capabilities and ensures that you adhere to **modern development best practices**.
 
 With a solid foundation of **PWA (Progressive Web App)**, **authentication**, **role-based permissions**, **HTTP interceptors**, **socket integration**, and more, this boilerplate takes care of the core setup so you can focus on building features.
 

@@ -1,12 +1,12 @@
 import { PERMISSIONS } from '../../auth/enums/permissions.enum';
 import { NavMenuItem } from '@core/interfaces';
 
-// THIS FILE CONTAINS THE NAVIGATION MENU ITEMS FOR THE SIDEBAR AND ALL OTHER NAVIGATION MENUS WHICH ARE USED IN THE APPLICATION AND ARE CONSTANT
+// THIS FILE CONTAINS THE NAVIGATION MENU ITEMS FOR THE NAVMENU AND ALL OTHER NAVIGATION MENUS WHICH ARE USED IN THE APPLICATION AND ARE CONSTANT
 
 /**
- * Navigation menu items for WEB Sidebar
+ * Navigation menu items for WEB NavMenu
  */
-export const webSidebarMenuItems: NavMenuItem[] = [
+export const webNavMenuItems: NavMenuItem[] = [
   {
     href: '/dashboard',
     title: 'Dashboard',

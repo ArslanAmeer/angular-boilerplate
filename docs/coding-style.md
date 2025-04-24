@@ -96,9 +96,9 @@ And `_shared` folder within `pages` folder containing views.pages that are share
 │   │       └─── Shared Pipes to be available in whole app (for reusability)
 │   └───shell
 │   │   ├───components
-│   │   │   └─── Shell Components to be able to use in whole app (for reusability) such as header, footer, sidebar etc.
+│   │   │   └─── Shell Components to be able to use in whole app (for reusability) such as header, footer, navmenu etc.
 │   └───└───services
-│           └─── shell service: to handle shell related data including sidebar toggle state, handle child routes etc.
+│           └─── shell service: to handle shell related data including navmenu toggle state, handle child routes etc.
 │           └─── theme service: to handle theme related data including theme change, theme selection etc.
 │
 ├───theme
@@ -157,9 +157,9 @@ And `_shared` folder within `pages` folder containing views.pages that are share
 - **Shell**:
   Manages the core layout components that are used throughout the app.
 
-  - **Components**: Reusable components like the header, footer, sidebar, etc., which make up the app’s structure.
+  - **Components**: Reusable components like the header, footer, navmenu, etc., which make up the app’s structure.
   - **Services**:
-    - **Shell Service**: Manages data related to the layout, like the sidebar toggle state or handling child routes.
+    - **Shell Service**: Manages data related to the layout, like the navmenu toggle state or handling child routes.
     - **Theme Service**: Manages app themes, including theme switching and selection.
 
 - **Assets**:

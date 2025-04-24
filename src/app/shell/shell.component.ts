@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   standalone: false,
 })
 export class ShellComponent implements OnInit {
-  isSidebarActive = false;
+  isNavMenuActive = false;
 
   constructor(
     private readonly _shellService: ShellService,
@@ -21,8 +21,8 @@ export class ShellComponent implements OnInit {
     // this._socketService.connect();
   }
 
-  sidebarToggle(toggleState: boolean) {
-    this.isSidebarActive = toggleState;
+  navMenuToggle(toggleState: boolean) {
+    this.isNavMenuActive = toggleState;
   }
 
   private _reloadCurrentRoute(path?: string) {

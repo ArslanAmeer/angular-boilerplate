@@ -119,12 +119,12 @@ export class ShellService {
     }
   }
 
-  activateNavSubItem(i: number, subItem: NavMenuItem, sidebarItems: NavMenuItem[]) {
+  activateNavSubItem(i: number, subItem: NavMenuItem, navMenuItems: NavMenuItem[]) {
     if (subItem.disabled) return;
     subItem.active = true;
-    sidebarItems[i].active = true;
+    navMenuItems[i].active = true;
     // disable all other subitems
-    sidebarItems[i].subItems.forEach((item) => {
+    navMenuItems[i].subItems.forEach((item) => {
       if (item !== subItem) {
         item.active = false;
       }
