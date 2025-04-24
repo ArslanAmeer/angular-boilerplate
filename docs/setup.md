@@ -57,7 +57,7 @@ This guide provides an overview of key aspects of the project structure and help
 
 - **Roles**: User roles are handled as an array fetched from the backend. Ensure your role-based logic reflects this, particularly in services and guards.
 
-- **Icons**: No icon library is included in the project. We generally use SVG icons from the `public` folder. You can add custom icons as required. Specifically, for the sidebar navigation, there’s an `icon` property in the nav items interface where you can specify the icons for different routes.
+- **Icons**: No icon library is included in the project. We generally use SVG icons from the `public` folder. You can add custom icons as required. Specifically, for the navmenu navigation, there’s an `icon` property in the nav items interface where you can specify the icons for different routes.
 
 - **SCSS**: Basic SCSS for the layout is already provided, but it’s built based on enterprise-level use cases. You will likely need to modify the styles according to your design guidelines or application needs. Key SCSS files include:
   - `_base`: Contains base styles.
@@ -88,7 +88,7 @@ This guide provides an overview of key aspects of the project structure and help
 
 ### Application Architecture
 
-- **Shell Layout**: The app uses a shell structure with components for the header, sidebar, and footer. These components provide the main layout for the app.
+- **Shell Layout**: The app uses a shell structure with components for the header, navmenu, and footer. These components provide the main layout for the app.
 
 - **Auth Setup**: Authentication is entirely modular, with dedicated services, guards, and modules. The authentication system is independent of the rest of the application, so you can make updates to the auth system without affecting other modules.
 

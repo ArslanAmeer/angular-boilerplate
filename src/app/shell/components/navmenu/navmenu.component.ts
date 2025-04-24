@@ -4,22 +4,22 @@ import { environment } from '@env/environment';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { filter } from 'rxjs/operators';
 import { NavMode, ShellService } from '@app/shell/services/shell.service';
-import { webSidebarMenuItems } from '@core/constants';
+import { webNavMenuItems } from '@core/constants';
 import { CredentialsService } from '@auth';
 import { NavMenuItem } from '@core/interfaces';
 
 @UntilDestroy({ checkProperties: true })
 @Component({
-  selector: 'app-sidebar',
-  templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.scss'],
+  selector: 'app-navmenu',
+  templateUrl: './navmenu.component.html',
+  styleUrls: ['./navmenu.component.scss'],
   standalone: false,
 })
-export class SidebarComponent implements OnInit {
+export class NavMenuComponent implements OnInit {
   version: string = environment.version;
   year: number = new Date().getFullYear();
-  sidebarItems: NavMenuItem[] = [];
-  sidebarExtendedItem = -1;
+  navMenuItems: NavMenuItem[] = [];
+  navMenuExtendedItem = -1;
   //navExpanded = true;
 
   constructor(
@@ -27,17 +27,17 @@ export class SidebarComponent implements OnInit {
     private readonly _credentialsService: CredentialsService,
     public shellService: ShellService,
   ) {
-    this.sidebarItems = webSidebarMenuItems;
+    this.navMenuItems = webNavMenuItems;
   }
 
   ngOnInit(): void {
-    this.shellService.activeNavTab(this.sidebarItems, this.sidebarExtendedItem);
+    this.shellService.activeNavTab(this.navMenuItems, this.navMenuExtendedItem);
 
     this._router.events
       .pipe(untilDestroyed(this))
       .pipe(filter((event) => event instanceof NavigationEnd))
       .subscribe(() => {
-        this.shellService.activeNavTab(this.sidebarItems, this.sidebarExtendedItem);
+        this.shellService.activeNavTab(this.navMenuItems, this.navMenuExtendedItem);
       });
 
     this.shellService.navMode$.pipe(untilDestroyed(this)).subscribe((mode) => {
@@ -49,7 +49,7 @@ export class SidebarComponent implements OnInit {
   }
 
   /*
-  toggleSidebar(isEnterEvent: boolean): void {
+  toggleNavMenu(isEnterEvent: boolean): void {
     this.shellService.navMode$.pipe(untilDestroyed(this)).subscribe((mode) => {
       if (isEnterEvent) {
         this.navExpanded = true;
@@ -60,20 +60,20 @@ export class SidebarComponent implements OnInit {
   }
   */
 
-  activateSidebarItem(index: number): void {
-    const item = this.sidebarItems[index];
+  activateNavMenuItem(index: number): void {
+    const item = this.navMenuItems[index];
     if (item.disabled) return;
 
-    if (index !== this.sidebarExtendedItem) {
-      this.sidebarExtendedItem = index;
+    if (index !== this.navMenuExtendedItem) {
+      this.navMenuExtendedItem = index;
     } else {
-      this.sidebarExtendedItem = -1; // Toggle the same item
+      this.navMenuExtendedItem = -1; // Toggle the same item
     }
 
-    this.shellService.activateNavItem(index, this.sidebarItems);
+    this.shellService.activateNavItem(index, this.navMenuItems);
   }
 
-  activateSidebarSubItem(index: number, subItem: NavMenuItem): void {
-    this.shellService.activateNavSubItem(index, subItem, this.sidebarItems);
+  activateNavMenuSubItem(index: number, subItem: NavMenuItem): void {
+    this.shellService.activateNavSubItem(index, subItem, this.navMenuItems);
   }
 }
