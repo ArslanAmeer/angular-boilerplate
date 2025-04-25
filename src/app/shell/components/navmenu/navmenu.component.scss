@@ -1,5 +1,5 @@
 .top-nav {
-  background-color: var(--deep-gray);
+  background-color: var(--dark-blue);
   width: 100%;
   height: 60px;
   display: flex;
@@ -9,19 +9,31 @@
   left: 0;
   z-index: 1000;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  perspective: 700px; // Added from (1)
+
+  * {
+    box-sizing: border-box;
+    transform-style: preserve-3d; // Added from (1)
+  }
 
   .nav-container {
     width: 100%;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px;
+    justify-content: space-around;
+    padding: 0px;
+    margin: 0px;
+    transition: all 300ms cubic-bezier(0.175, 0.885, 0.32, 1.275); // Enhanced timing function from (1)
   }
 
   .logo-container {
     display: flex;
     align-items: center;
     cursor: pointer;
+    transition: transform 300ms cubic-bezier(0.175, 0.885, 0.32, 1.275); // Added from (1)
+
+    &:hover {
+      transform: translateZ(10px); // Simple 3D effect
+    }
 
     .logo {
       width: 30px;
@@ -45,7 +57,11 @@
       align-items: center;
 
       &:hover {
-        background-color: rgba(255, 255, 255, 0.04);
+        background-color: rgba(var(--menu-color-1), 0.1);
+
+        .menu-item {
+          color: rgba(var(--menu-color-1));
+        }
       }
 
       .menu-item-wrapper {
@@ -71,6 +87,8 @@
         cursor: pointer;
         text-decoration: none;
         color: var(--nav-menu-icon-color);
+        position: relative;
+        transition: all 300ms cubic-bezier(0.175, 0.885, 0.32, 1.275); // Enhanced from (1)
 
         &.disabled {
           cursor: not-allowed;
@@ -107,13 +125,18 @@
         min-width: 200px;
         box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
         z-index: 100;
+        transform: translateY(-10%) translateZ(-5px); // Added 3D effect from (1)
+        transform-origin: top center;
+        transition: all 300ms cubic-bezier(0.175, 0.885, 0.32, 1.275); // Enhanced from (1)
 
         li {
           padding: 10px 15px;
-          transition: background-color 0.2s ease;
+          transition: all 300ms cubic-bezier(0.175, 0.885, 0.32, 1.275); // Enhanced from (1)
+          transform: rotateX(-15deg); // Added 3D effect
 
           &:hover {
             background-color: rgba(255, 255, 255, 0.08);
+            transform: rotateX(0deg) translateZ(5px); // Enhanced hover effect
           }
 
           &.disabled {
@@ -138,6 +161,56 @@
             }
           }
         }
+      }
+
+      &:hover .sub-menu-items {
+        transform: translateY(0) translateZ(0); // Better dropdown animation
+        li {
+          transform: rotateX(0deg);
+        }
+      }
+    }
+  }
+}
+
+// Mobile adaptation from (1)
+@media (max-width: 666px) {
+  .top-nav {
+    .navbar-menu-items {
+      position: fixed;
+      top: 60px;
+      left: 0;
+      width: 100%;
+      background: var(--deep-gray);
+      flex-direction: column;
+      height: auto;
+      max-height: 0;
+      overflow: hidden;
+      transition: all 300ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+      .menu-item-container {
+        width: 100%;
+        height: auto;
+        padding: 15px 0;
+
+        .sub-menu-items {
+          position: relative;
+          box-shadow: none;
+          transform: none !important;
+
+          li {
+            transform: none !important;
+            padding-left: 30px;
+          }
+        }
+      }
+    }
+
+    // Hamburger menu toggle (from (1))
+    &.mobile-open {
+      .navbar-menu-items {
+        max-height: 100vh;
+        padding: 20px 0;
       }
     }
   }

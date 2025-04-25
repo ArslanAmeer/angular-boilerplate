@@ -17,6 +17,7 @@
   --yellow: #fbc52d;
   --dark-yellow: #ebb106;
   --deep-yellow: #fec41a;
+  --dark-blue: #050018;
   --yellow-opaque: rgba(235, 177, 6, 0.14);
   --slate-gray: #667085;
   --dull-gray: #ffffff80;
@@ -31,8 +32,8 @@
   --text-color-light: #ffffff;
   --text-color-medium: #667085;
   --text-color-dark: #333843;
-  --nav-menu-icon-color: #787878;
-  --icon-hover: #667085;
+  --nav-menu-icon-color: #001fe8;
+  --icon-hover: #87a7ec;
 
   // Grayscale
 
@@ -55,6 +56,11 @@
   --gradient-primary-light: linear-gradient(173deg, #e73609 -96.7%, #e9496e 17.35%, #ffc51a 111.15%);
   --gradient-primary-light-opaque: linear-gradient(173deg, rgba(231, 54, 9, 0.6) -96.7%, rgba(233, 73, 110, 0.6) 17.35%, rgba(255, 197, 26, 0.6) 111.15%);
   --shadow-light: 0px 6px 19px 0px rgba(120, 120, 120, 0.19);
+
+  --primary-hue: 210;
+  --menu-color-1: hsl(calc(var(--primary-hue) + 0), 70%, 45%);
+  --menu-color-2: hsl(calc(var(--primary-hue) + 30), 70%, 45%);
+  --menu-color-3: hsl(calc(var(--primary-hue) + 60), 70%, 45%);
 }
 
 $blue: #0073dd;

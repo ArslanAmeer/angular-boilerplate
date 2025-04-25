@@ -20,7 +20,6 @@ export class NavMenuComponent implements OnInit {
   year: number = new Date().getFullYear();
   navMenuItems: NavMenuItem[] = [];
   navMenuExtendedItem = -1;
-  //navExpanded = true;
 
   constructor(
     private readonly _router: Router,
@@ -40,18 +39,6 @@ export class NavMenuComponent implements OnInit {
         this.shellService.activeNavTab(this.navMenuItems, this.navMenuExtendedItem);
       });
   }
-
-  /*
-  toggleNavMenu(isEnterEvent: boolean): void {
-    this.shellService.navMode$.pipe(untilDestroyed(this)).subscribe((mode) => {
-      if (isEnterEvent) {
-        this.navExpanded = true;
-      } else if (!isEnterEvent && mode === NavMode.Free) {
-        this.navExpanded = false;
-      }
-    });
-  }
-  */
 
   activateNavMenuItem(index: number): void {
     const item = this.navMenuItems[index];
