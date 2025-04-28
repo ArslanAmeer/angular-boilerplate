@@ -37,7 +37,7 @@ export class LoginComponent {
             console.log('Login successful');
             this._router.navigate([this._route.snapshot.queryParams['redirect'] || '/discover'], { replaceUrl: true }).then(() => {
               // Handle the navigation
-              console.log('Navigated to dashboard');
+              console.log('Navigated to Discover');
             });
           }
         },

@@ -1,4 +1,3 @@
-import { PERMISSIONS } from '../../auth/enums/permissions.enum';
 import { NavMenuItem } from '@core/interfaces';
 
 // THIS FILE CONTAINS THE NAVIGATION MENU ITEMS FOR THE NAVMENU AND ALL OTHER NAVIGATION MENUS WHICH ARE USED IN THE APPLICATION AND ARE CONSTANT
@@ -27,7 +26,7 @@ export const webNavMenuItems: NavMenuItem[] = [
   },
   {
     href: '/tutorials',
-    title: 'How To',
+    title: 'Tutorials',
     active: false,
     icon: 'fa-tutorials',
   },

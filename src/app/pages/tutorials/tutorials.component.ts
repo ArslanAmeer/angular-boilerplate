@@ -2,12 +2,12 @@ import { Component, HostListener } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
-  selector: 'app-discover',
+  selector: 'app-tutorials',
   imports: [TranslateModule],
-  templateUrl: './discover.component.html',
-  styleUrl: './discover.component.scss',
+  templateUrl: './tutorials.component.html',
+  styleUrl: './tutorials.component.scss',
 })
-export class DiscoverComponent {
+export class TutorialsComponent {
   currentPanel = 0;
 
   @HostListener('window:scroll', ['$event'])
