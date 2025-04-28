@@ -6,6 +6,11 @@ import { DiscoverComponent } from '@app/pages/discover/discover.component';
 const routes: Routes = [
   Shell.childRoutes([
     {
+      path: '',
+      redirectTo: 'discover',
+      pathMatch: 'full',
+    },
+    {
       path: 'discover',
       component: DiscoverComponent,
     },

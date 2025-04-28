@@ -8,7 +8,7 @@ import { CredentialsService } from '@app/auth';
 const log = new Logger('AuthenticationGuard');
 
 /* The `AlreadyLoggedCheckGuard` class is a guard in TypeScript that checks if a user is already
-authenticated and redirects them to the dashboard if they are. */
+authenticated and redirects them to the discover if they are. */
 @UntilDestroy()
 @Injectable({
   providedIn: 'root',
@@ -22,7 +22,7 @@ export class AlreadyLoggedCheckGuard {
   async canActivate(): Promise<boolean> {
     const isAuthenticated = this._credentialsService.isAuthenticated();
     if (isAuthenticated) {
-      this._router.navigateByUrl('/dashboard');
+      this._router.navigateByUrl('/discover');
       return false;
     } else {
       return true;

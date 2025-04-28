@@ -1,41 +1,46 @@
-<section class="main-container">
-  <h2 translate>Home</h2>
+<div class="discover-page">
+  <!-- Hero Section -->
+  <section class="panel hero-panel">
+    <div class="content">
+      <h1>Welcome to Hackason</h1>
+      <p>Your bug bounty hunting headquarters</p>
+      <button routerLink="/signup">Get Started</button>
+    </div>
+    <div class="image-container">
+      <div class="bug-placeholder">🐞</div>
+    </div>
+  </section>
 
-  <!-- discover.component.html -->
-  <div class="discover-page">
-    <!-- Hero Section -->
-    <section class="panel hero-panel">
-      <div class="content">
-        <h1>Welcome to Hackason</h1>
-        <p>Your bug bounty hunting headquarters</p>
-        <button routerLink="/signup">Get Started</button>
+  <!-- Features Panel -->
+  <section class="panel features-panel">
+    <div class="features-grid">
+      <div class="feature">
+        <div class="icon-placeholder">🛡️</div>
+        <!-- Emoji placeholder -->
+        <h3>Secure Platform</h3>
       </div>
-      <div class="image-container">
-        <img src="assets/images/hero-bug.svg" alt="Bug mascot" />
+      <div class="feature">
+        <div class="icon-placeholder">💰</div>
+        <h3>Bounty Rewards</h3>
       </div>
-    </section>
+      <div class="feature">
+        <div class="icon-placeholder">🔍</div>
+        <h3>Vulnerability Scanner</h3>
+      </div>
+    </div>
+  </section>
 
-    <!-- Features Panel -->
-    <section class="panel features-panel">
-      <h2>Why Choose Us?</h2>
-      <div class="features-grid">
-        <div class="feature">
-          <img src="assets/images/shield-icon.svg" alt="Security" />
-          <h3>Secure Platform</h3>
-        </div>
-        <!-- Repeat for other features -->
+  <!-- Stats Panel -->
+  <section class="panel stats-panel">
+    <div class="stats-container">
+      <div class="stat">
+        <h3>500+</h3>
+        <p>Resolved Vulnerabilities</p>
       </div>
-    </section>
-
-    <!-- Stats Panel -->
-    <section class="panel stats-panel">
-      <div class="stats-container">
-        <div class="stat">
-          <h3>500+</h3>
-          <p>Resolved Vulnerabilities</p>
-        </div>
-        <!-- More stats -->
+      <div class="stat">
+        <h3>100+</h3>
+        <p>Security Researchers</p>
       </div>
-    </section>
-  </div>
-</section>
+    </div>
+  </section>
+</div>
