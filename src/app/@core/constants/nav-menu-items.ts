@@ -8,8 +8,8 @@ import { NavMenuItem } from '@core/interfaces';
  */
 export const webNavMenuItems: NavMenuItem[] = [
   {
-    href: '/dashboard',
-    title: 'Dashboard',
+    href: '/discover',
+    title: 'Discover',
     active: true,
     icon: 'fa-home',
   },

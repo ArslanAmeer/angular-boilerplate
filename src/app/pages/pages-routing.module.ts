@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { Shell } from '@app/shell/services/shell.service';
-import { DashboardComponent } from '@pages/dashboard/dashboard.component';
+import { DiscoverComponent } from '@app/pages/discover/discover.component';
 
 const routes: Routes = [
   Shell.childRoutes([
     {
-      path: 'dashboard',
-      component: DashboardComponent,
+      path: 'discover',
+      component: DiscoverComponent,
     },
     {
       path: 'users',

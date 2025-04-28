@@ -1,0 +1,35 @@
+/* discover.component.scss */
+.discover-page {
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  height: 100vh;
+}
+
+.panel {
+  height: 100vh;
+  scroll-snap-align: start;
+  display: flex;
+  align-items: center;
+  padding: 0 10%;
+
+  /* Individual panel styling */
+  &.hero-panel {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    color: white;
+  }
+
+  &.features-panel {
+    background: white;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    flex-direction: column;
+    padding: 20px;
+  }
+}
+
+/* Smooth transitions */
+.panel {
+  transition: transform 0.5s ease-out;
+}

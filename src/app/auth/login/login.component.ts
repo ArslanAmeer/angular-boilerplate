@@ -35,7 +35,7 @@ export class LoginComponent {
           // Navigate to the home page or any other page after successful login.
           if (res) {
             console.log('Login successful');
-            this._router.navigate([this._route.snapshot.queryParams['redirect'] || '/dashboard'], { replaceUrl: true }).then(() => {
+            this._router.navigate([this._route.snapshot.queryParams['redirect'] || '/home'], { replaceUrl: true }).then(() => {
               // Handle the navigation
               console.log('Navigated to dashboard');
             });
