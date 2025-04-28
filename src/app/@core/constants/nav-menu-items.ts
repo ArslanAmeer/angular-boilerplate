@@ -19,6 +19,18 @@ export const webNavMenuItems: NavMenuItem[] = [
     active: false,
     icon: 'fa-challenges',
   },
+  {
+    href: '/programs',
+    title: 'Programs',
+    active: false,
+    icon: 'fa-programs',
+  },
+  {
+    href: '/tutorials',
+    title: 'How To',
+    active: false,
+    icon: 'fa-tutorials',
+  },
 ];
 
 /*
