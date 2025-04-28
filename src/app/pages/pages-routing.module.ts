@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { Shell } from '@app/shell/services/shell.service';
 import { DiscoverComponent } from '@app/pages/discover/discover.component';
+import { ChallengesComponent } from '@app/pages/challenges/challenges.component';
 
 const routes: Routes = [
   Shell.childRoutes([
@@ -15,8 +16,8 @@ const routes: Routes = [
       component: DiscoverComponent,
     },
     {
-      path: 'users',
-      loadChildren: () => import('./users/users.module').then((m) => m.UsersModule),
+      path: 'challenges',
+      component: ChallengesComponent,
     },
 
     // Fallback when no prior route is matched

@@ -4,10 +4,10 @@ import { TranslateModule } from '@ngx-translate/core';
 @Component({
   selector: 'app-home',
   imports: [TranslateModule],
-  templateUrl: './discover.component.html',
-  styleUrl: './discover.component.scss',
+  templateUrl: './challenges.component.html',
+  styleUrl: './challenges.component.scss',
 })
-export class DiscoverComponent {
+export class ChallengesComponent {
   currentPanel = 0;
 
   @HostListener('window:scroll', ['$event'])

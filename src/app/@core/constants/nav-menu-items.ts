@@ -11,6 +11,21 @@ export const webNavMenuItems: NavMenuItem[] = [
     href: '/discover',
     title: 'Discover',
     active: true,
+    icon: 'fa-discover',
+  },
+  {
+    href: '/challenges',
+    title: 'Challenges',
+    active: false,
+    icon: 'fa-challenges',
+  },
+];
+
+/*
+  {
+    href: '/dashboard',
+    title: 'Dashboard',
+    active: true,
     icon: 'fa-home',
   },
   {
@@ -57,4 +72,4 @@ export const webNavMenuItems: NavMenuItem[] = [
     icon: 'fa-cog',
     divider: true,
   },
-];
+  */
