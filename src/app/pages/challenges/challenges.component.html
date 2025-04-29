@@ -1,46 +1,49 @@
-<div class="discover-page">
-  <!-- Hero Section -->
-  <section class="panel hero-panel">
-    <div class="content">
-      <h1>Welcome to Hackason</h1>
-      <p>Your bug bounty hunting headquarters</p>
-      <button routerLink="/signup">Get Started</button>
-    </div>
-    <div class="image-container">
-      <div class="bug-placeholder">🐞</div>
-    </div>
-  </section>
+<!-- challenges.component.html -->
+<div class="challenges-container">
+  <header class="challenges-header">
+    <h1>Capture The Flag Challenges</h1>
+    <p>Test your skills in our security playground</p>
 
-  <!-- Features Panel -->
-  <section class="panel features-panel">
-    <div class="features-grid">
-      <div class="feature">
-        <div class="icon-placeholder">🛡️</div>
-        <!-- Emoji placeholder -->
-        <h3>Secure Platform</h3>
-      </div>
-      <div class="feature">
-        <div class="icon-placeholder">💰</div>
-        <h3>Bounty Rewards</h3>
-      </div>
-      <div class="feature">
-        <div class="icon-placeholder">🔍</div>
-        <h3>Vulnerability Scanner</h3>
+    <div class="controls">
+      <button (click)="toggleViewMode()" class="view-toggle">
+        {{ isListView ? 'Grid View' : 'List View' }}
+      </button>
+      <div class="filter-controls">
+        <select [(ngModel)]="selectedDifficulty">
+          <option value="all">All Levels</option>
+          <option *ngFor="let level of difficultyLevels" [value]="level">
+            {{ level | titlecase }}
+          </option>
+        </select>
       </div>
     </div>
-  </section>
+  </header>
 
-  <!-- Stats Panel -->
-  <section class="panel stats-panel">
-    <div class="stats-container">
-      <div class="stat">
-        <h3>500+</h3>
-        <p>Resolved Vulnerabilities</p>
+  <div [ngClass]="{ 'grid-view': !isListView, 'list-view': isListView }">
+    <div *ngFor="let challenge of filteredChallenges" class="challenge-card">
+      <div class="card-header">
+        <span class="difficulty-badge" [ngClass]="challenge.difficulty">
+          {{ challenge.difficulty }}
+        </span>
+        <span class="category-tag">{{ challenge.category }}</span>
       </div>
-      <div class="stat">
-        <h3>100+</h3>
-        <p>Security Researchers</p>
+
+      <h3>{{ challenge.title }}</h3>
+      <p>{{ challenge.description }}</p>
+
+      <div class="card-footer">
+        <span>{{ challenge.points }} pts</span>
+        <button (click)="startChallenge(challenge.id)" class="ctf-button">
+          {{ challenge.isActive ? 'Continue' : 'Start' }}
+        </button>
       </div>
     </div>
-  </section>
+  </div>
+
+  <!-- Tournament Banner -->
+  <div *ngIf="activeTournament" class="tournament-banner">
+    <h2>⚔️ Live Tournament: {{ activeTournament.name }}</h2>
+    <p>{{ activeTournament.description }}</p>
+    <button routerLink="/tournaments/{{ activeTournament.id }}" class="tournament-button">Join Now</button>
+  </div>
 </div>

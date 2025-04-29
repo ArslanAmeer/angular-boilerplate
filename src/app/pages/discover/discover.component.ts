@@ -1,11 +1,15 @@
+import { CommonModule } from '@angular/common';
 import { Component, HostListener } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-discover',
-  imports: [TranslateModule],
+  imports: [CommonModule, FormsModule, RouterModule, TranslateModule],
   templateUrl: './discover.component.html',
   styleUrl: './discover.component.scss',
+  standalone: true,
 })
 export class DiscoverComponent {
   currentPanel = 0;
