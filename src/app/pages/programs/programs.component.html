@@ -1,46 +1,47 @@
-<div class="discover-page">
-  <!-- Hero Section -->
-  <section class="panel hero-panel">
-    <div class="content">
-      <h1>Welcome to Hackason</h1>
-      <p>Your bug bounty hunting headquarters</p>
-      <button routerLink="/signup">Get Started</button>
-    </div>
-    <div class="image-container">
-      <div class="bug-placeholder">🐞</div>
-    </div>
-  </section>
+<!-- Header and Search -->
+<section class="programs-header">
+  <h1>Bug Bounty Programs</h1>
+  <div class="search-container">
+    <input type="text" [(ngModel)]="searchQuery" placeholder="Search programs..." class="search-input" />
+    <button class="search-button">
+      <i class="search-icon">🔍</i>
+    </button>
+  </div>
+</section>
 
-  <!-- Features Panel -->
-  <section class="panel features-panel">
-    <div class="features-grid">
-      <div class="feature">
-        <div class="icon-placeholder">🛡️</div>
-        <!-- Emoji placeholder -->
-        <h3>Secure Platform</h3>
+<!-- Program Grid -->
+<div class="programs-grid">
+  <!-- Single Program Card (repeats for each program) -->
+  <article *ngFor="let program of programs$ | async" class="program-card">
+    <!-- Program Header with Logo -->
+    <header class="card-header">
+      <div class="logo-container">
+        <img [src]="program.logo || 'assets/logos/default.png'" [alt]="program.name + ' logo'" class="program-logo" (error)="program.logo = 'assets/logos/default.png'" />
       </div>
-      <div class="feature">
-        <div class="icon-placeholder">💰</div>
-        <h3>Bounty Rewards</h3>
-      </div>
-      <div class="feature">
-        <div class="icon-placeholder">🔍</div>
-        <h3>Vulnerability Scanner</h3>
-      </div>
-    </div>
-  </section>
+      <span class="program-status" [class.public]="program.public">
+        {{ program.public ? 'PUBLIC' : 'PRIVATE' }}
+      </span>
+    </header>
 
-  <!-- Stats Panel -->
-  <section class="panel stats-panel">
-    <div class="stats-container">
-      <div class="stat">
-        <h3>500+</h3>
-        <p>Resolved Vulnerabilities</p>
-      </div>
-      <div class="stat">
-        <h3>100+</h3>
-        <p>Security Researchers</p>
+    <!-- Program Details -->
+    <div class="card-body">
+      <h3 class="program-name">{{ program.name }}</h3>
+      <p class="program-description">
+        {{ program.description || 'No description provided' }}
+      </p>
+
+      <div class="program-meta">
+        <span class="meta-item"> <i class="meta-icon">🛡️</i> {{ program.category || 'Various' }} </span>
+        <span class="meta-item"> <i class="meta-icon">📅</i> {{ program.updatedAt | date: 'MMM yyyy' }} </span>
       </div>
     </div>
-  </section>
+
+    <!-- Footer with CTA -->
+    <footer class="card-footer">
+      <a [href]="program.url" target="_blank" rel="noopener noreferrer" class="program-link"> View Program Details </a>
+    </footer>
+  </article>
 </div>
+
+<!-- Loading State (optional) -->
+<div *ngIf="!(programs$ | async)" class="loading">Loading programs...</div>
