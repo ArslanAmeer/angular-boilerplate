@@ -55,7 +55,7 @@ export class ChallengesComponent {
       points: 500,
       isActive: true,
     },
-    // Add more challenges...
+    // TODO: Add more challenges...
   ];
 
   activeTournament: Tournament = {
