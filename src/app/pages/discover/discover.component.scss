@@ -45,11 +45,14 @@
     flex-direction: column;
     justify-content: space-between; // Distributes space evenly
     padding: 5vh 10% 0; // Top padding only
+    position: relative; // Ensure this is set
+    min-height: 100vh; // Ensure full viewport height
 
     .content {
+      margin: 0 auto;
+      padding-top: 5vh;
       max-width: 800px;
-      margin: 5vh auto 0;
-      padding-top: 40px;
+      flex: 0 1 auto; // Allows shrinking if needed
 
       h1 {
         font-size: 3.5rem;
@@ -82,17 +85,43 @@
     }
 
     .image-container {
-      margin-top: 2rem;
+      flex: 0 0 30vh;
+      display: flex; // Add this
+      justify-content: center; // Add this
+      align-items: center; // Add this
+      margin: 2vh 0;
+      width: 100%;
+      position: relative; // Keep this for potential future needs
 
       .world-icon {
-        font-size: 8rem;
-        opacity: 0.8;
+        position: static;
+        transform: none;
+        font-size: clamp(5rem, 10vw, 8rem);
         animation: float 6s ease-in-out infinite;
       }
     }
 
     .scroll-hint {
-      color: rgba(255, 255, 255, 0.7);
+      position: absolute;
+      bottom: 40px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      color: rgb(255, 255, 255);
+      animation: bounce 2s infinite;
+      z-index: 10; // Ensure it stays above other elements
+      pointer-events: none; // Prevent interaction issues
+
+      .hint-text {
+        color: white;
+      }
+
+      &::after {
+        content: "↓";
+        display: block;
+        margin-top: 8px;
+        font-size: 1.5rem;
+      }
     }
   }
 
