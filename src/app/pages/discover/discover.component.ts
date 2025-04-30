@@ -12,22 +12,32 @@ import { TranslateModule } from '@ngx-translate/core';
   standalone: true,
 })
 export class DiscoverComponent {
-  currentPanel = 0;
+  showAnswer = false;
 
-  @HostListener('window:scroll', ['$event'])
-  onScroll() {
-    const panels = document.querySelectorAll('.panel');
-    panels.forEach((panel, index) => {
-      const rect = panel.getBoundingClientRect();
-      if (rect.top >= 0 && rect.top <= window.innerHeight / 2) {
-        this.currentPanel = index;
-        this.animatePanel(panel);
-      }
-    });
+  // Optional: Add keyboard navigation
+  @HostListener('window:keydown', ['$event'])
+  handleKeyboardEvent(event: KeyboardEvent) {
+    if (event.key === 'ArrowDown') {
+      this.scrollToNextSection();
+      event.preventDefault();
+    }
+    if (event.key === 'ArrowUp') {
+      this.scrollToPrevSection();
+      event.preventDefault();
+    }
   }
 
-  private animatePanel(panel: Element) {
-    // Add your animation logic here
-    panel.classList.add('active');
+  private scrollToNextSection() {
+    const currentScroll = window.scrollY;
+    const windowHeight = window.innerHeight;
+    const nextSectionPos = Math.ceil(currentScroll / windowHeight) * windowHeight;
+    window.scrollTo({ top: nextSectionPos, behavior: 'smooth' });
+  }
+
+  private scrollToPrevSection() {
+    const currentScroll = window.scrollY;
+    const windowHeight = window.innerHeight;
+    const prevSectionPos = Math.floor(currentScroll / windowHeight) * windowHeight;
+    window.scrollTo({ top: prevSectionPos, behavior: 'smooth' });
   }
 }

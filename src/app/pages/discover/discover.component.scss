@@ -3,6 +3,7 @@
   overflow-y: scroll;
   height: 100vh;
   width: 100%;
+  scroll-behavior: smooth;
 
   /* Hide scrollbar but keep functionality */
   -ms-overflow-style: none;
@@ -17,58 +18,309 @@
   width: 100%;
   scroll-snap-align: start;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
   padding: 0 10%;
   position: relative;
 
-  /* Individual panels */
+  /* Shared scroll hint styling */
+  .scroll-hint {
+    position: absolute;
+    bottom: 40px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    animation: bounce 2s infinite;
+    font-size: 1.2rem;
+    opacity: 0.8;
+  }
+
+  /* Hero Panel - First Section */
   &.hero-panel {
     background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
     color: white;
+    text-align: center;
 
     .content {
-      max-width: 50%;
+      max-width: 800px;
+      margin: 0 auto;
+
+      h1 {
+        font-size: 3.5rem;
+        margin-bottom: 1.5rem;
+        line-height: 1.2;
+      }
+
+      p {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+        opacity: 0.9;
+      }
+
+      button {
+        background: #4e54c8;
+        color: white;
+        border: none;
+        padding: 1rem 2.5rem;
+        font-size: 1.2rem;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        &:hover {
+          background: #3a3fa0;
+          transform: translateY(-2px);
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+      }
     }
 
-    .image-container img {
-      max-height: 70vh;
+    .image-container {
+      margin-top: 2rem;
+
+      .world-icon {
+        font-size: 8rem;
+        opacity: 0.8;
+        animation: float 6s ease-in-out infinite;
+      }
+    }
+
+    .scroll-hint {
+      color: rgba(255, 255, 255, 0.7);
     }
   }
 
-  &.features-panel {
-    background: white;
-    flex-direction: column;
-    justify-content: center;
+  /* Everyday Security Panel */
+  &.everyday-panel {
+    background: #f8f9fa;
+    text-align: center;
 
-    .features-grid {
+    h2 {
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+      color: #1a1a2e;
+    }
+
+    .examples-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 2rem;
-      margin-top: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+
+      .example {
+        background: white;
+        padding: 2.5rem;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+
+        &:hover {
+          transform: translateY(-10px);
+          box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .icon {
+          font-size: 3.5rem;
+          margin-bottom: 1.5rem;
+        }
+
+        h3 {
+          font-size: 1.5rem;
+          margin-bottom: 1rem;
+          color: #0f3460;
+        }
+
+        p {
+          color: #666;
+          line-height: 1.6;
+        }
+      }
+    }
+
+    .scroll-hint {
+      color: rgba(0, 0, 0, 0.6);
     }
   }
 
-  &.stats-panel {
-    background: #0f3460;
+  /* Challenge Panel */
+  &.challenge-panel {
+    background: #1a1a2e;
     color: white;
-  }
-}
-
-/* Responsive fixes */
-@media (max-width: 768px) {
-  .panel {
-    flex-direction: column !important;
-    padding: 2rem !important;
     text-align: center;
 
-    &.hero-panel .content {
-      max-width: 100%;
+    h2 {
+      font-size: 2.5rem;
       margin-bottom: 2rem;
     }
 
-    .features-grid {
-      grid-template-columns: 1fr !important;
+    .challenge-box {
+      background: #16213e;
+      padding: 3rem;
+      border-radius: 12px;
+      max-width: 800px;
+      margin: 0 auto;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+
+      pre {
+        background: #0f3460;
+        padding: 1.5rem;
+        border-radius: 8px;
+        text-align: left;
+        overflow-x: auto;
+        font-family: "Courier New", monospace;
+        font-size: 1.1rem;
+        line-height: 1.6;
+      }
+
+      .answer-toggle {
+        display: inline-block;
+        margin: 1.5rem 0;
+        padding: 0.8rem 1.5rem;
+        background: rgba(78, 84, 200, 0.2);
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        &:hover {
+          background: rgba(78, 84, 200, 0.4);
+        }
+      }
+
+      .answer {
+        background: rgba(0, 0, 0, 0.2);
+        padding: 1.5rem;
+        border-left: 4px solid #4e54c8;
+        margin-top: 1.5rem;
+        text-align: left;
+        border-radius: 0 8px 8px 0;
+
+        ul {
+          padding-left: 1.5rem;
+          margin: 1rem 0;
+
+          li {
+            margin-bottom: 0.8rem;
+          }
+        }
+      }
+    }
+
+    .cta-button {
+      margin-top: 2rem;
+      padding: 1rem 2.5rem;
+      font-size: 1.1rem;
+    }
+  }
+
+  /* Impact Panel */
+  &.impact-panel {
+    background: linear-gradient(135deg, #4e54c8 0%, #8f94fb 100%);
+    color: white;
+    text-align: center;
+
+    h2 {
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .impact-stats {
+      display: flex;
+      justify-content: center;
+      gap: 4rem;
+      margin: 0 auto 3rem;
+      max-width: 1000px;
+
+      .stat {
+        h3 {
+          font-size: 3.5rem;
+          margin-bottom: 0.5rem;
+          font-weight: 700;
+        }
+
+        p {
+          font-size: 1.2rem;
+          opacity: 0.9;
+        }
+      }
+    }
+
+    .callout {
+      font-size: 1.5rem;
+      max-width: 600px;
+      margin: 0 auto;
+      font-weight: 500;
+      line-height: 1.6;
+    }
+  }
+}
+
+/* Animations */
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .panel {
+    padding: 0 5%;
+
+    &.hero-panel .content h1 {
+      font-size: 2.8rem;
+    }
+
+    .examples-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .panel {
+    padding: 0 2rem;
+
+    &.hero-panel {
+      .content h1 {
+        font-size: 2.2rem;
+      }
+
+      .image-container .world-icon {
+        font-size: 6rem;
+      }
+    }
+
+    .examples-grid {
+      grid-template-columns: 1fr;
+      max-width: 500px;
+    }
+
+    &.impact-panel .impact-stats {
+      flex-direction: column;
+      gap: 2rem;
     }
   }
 }

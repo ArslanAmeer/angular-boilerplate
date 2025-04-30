@@ -2,45 +2,84 @@
   <!-- Hero Section -->
   <section class="panel hero-panel">
     <div class="content">
-      <h1>Welcome to Hackason</h1>
-      <p>Your bug bounty hunting headquarters</p>
+      <h1>Cybersecurity Is In Everything We Do</h1>
+      <p>Every click, every app, every connection - security matters. Start your journey today.</p>
       <button routerLink="/signup">Get Started</button>
     </div>
     <div class="image-container">
-      <div class="bug-placeholder">🐞</div>
+      <div class="world-icon">🌐</div>
     </div>
   </section>
 
-  <!-- Features Panel -->
-  <section class="panel features-panel">
-    <div class="features-grid">
-      <div class="feature">
-        <div class="icon-placeholder">🛡️</div>
-        <!-- Emoji placeholder -->
-        <h3>Secure Platform</h3>
+  <!-- Everyday Security Panel -->
+  <section class="panel everyday-panel">
+    <h2>Security In Your Daily Life</h2>
+    <div class="examples-grid">
+      <div class="example">
+        <div class="icon">📱</div>
+        <h3>Mobile Apps</h3>
+        <p>Permissions you grant, data they collect</p>
       </div>
-      <div class="feature">
-        <div class="icon-placeholder">💰</div>
-        <h3>Bounty Rewards</h3>
+      <div class="example">
+        <div class="icon">💻</div>
+        <h3>Web Browsing</h3>
+        <p>Cookies, trackers, and secure connections</p>
       </div>
-      <div class="feature">
-        <div class="icon-placeholder">🔍</div>
-        <h3>Vulnerability Scanner</h3>
+      <div class="example">
+        <div class="icon">🏠</div>
+        <h3>Smart Homes</h3>
+        <p>Cameras, assistants, and IoT security</p>
       </div>
     </div>
   </section>
 
-  <!-- Stats Panel -->
-  <section class="panel stats-panel">
-    <div class="stats-container">
-      <div class="stat">
-        <h3>500+</h3>
-        <p>Resolved Vulnerabilities</p>
+  <!-- Interactive Challenge Panel -->
+  <section class="panel challenge-panel">
+    <h2>Try Your First Security Challenge</h2>
+    <div class="challenge-box">
+      <p>Can you spot the vulnerability in this login code?</p>
+      <pre><code>
+        // Vulnerable login check
+        if (username == "admin" && password == "password123") {{ '{' }}
+          grantAdminAccess();
+        {{ '}' }}
+      </code></pre>
+      <div class="hint" *ngIf="!showAnswer">
+        <p>Hint: What's wrong with how passwords are handled?</p>
       </div>
-      <div class="stat">
-        <h3>100+</h3>
-        <p>Security Researchers</p>
+      <div class="answer-toggle" (click)="showAnswer = !showAnswer">
+        {{ showAnswer ? 'Hide Answer' : 'Reveal Answer' }}
+      </div>
+      <div class="answer" *ngIf="showAnswer">
+        <p>🚨 Multiple issues:</p>
+        <ul>
+          <li>Hardcoded credentials (never store passwords in code)</li>
+          <li>Plain text comparison (should use hashing)</li>
+          <li>No rate limiting (vulnerable to brute force)</li>
+        </ul>
+        <p>This is why real systems use proper authentication!</p>
       </div>
     </div>
+    <button routerLink="/learn" class="cta-button">Learn Secure Coding</button>
+  </section>
+
+  <!-- Why It Matters Panel -->
+  <section class="panel impact-panel">
+    <h2>Why Your Skills Matter</h2>
+    <div class="impact-stats">
+      <div class="stat">
+        <h3>300%</h3>
+        <p>Increase in cyber attacks since 2020</p>
+      </div>
+      <div class="stat">
+        <h3>0 Days</h3>
+        <p>Between vulnerability discovery and exploitation</p>
+      </div>
+      <div class="stat">
+        <h3>3.5M</h3>
+        <p>Unfilled cybersecurity jobs worldwide</p>
+      </div>
+    </div>
+    <p class="callout">The digital world needs more people who understand security</p>
   </section>
 </div>
