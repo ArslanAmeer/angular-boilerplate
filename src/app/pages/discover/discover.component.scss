@@ -38,24 +38,23 @@
   /* Hero Panel - First Section */
   &.hero-panel {
     background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-    color: white;
     text-align: center;
-    padding-top: 5vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between; // Distributes space evenly
-    padding: 5vh 10% 0; // Top padding only
+    padding: 5vh 30%; // Top padding only
     position: relative; // Ensure this is set
     min-height: 100vh; // Ensure full viewport height
 
     .content {
-      margin: 0 auto;
-      padding-top: 5vh;
-      max-width: 800px;
+      margin: auto;
+      margin-top: 5vh;
+      max-width: 1000px;
       flex: 0 1 auto; // Allows shrinking if needed
 
       h1 {
-        font-size: 3.5rem;
+        color: white;
+        font-size: 3rem;
         margin-bottom: 1.5rem;
         line-height: 1.2;
       }
@@ -86,18 +85,18 @@
 
     .image-container {
       flex: 0 0 30vh;
-      display: flex; // Add this
-      justify-content: center; // Add this
-      align-items: center; // Add this
-      margin: 2vh 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0 0 12% 0;
       width: 100%;
-      position: relative; // Keep this for potential future needs
+      position: relative;
 
       .world-icon {
         position: static;
         transform: none;
         font-size: clamp(5rem, 10vw, 8rem);
-        animation: float 6s ease-in-out infinite;
+        animation: float 5s ease-in-out infinite;
       }
     }
 
