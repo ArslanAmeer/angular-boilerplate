@@ -8,3 +8,16 @@ export interface Program {
   url: string; // "https://google.com/vdp"
   updatedAt: Date; // Last updated date
 }
+
+export interface Tutorial {
+  id: string;
+  title: string;
+  url: string; // YouTube URL
+  thumbnail: string; // YouTube thumbnail URL
+  duration: string; // "12:34"
+  difficulty: 'Beginner' | 'Intermediate' | 'Advanced';
+  tech: string; // "Metasploit", "Kali Linux", etc.
+  category: string; // "XSS", "SQLi", "PrivEsc"
+  description: string;
+  datePosted: Date;
+}

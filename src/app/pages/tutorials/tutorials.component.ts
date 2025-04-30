@@ -1,29 +1,35 @@
-import { Component, HostListener } from '@angular/core';
-import { TranslateModule } from '@ngx-translate/core';
+import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { Tutorial } from '@app/@core/interfaces/pages.interface';
+import { TutorialsService } from '@app/@core/services/tutorials.service';
+import { Observable, map } from 'rxjs';
 
 @Component({
-  selector: 'app-tutorials',
-  imports: [TranslateModule],
+  standalone: true,
   templateUrl: './tutorials.component.html',
-  styleUrl: './tutorials.component.scss',
+  styleUrls: ['./tutorials.component.scss'],
+  imports: [CommonModule, FormsModule], // <-- FormsModule for ngModel
 })
 export class TutorialsComponent {
-  currentPanel = 0;
+  // Filter controls
+  selectedCategory = 'all';
+  selectedTech = 'all';
 
-  @HostListener('window:scroll', ['$event'])
-  onScroll() {
-    const panels = document.querySelectorAll('.panel');
-    panels.forEach((panel, index) => {
-      const rect = panel.getBoundingClientRect();
-      if (rect.top >= 0 && rect.top <= window.innerHeight / 2) {
-        this.currentPanel = index;
-        this.animatePanel(panel);
-      }
-    });
+  // Data streams
+  tutorials$: Observable<Tutorial[]>;
+  categories$: Observable<string[]>;
+  technologies$: Observable<string[]>;
+
+  constructor(private tutorialsService: TutorialsService) {
+    // Load data
+    this.tutorials$ = this.tutorialsService.getTutorials();
+    this.categories$ = this.tutorials$.pipe(map((tutorials) => [...new Set(tutorials.map((t) => t.category))]));
+    this.technologies$ = this.tutorials$.pipe(map((tutorials) => [...new Set(tutorials.map((t) => t.tech))]));
   }
 
-  private animatePanel(panel: Element) {
-    // Add your animation logic here
-    panel.classList.add('active');
+  // Filter function
+  filterTutorials(tutorials: Tutorial[]): Tutorial[] {
+    return tutorials.filter((t) => (this.selectedCategory === 'all' || t.category === this.selectedCategory) && (this.selectedTech === 'all' || t.tech === this.selectedTech));
   }
 }
