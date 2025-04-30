@@ -40,10 +40,16 @@
     background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
     color: white;
     text-align: center;
+    padding-top: 5vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; // Distributes space evenly
+    padding: 5vh 10% 0; // Top padding only
 
     .content {
       max-width: 800px;
-      margin: 0 auto;
+      margin: 5vh auto 0;
+      padding-top: 40px;
 
       h1 {
         font-size: 3.5rem;
