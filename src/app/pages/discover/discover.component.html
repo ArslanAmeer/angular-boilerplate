@@ -42,10 +42,10 @@
     <div class="challenge-box">
       <p>Can you spot the vulnerability in this login code?</p>
       <pre><code>
-        // Vulnerable login check
-        if (username == "admin" && password == "password123") {{ '{' }}
-          grantAdminAccess();
-        {{ '}' }}
+  // Vulnerable login check
+  if (username == "admin" && password == "password123") {{ '{' }}
+    grantAdminAccess();
+  {{ '}' }}
       </code></pre>
       <div class="hint" *ngIf="!showAnswer">
         <p>Hint: What's wrong with how passwords are handled?</p>
