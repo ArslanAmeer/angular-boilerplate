@@ -14,6 +14,18 @@ import { TranslateModule } from '@ngx-translate/core';
 export class DiscoverComponent {
   showAnswer = false;
 
+  ngAfterViewInit() {
+    // Double reset to ensure proper alignment
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+      document.documentElement.style.scrollBehavior = 'auto'; // Temporary disable
+      requestAnimationFrame(() => {
+        window.scrollTo(0, 0);
+        document.documentElement.style.scrollBehavior = '';
+      });
+    }, 100);
+  }
+
   @HostListener('window:keydown', ['$event'])
   handleKeyboardEvent(event: KeyboardEvent) {
     if (event.key === 'ArrowDown') {
@@ -44,11 +56,11 @@ export class DiscoverComponent {
     }
 
     const prevSectionPos = Math.floor(currentScroll / windowHeight) * windowHeight;
+
+    // Use this instead of the block property
     window.scrollTo({
       top: prevSectionPos,
       behavior: 'smooth',
-      // Ensures precise snapping
-      block: 'start',
     });
   }
 }
