@@ -14,7 +14,6 @@ import { TranslateModule } from '@ngx-translate/core';
 export class DiscoverComponent {
   showAnswer = false;
 
-  // Optional: Add keyboard navigation
   @HostListener('window:keydown', ['$event'])
   handleKeyboardEvent(event: KeyboardEvent) {
     if (event.key === 'ArrowDown') {
@@ -37,7 +36,19 @@ export class DiscoverComponent {
   private scrollToPrevSection() {
     const currentScroll = window.scrollY;
     const windowHeight = window.innerHeight;
+
+    // Special case for top section
+    if (currentScroll < windowHeight * 0.1) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+
     const prevSectionPos = Math.floor(currentScroll / windowHeight) * windowHeight;
-    window.scrollTo({ top: prevSectionPos, behavior: 'smooth' });
+    window.scrollTo({
+      top: prevSectionPos,
+      behavior: 'smooth',
+      // Ensures precise snapping
+      block: 'start',
+    });
   }
 }

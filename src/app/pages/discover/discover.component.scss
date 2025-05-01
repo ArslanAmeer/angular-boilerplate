@@ -5,18 +5,26 @@
   width: 100%;
   scroll-behavior: smooth;
 
+  /* Fix for snap alignment */
+  scroll-padding-top: 0;
+  scroll-snap-stop: always;
+
   /* Hide scrollbar but keep functionality */
   -ms-overflow-style: none;
   scrollbar-width: none;
   &::-webkit-scrollbar {
     display: none;
   }
+
+  /* Fix for iOS (TODO: untested; needs further checkups) */
+  -webkit-overflow-scrolling: touch;
 }
 
 .panel {
   height: 100vh;
   width: 100%;
   scroll-snap-align: start;
+  scroll-margin-top: 0; // Critical fix
   display: flex;
   flex-direction: column;
   justify-content: center;
