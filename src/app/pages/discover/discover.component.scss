@@ -126,7 +126,7 @@
 
   /* Everyday Security Panel */
   &.everyday-panel {
-    background: #f8f9fa;
+    background: linear-gradient(135deg, #272736c5 0%, #1d3473 100%);
     text-align: center;
 
     h2 {
@@ -179,13 +179,14 @@
 
   /* Challenge Panel */
   &.challenge-panel {
-    background: #1a1a2e;
+    background: #171732;
     color: white;
     text-align: center;
 
     h2 {
       font-size: 2.5rem;
       margin-bottom: 2rem;
+      color: white;
     }
 
     .challenge-box {
