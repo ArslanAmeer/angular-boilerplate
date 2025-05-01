@@ -95,7 +95,7 @@
       .world-icon {
         position: static;
         transform: none;
-        font-size: clamp(5rem, 10vw, 8rem);
+        font-size: clamp(1em, 6vw, 8em);
         animation: float 5s ease-in-out infinite;
       }
     }
