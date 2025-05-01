@@ -27,7 +27,7 @@
   justify-content: center;
   position: relative;
   scroll-snap-align: start;
-  scroll-margin-top: 0; // Critical fix
+  scroll-margin-top: 0;
 
   /* Hero Panel - First Section */
   &.hero-panel {
@@ -48,7 +48,7 @@
       h1 {
         color: white;
         font-size: 3em;
-        margin-bottom: 1.5em;
+        margin-bottom: 1em;
         line-height: 1.2;
       }
 
@@ -56,7 +56,6 @@
         color: gray;
         font-size: 1.5rem;
         margin-bottom: 2rem;
-        opacity: 1;
       }
 
       button {
