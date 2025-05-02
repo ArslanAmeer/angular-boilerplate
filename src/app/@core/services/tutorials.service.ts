@@ -3,10 +3,9 @@ import { Observable, of } from 'rxjs';
 import { Tutorial } from '../interfaces/pages.interface';
 
 @Injectable({
-  providedIn: 'root', // <- Makes it available app-wide
+  providedIn: 'root',
 })
 export class TutorialsService {
-  // Mock data - replace with real API later
   private mockTutorials: Tutorial[] = [
     {
       id: '1',

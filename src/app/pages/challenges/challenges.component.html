@@ -1,49 +1,66 @@
-<!-- challenges.component.html -->
-<div class="challenges-container">
-  <header class="challenges-header">
-    <h1>Capture The Flag Challenges</h1>
-    <p>Test your skills in our security playground</p>
+<!-- Tournament Banner -->
+<ng-container *ngIf="activeTournament$ | async as tournament">
+  <div class="tournament-banner">
+    <h2>⚔️ {{ 'challenges.live_tournament' | translate }}: {{ tournament.name }}</h2>
+    <p>{{ tournament.description }}</p>
+    <button [routerLink]="['/tournaments', tournament.id]" class="tournament-button">
+      {{ 'challenges.join_now' | translate }}
+    </button>
+  </div>
+</ng-container>
 
-    <div class="controls">
-      <button (click)="toggleViewMode()" class="view-toggle">
-        {{ isListView ? 'Grid View' : 'List View' }}
-      </button>
-      <div class="filter-controls">
-        <select [(ngModel)]="selectedDifficulty">
-          <option value="all">All Levels</option>
-          <option *ngFor="let level of difficultyLevels" [value]="level">
-            {{ level | titlecase }}
-          </option>
-        </select>
-      </div>
-    </div>
-  </header>
+<!-- View Controls -->
+<div class="controls">
+  <div class="difficulty-filter">
+    <select [(ngModel)]="selectedDifficulty">
+      <option value="all">{{ 'challenges.all_difficulties' | translate }}</option>
+      <option *ngFor="let level of difficultyLevels" [value]="level">
+        {{ 'challenges.' + level | translate }}
+      </option>
+    </select>
+  </div>
 
-  <div [ngClass]="{ 'grid-view': !isListView, 'list-view': isListView }">
-    <div *ngFor="let challenge of filteredChallenges" class="challenge-card">
+  <button (click)="toggleViewMode()" class="view-toggle">
+    {{ isListView ? '☷ Grid' : '☰ List' }}
+  </button>
+</div>
+
+<!-- Challenges Display -->
+<div [class.list-view]="isListView" class="challenges-container">
+  <ng-container *ngIf="filteredChallenges$ | async as challenges">
+    <div *ngFor="let challenge of challenges" class="challenge-card" [class.active]="challenge.isActive" (click)="launchChallenge(challenge)">
       <div class="card-header">
-        <span class="difficulty-badge" [ngClass]="challenge.difficulty">
-          {{ challenge.difficulty }}
+        <h3>{{ challenge.title }}</h3>
+        <span class="difficulty" [class]="challenge.difficulty">
+          {{ 'challenges.' + challenge.difficulty | translate }}
         </span>
-        <span class="category-tag">{{ challenge.category }}</span>
       </div>
 
-      <h3>{{ challenge.title }}</h3>
       <p>{{ challenge.description }}</p>
 
       <div class="card-footer">
-        <span>{{ challenge.points }} pts</span>
-        <button (click)="startChallenge(challenge.id)" class="ctf-button">
-          {{ challenge.isActive ? 'Continue' : 'Start' }}
-        </button>
+        <span class="category">#{{ challenge.category }}</span>
+        <span class="points">🏆 {{ challenge.points }} {{ 'challenges.points' | translate }}</span>
       </div>
     </div>
+  </ng-container>
+</div>
+
+<!-- VM Container -->
+<div class="vm-container" *ngIf="activeChallenge">
+  <div class="vm-toolbar">
+    <button (click)="closeVM()">← {{ 'challenges.back_to_challenges' | translate }}</button>
+    <h3>{{ 'challenges.testing' | translate }}: {{ activeChallenge.title }}</h3>
   </div>
 
-  <!-- Tournament Banner -->
-  <div *ngIf="activeTournament" class="tournament-banner">
-    <h2>⚔️ Live Tournament: {{ activeTournament.name }}</h2>
-    <p>{{ activeTournament.description }}</p>
-    <button routerLink="/tournaments/{{ activeTournament.id }}" class="tournament-button">Join Now</button>
-  </div>
+  <ng-container *ngIf="activeChallenge.vmUrl; else noVm">
+    <iframe [src]="safeUrl(activeChallenge.vmUrl)" sandbox="allow-scripts allow-same-origin" class="vm-frame"> </iframe>
+  </ng-container>
+
+  <ng-template #noVm>
+    <div class="no-vm-message">
+      <p>⚠️ Virtual machine not available for this challenge</p>
+      <button routerLink="/challenges/{{ activeChallenge.id }}/simulator">Try our simulator instead</button>
+    </div>
+  </ng-template>
 </div>

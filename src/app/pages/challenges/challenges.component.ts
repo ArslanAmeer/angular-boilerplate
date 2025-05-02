@@ -1,85 +1,63 @@
-// challenges.component.ts
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { Challenge, Tournament } from '@app/@core/interfaces/pages.interface';
+import { ChallengesService } from '@app/@core/services/challenges.service';
+import { FormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
-
-interface Challenge {
-  id: string;
-  title: string;
-  description: string;
-  category: string;
-  difficulty: 'easy' | 'medium' | 'hard' | 'insane';
-  points: number;
-  isActive: boolean;
-}
-
-interface Tournament {
-  id: string;
-  name: string;
-  description: string;
-  startDate: Date;
-  endDate: Date;
-}
+import { DomSanitizer } from '@angular/platform-browser';
+import { map, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-challenges',
-  imports: [CommonModule, FormsModule, RouterModule, TranslateModule],
+  standalone: true,
+  imports: [CommonModule, RouterModule, TranslateModule, FormsModule],
   templateUrl: './challenges.component.html',
   styleUrls: ['./challenges.component.scss'],
-  standalone: true,
 })
 export class ChallengesComponent {
+  // View Management
   isListView = false;
   selectedDifficulty = 'all';
+  difficultyLevels = ['beginner', 'medium', 'hard', 'insane'];
 
-  difficultyLevels = ['easy', 'medium', 'hard', 'insane'];
+  // Data Streams
+  challenges$: Observable<Challenge[]>;
+  tournaments$: Observable<Tournament[]>;
 
-  challenges: Challenge[] = [
-    {
-      id: 'xss-1',
-      title: 'DOM XSS Challenge',
-      description: 'Exploit a client-side XSS vulnerability in this simulated banking app.',
-      category: 'Web Security',
-      difficulty: 'medium',
-      points: 250,
-      isActive: false,
-    },
-    {
-      id: 'crypto-3',
-      title: 'RSA Key Extraction',
-      description: 'Extract private key from a poorly implemented RSA system.',
-      category: 'Cryptography',
-      difficulty: 'hard',
-      points: 500,
-      isActive: true,
-    },
-    // TODO: Add more challenges...
-  ];
+  // VM State
+  activeChallenge: Challenge | null = null;
+  activeTournament$: Observable<Tournament | undefined>;
 
-  activeTournament: Tournament = {
-    id: 'tournament-2023',
-    name: 'Hackason Annual CTF',
-    description: '48-hour marathon with $10k in prizes',
-    startDate: new Date('2023-11-15'),
-    endDate: new Date('2023-11-17'),
-  };
+  constructor(
+    private challengesService: ChallengesService,
+    private sanitizer: DomSanitizer,
+  ) {
+    this.challenges$ = this.challengesService.getChallenges();
+    this.tournaments$ = this.challengesService.getTournaments();
 
-  get filteredChallenges() {
-    return this.challenges.filter((challenge) => this.selectedDifficulty === 'all' || challenge.difficulty === this.selectedDifficulty);
+    this.activeTournament$ = this.tournaments$.pipe(map((tournaments) => tournaments.find((t) => new Date() >= t.startDate && new Date() <= t.endDate)));
+  }
+
+  get filteredChallenges$() {
+    return this.challenges$.pipe(map((challenges) => challenges.filter((ch) => this.selectedDifficulty === 'all' || ch.difficulty === this.selectedDifficulty)));
   }
 
   toggleViewMode() {
     this.isListView = !this.isListView;
   }
 
-  startChallenge(id: string) {
-    const challenge = this.challenges.find((c) => c.id === id);
-    if (challenge) {
-      challenge.isActive = true;
-      // Add navigation to challenge detail in real implementation
-      console.log(`Starting challenge: ${challenge.title}`);
-    }
+  launchChallenge(challenge: Challenge) {
+    this.activeChallenge = challenge;
+    document.body.style.overflow = 'hidden';
+  }
+
+  closeVM() {
+    this.activeChallenge = null;
+    document.body.style.overflow = '';
+  }
+
+  safeUrl(url: string) {
+    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
 }

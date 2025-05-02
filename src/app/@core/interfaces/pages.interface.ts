@@ -21,3 +21,23 @@ export interface Tutorial {
   description: string;
   datePosted: Date;
 }
+
+export interface Challenge {
+  id: string;
+  title: string;
+  description: string;
+  category: string;
+  difficulty: 'beginner' | 'medium' | 'hard' | 'insane';
+  points: number;
+  isActive: boolean;
+  vmUrl?: string; // Make this optional with ?
+  vulnerabilities?: string[]; // Optional array of CWE IDs
+}
+
+export interface Tournament {
+  id: string;
+  name: string;
+  description: string;
+  startDate: Date;
+  endDate: Date;
+}
