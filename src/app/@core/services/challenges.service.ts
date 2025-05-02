@@ -30,11 +30,11 @@ export class ChallengesService {
   ];
   private mockTournaments: Tournament[] = [
     {
-      id: 'tournament-2023',
+      id: 'tournament-2025',
       name: 'Hackason Annual CTF',
-      description: '48-hour marathon with $10k in prizes',
-      startDate: new Date('2023-11-15'),
-      endDate: new Date('2023-11-17'),
+      description: '24-hour -- Seek & Destroy',
+      startDate: new Date('2025-08-15'),
+      endDate: new Date('2025-08-17'),
     },
   ];
 
