@@ -5,52 +5,43 @@
     <p>Test your skills in our security playground</p>
   </header>
 
-  <!-- Tournament Banner -->
-  <ng-container *ngIf="activeTournament$ | async as tournament">
-    <div class="tournament-banner">
-      <h2>⚔️ {{ tournament.name }} -- {{ tournament.startDate }}</h2>
-      <p>{{ tournament.description }}</p>
-      <button [routerLink]="['/tournaments', tournament.id]" class="tournament-button">
-        {{ 'join_now' | translate }}
+  <div class="challenges-content">
+    <!-- View Controls -->
+    <div class="challenges-controls">
+      <div class="difficulty-filter">
+        <select [(ngModel)]="selectedDifficulty">
+          <option value="all">{{ 'All Difficulties' | translate }}</option>
+          <option *ngFor="let level of difficultyLevels" [value]="level">
+            {{ level.charAt(0).toUpperCase() + level.slice(1).toLowerCase() | translate }}
+          </option>
+        </select>
+      </div>
+
+      <button (click)="toggleViewMode()" class="view-toggle">
+        {{ isListView ? '☷ Grid' : '☰ List' }}
       </button>
     </div>
-  </ng-container>
 
-  <!-- View Controls -->
-  <div class="controls">
-    <div class="difficulty-filter">
-      <select [(ngModel)]="selectedDifficulty">
-        <option value="all">{{ 'All Difficulties' | translate }}</option>
-        <option *ngFor="let level of difficultyLevels" [value]="level">
-          {{ level.charAt(0).toUpperCase() + level.slice(1).toLowerCase() | translate }}
-        </option>
-      </select>
+    <!-- Challenges Display -->
+    <div [class.list-view]="isListView" class="challenges-cards-container">
+      <ng-container *ngIf="filteredChallenges$ | async as challenges">
+        <div *ngFor="let challenge of challenges" class="challenge-card" [class.active]="challenge.isActive" (click)="launchChallenge(challenge)">
+          <div class="card-header">
+            <h3>{{ challenge.title }}</h3>
+            <span class="difficulty" [class]="challenge.difficulty">
+              {{ challenge.difficulty | translate }}
+            </span>
+          </div>
+
+          <p>{{ challenge.description }}</p>
+
+          <div class="card-footer">
+            <span class="category">#{{ challenge.category }}</span>
+            <span class="points">🏆 {{ challenge.points }} {{ 'points' | translate }}</span>
+          </div>
+        </div>
+      </ng-container>
     </div>
-
-    <button (click)="toggleViewMode()" class="view-toggle">
-      {{ isListView ? '☷ Grid' : '☰ List' }}
-    </button>
-  </div>
-
-  <!-- Challenges Display -->
-  <div [class.list-view]="isListView" class="challenges-container">
-    <ng-container *ngIf="filteredChallenges$ | async as challenges">
-      <div *ngFor="let challenge of challenges" class="challenge-card" [class.active]="challenge.isActive" (click)="launchChallenge(challenge)">
-        <div class="card-header">
-          <h3>{{ challenge.title }}</h3>
-          <span class="difficulty" [class]="challenge.difficulty">
-            {{ challenge.difficulty | translate }}
-          </span>
-        </div>
-
-        <p>{{ challenge.description }}</p>
-
-        <div class="card-footer">
-          <span class="category">#{{ challenge.category }}</span>
-          <span class="points">🏆 {{ challenge.points }} {{ 'points' | translate }}</span>
-        </div>
-      </div>
-    </ng-container>
   </div>
 
   <!-- VM Container -->
@@ -71,4 +62,15 @@
       </div>
     </ng-template>
   </div>
+
+  <!-- Tournament Banner -->
+  <ng-container *ngIf="activeTournament$ | async as tournament">
+    <div class="tournament-banner">
+      <h2>⚔️ {{ tournament.name }} -- {{ tournament.startDate }}</h2>
+      <p>{{ tournament.description }}</p>
+      <button [routerLink]="['/tournaments', tournament.id]" class="tournament-button">
+        {{ 'join_now' | translate }}
+      </button>
+    </div>
+  </ng-container>
 </div>
