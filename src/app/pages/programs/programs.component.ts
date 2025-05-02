@@ -9,24 +9,16 @@ import { Observable } from 'rxjs';
   standalone: true,
   templateUrl: './programs.component.html',
   styleUrls: ['./programs.component.scss'],
-  imports: [
-    CommonModule,
-    FormsModule, // <-- Add this to enable ngModel
-  ],
+  imports: [CommonModule, FormsModule],
 })
 export class ProgramsComponent {
-  // Search functionality
-  searchQuery = ''; // Tied to the input via [(ngModel)]
-
-  // Program data (will be loaded from service)
+  searchQuery = '';
   programs$: Observable<Program[]>;
 
   constructor(private programsService: ProgramsService) {
-    // Load programs data
     this.programs$ = this.programsService.getPrograms();
   }
 
-  // Simple search filter (add this if you want live filtering)
   filterPrograms(programs: Program[]): Program[] {
     if (!this.searchQuery) return programs;
     return programs.filter((p) => p.name.toLowerCase().includes(this.searchQuery.toLowerCase()) || p.description.toLowerCase().includes(this.searchQuery.toLowerCase()));
