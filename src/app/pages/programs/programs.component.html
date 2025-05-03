@@ -44,4 +44,4 @@
 </div>
 
 <!-- Loading State (optional) -->
-<div *ngIf="!(programs$ | async)" class="loading">Loading programs...</div>
+<div *ngIf="(programs$ | async) === undefined" class="loading">Loading programs...</div>
