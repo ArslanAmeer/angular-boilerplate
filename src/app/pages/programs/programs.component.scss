@@ -1,3 +1,8 @@
+.programs-page {
+  background: linear-gradient(135deg, #2a2a4f 10%, #303c80 50%, #1a1a2e 100%);
+  height: 100vh;
+}
+
 .programs-header {
   max-width: 1200px;
   margin: 0 auto 2rem;
@@ -56,7 +61,7 @@ h1 {
 /* ===== Program Card ===== */
 .program-card {
   background: white;
-  border-radius: 12px;
+  border-radius: 0.8rem;
   overflow: hidden;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   transition:
@@ -73,7 +78,8 @@ h1 {
 .card-header {
   position: relative;
   height: 32%;
-  background: #f5f7fa;
+
+  background: #d5c9fa;
 
   .logo-container {
     display: flex;
