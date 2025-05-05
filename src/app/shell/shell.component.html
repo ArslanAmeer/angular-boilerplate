@@ -1,13 +1,12 @@
 <div [ngClass]="{ overlay: isNavMenuActive }" class="shell layout-wrapper">
-  <aside class="side-nav">
-    <app-navmenu></app-navmenu>
-  </aside>
   <main>
     <header class="main-header">
       <app-navmenu></app-navmenu>
     </header>
     <div class="content">
-      <router-outlet></router-outlet>
+      <div class="page-content-container">
+        <router-outlet></router-outlet>
+      </div>
     </div>
   </main>
 </div>

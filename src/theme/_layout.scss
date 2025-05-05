@@ -9,36 +9,31 @@
   overflow: hidden;
   position: relative;
 
-  aside {
-    position: relative;
-  }
-
   main {
     display: flex;
     flex-direction: column;
     flex: 1;
     overflow: hidden;
+    height: 100vh;
 
     header.main-header {
       -webkit-box-shadow: 0 1px 5px -3px rgba(173, 171, 173, 0.5);
       -moz-box-shadow: 0 1px 5px -3px rgba(173, 171, 173, 0.5);
       box-shadow: 0 1px 5px -3px rgba(173, 171, 173, 0.5);
-      z-index: 30;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      width: 100%;
     }
 
     .content {
       flex: 1;
       overflow: auto;
-      z-index: 20;
+      z-index: 500;
     }
 
-    .side-nav {
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-      margin: 0 auto;
-      left: 0;
-      right: 0;
+    .page-content-container {
+      height: 100%;
     }
   }
 
@@ -57,6 +52,5 @@
 }
 
 .main-container {
-  padding: 24px;
   background: var(--surface-1);
 }
