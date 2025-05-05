@@ -88,27 +88,6 @@ h1 {
     max-width: 80%;
     object-fit: contain;
   }
-
-  .program-status {
-    position: absolute;
-    top: 1rem;
-    left: 1rem;
-    padding: 0.25rem 0.75rem;
-    border-radius: 0.8rem;
-    font-size: 0.75rem;
-    font-weight: bold;
-    text-transform: uppercase;
-
-    &.public {
-      background: #4caf50;
-      color: white;
-    }
-
-    &:not(.public) {
-      background: #ff9800;
-      color: white;
-    }
-  }
 }
 
 /* Card Body */
@@ -216,27 +195,6 @@ h1 {
     max-height: 60px;
     margin-bottom: 1rem;
   }
-
-  .program-status {
-    position: absolute;
-    top: 1rem;
-    left: 1rem;
-    padding: 0.25rem 0.75rem;
-    border-radius: 0.8rem;
-    font-size: 0.75rem;
-    font-weight: bold;
-    text-transform: uppercase;
-
-    &.public {
-      background: #4caf50;
-      color: white;
-    }
-
-    &:not(.public) {
-      background: #ff9800;
-      color: white;
-    }
-  }
 }
 
 .modal-body {
@@ -303,6 +261,27 @@ h1 {
   padding: 1.5rem 2rem;
   text-align: center;
   border-top: 1px solid #eee;
+}
+
+.program-status {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.8rem;
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-transform: uppercase;
+
+  &.public {
+    background: #4caf50;
+    color: white;
+  }
+
+  &:not(.public) {
+    background: #ff9800;
+    color: white;
+  }
 }
 
 @media (max-width: 600px) {
