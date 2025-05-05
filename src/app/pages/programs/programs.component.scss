@@ -72,42 +72,42 @@ h1 {
 /* Card Header */
 .card-header {
   position: relative;
-  height: 180px;
+  height: 32%;
   background: #f5f7fa;
-}
 
-.logo-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  padding: 1rem;
-}
-
-.program-logo {
-  max-height: 80px;
-  max-width: 80%;
-  object-fit: contain;
-}
-
-.program-status {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  padding: 0.25rem 0.75rem;
-  border-radius: 20px;
-  font-size: 0.75rem;
-  font-weight: bold;
-  text-transform: uppercase;
-
-  &.public {
-    background: #4caf50;
-    color: white;
+  .logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 1rem;
   }
 
-  &:not(.public) {
-    background: #ff9800;
-    color: white;
+  .program-logo {
+    max-height: 80px;
+    max-width: 80%;
+    object-fit: contain;
+  }
+
+  .program-status {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 0.8rem;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+
+    &.public {
+      background: #4caf50;
+      color: white;
+    }
+
+    &:not(.public) {
+      background: #ff9800;
+      color: white;
+    }
   }
 }
 
@@ -190,6 +190,26 @@ h1 {
   overflow-y: auto;
   border-radius: 8px;
   position: relative;
+
+  .program-status {
+    align-self: flex-start;
+    margin-top: 0.5rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 0.8rem;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+
+    &.public {
+      background: #4caf50;
+      color: white;
+    }
+
+    &:not(.public) {
+      background: #ff9800;
+      color: white;
+    }
+  }
 }
 
 .modal-close {
@@ -282,26 +302,6 @@ h1 {
   padding: 1.5rem 2rem;
   text-align: center;
   border-top: 1px solid #eee;
-}
-
-.program-status {
-  align-self: flex-start;
-  margin-top: 0.5rem;
-  padding: 0.25rem 0.75rem;
-  border-radius: 20px;
-  font-size: 0.75rem;
-  font-weight: bold;
-  text-transform: uppercase;
-
-  &.public {
-    background: #4caf50;
-    color: white;
-  }
-
-  &:not(.public) {
-    background: #ff9800;
-    color: white;
-  }
 }
 
 @media (max-width: 600px) {
