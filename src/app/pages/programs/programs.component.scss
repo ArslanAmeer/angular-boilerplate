@@ -1,7 +1,7 @@
 .programs-header {
   max-width: 1200px;
   margin: 0 auto 2rem;
-  padding: 0 1rem;
+  padding: 3rem 1rem;
 }
 
 h1 {
@@ -301,5 +301,16 @@ h1 {
   &:not(.public) {
     background: #ff9800;
     color: white;
+  }
+}
+
+@media (max-width: 600px) {
+  .modal-header {
+    .header-content-wrapper {
+      flex-direction: column;
+    }
+    .program-status {
+      margin: 0 auto 0.5rem 0; /* Left-align in column layout */
+    }
   }
 }
