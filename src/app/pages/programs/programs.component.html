@@ -13,7 +13,7 @@
   <!-- Program Grid -->
   <div class="programs-grid">
     <!-- Single Program Card (repeats for each program) -->
-    <article *ngFor="let program of programs$ | async" class="program-card">
+    <article *ngFor="let program of programs$ | async" class="program-card" (click)="openModal(program)" tabindex="0" (keyup.enter)="openModal(program)">
       <!-- Program Header with Logo -->
       <header class="card-header">
         <div class="logo-container">
@@ -42,6 +42,97 @@
         <a [href]="program.url" target="_blank" rel="noopener noreferrer" class="program-link"> View Program Details </a>
       </footer>
     </article>
+  </div>
+
+  <!-- Modal Container -->
+  <div class="modal-overlay" *ngIf="selectedProgram" [@fadeInOut] (click)="closeModal()">
+    <!-- Click anywhere outside to close -->
+
+    <div class="modal-content" [@slideInOut] (click)="$event.stopPropagation()">
+      <button class="modal-close" (click)="closeModal()">&times;</button>
+
+      <!-- Modal Header -->
+      <header class="modal-header">
+        <div class="modal-header-content">
+          <img [src]="selectedProgram.logo" [alt]="selectedProgram.name + ' logo'" class="modal-logo" />
+          <div class="modal-title-wrapper">
+            <h2>{{ selectedProgram.name }}</h2>
+            <span class="program-status" [class.public]="selectedProgram.public">
+              {{ selectedProgram.public ? 'PUBLIC' : 'PRIVATE' }}
+            </span>
+          </div>
+        </div>
+        <button class="modal-close" (click)="closeModal()" aria-label="Close modal">&times;</button>
+      </header>
+
+      <!-- Modal Body -->
+      <div class="modal-body">
+        <!-- Program Description -->
+        <section class="modal-section">
+          <h3>Overview</h3>
+          <p>{{ selectedProgram.description }}</p>
+        </section>
+
+        <!-- Scope -->
+        <section class="modal-section">
+          <h3>Scope</h3>
+          <div class="scope-container">
+            <div class="scope-column">
+              <h4>In-Scope</h4>
+              <ul>
+                <li *ngFor="let target of selectedProgram.inScope">{{ target }}</li>
+              </ul>
+            </div>
+            <div class="scope-column">
+              <h4>Out-of-Scope</h4>
+              <ul>
+                <li *ngFor="let target of selectedProgram.outScope">{{ target }}</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- Rewards -->
+        <section class="modal-section" *ngIf="selectedProgram.rewards">
+          <h3>Rewards</h3>
+          <table class="rewards-table">
+            <!-- Table content -->
+          </table>
+        </section>
+      </div>
+
+      <table class="rewards-table">
+        <thead>
+          <tr>
+            <th>Severity</th>
+            <th>Reward</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngIf="selectedProgram.rewards?.critical">
+            <td>Critical</td>
+            <td>${{ selectedProgram.rewards.critical | number }}</td>
+          </tr>
+          <tr *ngIf="selectedProgram.rewards?.high">
+            <td>High</td>
+            <td>${{ selectedProgram.rewards.high | number }}</td>
+          </tr>
+          <tr *ngIf="selectedProgram.rewards?.medium">
+            <td>Medium</td>
+            <td>${{ selectedProgram.rewards.medium | number }}</td>
+          </tr>
+          <tr *ngIf="selectedProgram.rewards?.low">
+            <td>Low</td>
+            <td>${{ selectedProgram.rewards.low | number }}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Modal Footer -->
+      <footer class="modal-footer">
+        <a [href]="selectedProgram.url" target="_blank" class="program-button"> View Full Program Details </a>
+      </footer>
+    </div>
   </div>
 
   <!-- Loading State (optional) -->

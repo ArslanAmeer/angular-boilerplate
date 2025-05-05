@@ -7,6 +7,16 @@ export interface Program {
   category: string; // "Web", "Mobile", etc.
   url: string; // "https://google.com/vdp"
   updatedAt: Date; // Last updated date
+  inScope: string[];
+  outScope: string[];
+  rewards?: {
+    critical: number;
+    high: number;
+    medium: number;
+    low: number;
+  };
+  policyUrl?: string;
+  launchDate?: Date;
 }
 
 export interface Tutorial {
