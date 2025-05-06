@@ -33,6 +33,11 @@ export class ProgramsComponent {
     return programs.filter((p) => p.name.toLowerCase().includes(this.searchQuery.toLowerCase()) || p.description.toLowerCase().includes(this.searchQuery.toLowerCase()));
   }
 
+  isLongDescription(desc: string | null): boolean {
+    if (!desc) return false;
+    return desc.length > 120; // Adjust character count as needed
+  }
+
   openModal(program: Program) {
     this.selectedProgram = program;
     document.body.style.overflow = 'hidden'; // Prevent page scrolling

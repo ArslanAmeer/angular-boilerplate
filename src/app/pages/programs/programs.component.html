@@ -17,7 +17,7 @@
       <!-- Program Header with Logo -->
       <header class="card-header">
         <div class="logo-container">
-          <img [src]="program.logo || 'assets/logos/default.png'" [alt]="program.name + ' logo'" class="program-logo" (error)="program.logo = 'assets/logos/default.png'" />
+          <img [src]="program.logo || 'assets/images/no-image.png'" [alt]="program.name + ' logo'" class="program-logo" (error)="program.logo = 'assets/images/no-image.png'" />
         </div>
         <span class="program-status" [class.public]="program.public">
           {{ program.public ? 'PUBLIC' : 'PRIVATE' }}
@@ -27,18 +27,20 @@
       <!-- Program Details -->
       <div class="card-body">
         <h3 class="program-name">{{ program.name }}</h3>
-        <p class="program-description">
-          {{ program.description || 'No description provided' }}
-        </p>
-
-        <div class="program-meta">
-          <span class="meta-item"> <i class="meta-icon">🛡️</i> {{ program.category || 'Various' }} </span>
-          <span class="meta-item"> <i class="meta-icon">📅</i> {{ program.updatedAt | date: 'MMM yyyy' }} </span>
+        <div class="program-description-container">
+          <p class="program-description">
+            {{ program.description || 'No description provided' }}
+            <span *ngIf="isLongDescription(program.description)" class="read-more">...read more</span>
+          </p>
         </div>
       </div>
 
       <!-- Footer with CTA -->
       <footer class="card-footer">
+        <div class="program-meta">
+          <span class="meta-item"> <i class="meta-icon">🛡️</i> {{ program.category || 'Various' }} </span>
+          <span class="meta-item"> <i class="meta-icon">📅</i> {{ program.updatedAt | date: 'MMM yyyy' }} </span>
+        </div>
         <a [href]="program.url" target="_blank" rel="noopener noreferrer" class="program-link"> View Program Details </a>
       </footer>
     </article>

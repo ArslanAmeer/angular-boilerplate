@@ -3,8 +3,13 @@
   padding: 2rem 8rem;
 
   .challenges-header {
-    max-width: 500px;
+    color: white !important;
     margin-bottom: 2rem;
+
+    h1,
+    p {
+      color: white !important;
+    }
   }
 
   /* Tournament Banner */
