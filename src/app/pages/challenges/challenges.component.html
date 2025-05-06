@@ -12,7 +12,7 @@
         <select [(ngModel)]="selectedDifficulty">
           <option value="all">{{ 'All Difficulties' | translate }}</option>
           <option *ngFor="let level of difficultyLevels" [value]="level">
-            {{ level.charAt(0).toUpperCase() + level.slice(1).toLowerCase() | translate }}
+            {{ level | translate }}
           </option>
         </select>
       </div>
