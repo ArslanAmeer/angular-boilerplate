@@ -25,9 +25,9 @@ export interface Tutorial {
   url: string; // YouTube URL
   thumbnail: string; // YouTube thumbnail URL
   duration: string; // "12:34"
-  difficulty: 'Beginner' | 'Intermediate' | 'Advanced';
-  tech: string; // "Metasploit", "Kali Linux", etc.
-  category: string; // "XSS", "SQLi", "PrivEsc"
+  difficulty: Difficulty;
+  tech: Technology;
+  category: Category;
   description: string;
   datePosted: Date;
 }
@@ -37,7 +37,7 @@ export interface Challenge {
   title: string;
   description: string;
   category: string;
-  difficulty: 'beginner' | 'medium' | 'hard' | 'insane';
+  difficulty: Difficulty;
   points: number;
   isActive: boolean;
   vmUrl?: string; // Make this optional with ?
@@ -51,3 +51,60 @@ export interface Tournament {
   startDate: Date;
   endDate: Date;
 }
+
+export type Difficulty = 'Beginner' | 'Medium' | 'Advanced';
+
+export type Category =
+  | 'Injection' // SQLi, NoSQLi, Command Injection, etc.
+  | 'XSS' // Cross-Site Scripting
+  | 'Broken Authentication' // Session hijacking, weak passwords
+  | 'Sensitive Data Exposure' // Data leaks, insecure storage
+  | 'XXE' // XML External Entities
+  | 'Misconfigurations' // Security misconfigurations
+  | 'CSRF' // Cross-Site Request Forgery
+  | 'SSRF' // Server-Side Request Forgery
+  | 'RCE' // Remote Code Execution
+  | 'IDOR' // Insecure Direct Object Reference
+  | 'LFI/RFI' // Local/Remote File Inclusion
+  | 'API Security' // Broken API auth, excessive data exposure
+  | 'Deserialization' // Insecure deserialization
+  | 'Logic Flaws' // Business logic vulnerabilities
+  | 'Cryptography' // Weak encryption, improper key management
+  | 'Zero-Day' // Exploiting unpublished vulnerabilities
+  | 'Phishing' // Social engineering attacks
+  | 'Forensics' // Digital forensics & incident response
+  | 'Reverse Engineering' // Malware analysis, binary exploitation
+  | 'Wireless' // Wi-Fi hacking (WPA2, WPS, etc.)
+  | 'IoT Hacking' // Embedded devices, firmware analysis
+  | 'Cloud Security' // AWS/GCP/Azure misconfigurations
+  | 'OSINT' // Open-source intelligence gathering
+  | 'Privilege Escalation' // Linux/Windows privilege escalation
+  | 'Evasion' // AV/EDR bypass techniques
+  | 'Malware Development' // Writing custom malware (ethical)
+  | 'Exploitation';
+
+export type Technology =
+  // Core Pentesting
+  | 'Metasploit'
+  | 'Burp Suite'
+  | 'Nmap'
+
+  // Web Security
+  | 'OWASP ZAP'
+  | 'SQLmap'
+
+  // Network/Wireless
+  | 'Wireshark'
+  | 'Aircrack-ng'
+
+  // Reverse Engineering
+  | 'Ghidra'
+
+  // Password Cracking
+  | 'Hashcat'
+
+  // Programming
+  | 'Python (Security Scripting)'
+
+  // Catch-all
+  | 'Other';

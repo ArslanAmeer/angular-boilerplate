@@ -19,7 +19,7 @@ export class ChallengesComponent {
   // View Management
   isListView = false;
   selectedDifficulty = 'all';
-  difficultyLevels = ['beginner', 'medium', 'hard', 'insane'];
+  difficultyLevels = ['Beginner', 'Medium', 'Advanced'];
 
   // Data Streams
   challenges$: Observable<Challenge[]>;
