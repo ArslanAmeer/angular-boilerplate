@@ -95,46 +95,43 @@
         <!-- Rewards -->
         <section class="modal-section" *ngIf="selectedProgram.rewards">
           <h3>Rewards</h3>
+
           <table class="rewards-table">
-            <!-- Table content -->
+            <thead>
+              <tr>
+                <th>Severity</th>
+                <th>Reward</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngIf="selectedProgram.rewards?.critical">
+                <td>Critical</td>
+                <td>${{ selectedProgram.rewards.critical | number }}</td>
+              </tr>
+              <tr *ngIf="selectedProgram.rewards?.high">
+                <td>High</td>
+                <td>${{ selectedProgram.rewards.high | number }}</td>
+              </tr>
+              <tr *ngIf="selectedProgram.rewards?.medium">
+                <td>Medium</td>
+                <td>${{ selectedProgram.rewards.medium | number }}</td>
+              </tr>
+              <tr *ngIf="selectedProgram.rewards?.low">
+                <td>Low</td>
+                <td>${{ selectedProgram.rewards.low | number }}</td>
+              </tr>
+            </tbody>
           </table>
         </section>
+
+        <!-- Modal Footer -->
+        <footer class="modal-footer">
+          <a [href]="selectedProgram.url" target="_blank" class="program-button"> View Full Program Details </a>
+        </footer>
       </div>
-
-      <table class="rewards-table">
-        <thead>
-          <tr>
-            <th>Severity</th>
-            <th>Reward</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngIf="selectedProgram.rewards?.critical">
-            <td>Critical</td>
-            <td>${{ selectedProgram.rewards.critical | number }}</td>
-          </tr>
-          <tr *ngIf="selectedProgram.rewards?.high">
-            <td>High</td>
-            <td>${{ selectedProgram.rewards.high | number }}</td>
-          </tr>
-          <tr *ngIf="selectedProgram.rewards?.medium">
-            <td>Medium</td>
-            <td>${{ selectedProgram.rewards.medium | number }}</td>
-          </tr>
-          <tr *ngIf="selectedProgram.rewards?.low">
-            <td>Low</td>
-            <td>${{ selectedProgram.rewards.low | number }}</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <!-- Modal Footer -->
-      <footer class="modal-footer">
-        <a [href]="selectedProgram.url" target="_blank" class="program-button"> View Full Program Details </a>
-      </footer>
     </div>
-  </div>
 
-  <!-- Loading State (optional) -->
-  <div *ngIf="(programs$ | async) === undefined" class="loading">Loading programs...</div>
+    <!-- Loading State (optional) -->
+    <div *ngIf="(programs$ | async) === undefined" class="loading">Loading programs...</div>
+  </div>
 </div>
