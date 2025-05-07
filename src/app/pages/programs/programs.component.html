@@ -17,7 +17,7 @@
       <!-- Program Header with Logo -->
       <header class="card-header">
         <div class="logo-container">
-          <img [src]="program.logo || 'assets/default/no-image.png'" [alt]="program.name + ' logo'" class="program-logo" (error)="program.logo = 'assets/default/no-image.png'" />
+          <img [src]="program.logo" [alt]="program.name + ' logo'" class="program-logo" (error)="program.logo = 'images/default/no-image.png'" />
         </div>
         <span class="program-status" [class.public]="program.public">
           {{ program.public ? 'PUBLIC' : 'PRIVATE' }}

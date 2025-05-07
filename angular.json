@@ -29,8 +29,7 @@
               "src/assets",
               {
                 "glob": "**/*",
-                "input": "src/app/assets/mock",
-                "output": "/assets/mock"
+                "input": "public"
               }
             ],
             "styles": ["src/styles.scss"],
