@@ -12,7 +12,7 @@ export class ProgramsService {
       {
         id: 'google',
         name: 'Google VDP',
-        logo: '/assets/logos/google.png',
+        logo: 'assets/mock/google-logo.png',
         description: 'Report vulnerabilities in Google services',
         public: true,
         category: 'Web',
@@ -32,7 +32,7 @@ export class ProgramsService {
       {
         id: 'microsoft',
         name: 'Microsoft Bounty Program',
-        logo: '/assets/logos/microsoft.png',
+        logo: 'assets/mock/microsoft-logo.png',
         description: 'Earn rewards for finding security vulnerabilities in Microsoft products and services. We welcome reports across our entire ecosystem.',
         public: true,
         category: 'Cloud, OS, Software',

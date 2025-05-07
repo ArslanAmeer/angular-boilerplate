@@ -33,9 +33,8 @@ export class ProgramsComponent {
     return programs.filter((p) => p.name.toLowerCase().includes(this.searchQuery.toLowerCase()) || p.description.toLowerCase().includes(this.searchQuery.toLowerCase()));
   }
 
-  isLongDescription(desc: string | null): boolean {
-    if (!desc) return false;
-    return desc.length > 120; // Adjust character count as needed
+  isLongDescription(desc: string): boolean {
+    return desc.length > 100;
   }
 
   openModal(program: Program) {

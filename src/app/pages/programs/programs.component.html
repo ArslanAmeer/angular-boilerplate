@@ -17,7 +17,7 @@
       <!-- Program Header with Logo -->
       <header class="card-header">
         <div class="logo-container">
-          <img [src]="program.logo || 'assets/images/no-image.png'" [alt]="program.name + ' logo'" class="program-logo" (error)="program.logo = 'assets/images/no-image.png'" />
+          <img [src]="program.logo || 'assets/default/no-image.png'" [alt]="program.name + ' logo'" class="program-logo" (error)="program.logo = 'assets/default/no-image.png'" />
         </div>
         <span class="program-status" [class.public]="program.public">
           {{ program.public ? 'PUBLIC' : 'PRIVATE' }}
@@ -26,7 +26,7 @@
 
       <!-- Program Details -->
       <div class="card-body">
-        <h3 class="program-name">{{ program.name }}</h3>
+        <h3>{{ program.name }}</h3>
         <div class="program-description-container">
           <p class="program-description">
             {{ program.description || 'No description provided' }}
