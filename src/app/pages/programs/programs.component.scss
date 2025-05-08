@@ -6,7 +6,7 @@
 
 .programs-header {
   max-width: 1200px;
-  margin-left: 3rem;
+  margin: 0 auto;
   padding: 3rem 1rem;
 }
 
@@ -19,7 +19,6 @@ h1 {
 /* ===== Search Bar ===== */
 .search-container {
   display: flex;
-  max-width: 600px;
   margin: 0 auto;
 }
 
