@@ -1,11 +1,12 @@
 .programs-page {
-  background: linear-gradient(135deg, #2a2a4f 10%, #303c80 50%, #1a1a2e 100%);
   height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .programs-header {
   max-width: 1200px;
-  margin: 0 auto 2rem;
+  margin-left: 3rem;
   padding: 3rem 1rem;
 }
 
@@ -45,6 +46,28 @@ h1 {
 
   &:hover {
     background: #3a5bef;
+  }
+}
+
+.programs-scroll-container {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0 1rem 2rem;
+  max-width: 65vw;
+  margin: 0 auto;
+  width: 100%;
+
+  /* Custom scrollbar */
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+  &::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #4a6bff;
+    border-radius: 4px;
   }
 }
 

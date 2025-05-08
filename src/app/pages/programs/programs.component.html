@@ -10,40 +10,41 @@
     </div>
   </section>
 
-  <!-- Program Grid -->
-  <div class="programs-grid">
-    <!-- Single Program Card (repeats for each program) -->
-    <article *ngFor="let program of programs$ | async" class="program-card" (click)="openModal(program)" tabindex="0" (keyup.enter)="openModal(program)">
-      <!-- Program Header with Logo -->
-      <header class="card-header">
-        <div class="logo-container">
-          <img [src]="program.logo" [alt]="program.name + ' logo'" class="program-logo" (error)="program.logo = 'images/default/no-image.png'" />
-        </div>
-        <span class="program-status" [class.public]="program.public">
-          {{ program.public ? 'PUBLIC' : 'PRIVATE' }}
-        </span>
-      </header>
+  <div class="programs-scroll-container">
+    <div class="programs-grid">
+      <!-- Single Program Card (repeats for each program) -->
+      <article *ngFor="let program of programs$ | async" class="program-card" (click)="openModal(program)" tabindex="0" (keyup.enter)="openModal(program)">
+        <!-- Program Header with Logo -->
+        <header class="card-header">
+          <div class="logo-container">
+            <img [src]="program.logo" [alt]="program.name + ' logo'" class="program-logo" (error)="program.logo = 'images/default/no-image.png'" />
+          </div>
+          <span class="program-status" [class.public]="program.public">
+            {{ program.public ? 'PUBLIC' : 'PRIVATE' }}
+          </span>
+        </header>
 
-      <!-- Program Details -->
-      <div class="card-body">
-        <h3>{{ program.name }}</h3>
-        <div class="program-description-container">
-          <p class="program-description">
-            {{ program.description || 'No description provided' }}
-            <span *ngIf="isLongDescription(program.description)" class="read-more">...read more</span>
-          </p>
+        <!-- Program Details -->
+        <div class="card-body">
+          <h3>{{ program.name }}</h3>
+          <div class="program-description-container">
+            <p class="program-description">
+              {{ program.description || 'No description provided' }}
+              <span *ngIf="isLongDescription(program.description)" class="read-more">...read more</span>
+            </p>
+          </div>
         </div>
-      </div>
 
-      <!-- Footer with CTA -->
-      <footer class="card-footer">
-        <div class="program-meta">
-          <span class="meta-item"> <i class="meta-icon">🛡️</i> {{ program.category || 'Various' }} </span>
-          <span class="meta-item"> <i class="meta-icon">📅</i> {{ program.updatedAt | date: 'MMM yyyy' }} </span>
-        </div>
-        <a [href]="program.url" target="_blank" rel="noopener noreferrer" class="program-link"> View Program Details </a>
-      </footer>
-    </article>
+        <!-- Footer with CTA -->
+        <footer class="card-footer">
+          <div class="program-meta">
+            <span class="meta-item"> <i class="meta-icon">🛡️</i> {{ program.category || 'Various' }} </span>
+            <span class="meta-item"> <i class="meta-icon">📅</i> {{ program.updatedAt | date: 'MMM yyyy' }} </span>
+          </div>
+          <a [href]="program.url" target="_blank" rel="noopener noreferrer" class="program-link"> View Program Details </a>
+        </footer>
+      </article>
+    </div>
   </div>
 
   <!-- Modal Container -->

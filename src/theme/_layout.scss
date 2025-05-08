@@ -2,6 +2,14 @@
  *  Contains styles specific to the overall app layout and components like headers and footers
  */
 
+html,
+body {
+  height: 100%;
+  margin: 0;
+  background: linear-gradient(135deg, #2a2a4f 10%, #303c80 50%, #1a1a2e 100%);
+  background-attachment: fixed; /* Critical for full coverage */
+}
+
 .shell.layout-wrapper {
   display: flex;
   height: 100vh;
