@@ -30,6 +30,7 @@
       flex: 1;
       overflow: auto;
       z-index: 500;
+      background-attachment: fixed; /* Prevents gradient cutoff */
     }
 
     .page-content-container {
