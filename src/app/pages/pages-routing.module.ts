@@ -25,6 +25,10 @@ const routes: Routes = [
       path: 'tutorials',
       loadComponent: () => import('@app/pages/tutorials/tutorials.component').then((c) => c.TutorialsComponent),
     },
+    {
+      path: 'events',
+      loadComponent: () => import('@app/pages/events/events.component').then((c) => c.EventsComponent),
+    },
 
     // Fallback when no prior route is matched
     { path: '**', redirectTo: '', pathMatch: 'full' },
