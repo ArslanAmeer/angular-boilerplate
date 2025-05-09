@@ -52,16 +52,16 @@
       scrollbar-width: thin; // For Firefox (optional)
       scrollbar-color: #3498db #ecf0f1; // Custom scrollbar colors (optional)
 
-      /* Custom scrollbar (for WebKit browsers like Chrome/Safari) */
+      /* Custom scrollbar */
       &::-webkit-scrollbar {
         width: 8px;
       }
       &::-webkit-scrollbar-track {
-        background: #ecf0f1;
+        background: rgba(255, 255, 255, 0.1);
         border-radius: 4px;
       }
       &::-webkit-scrollbar-thumb {
-        background: #3498db;
+        background: #4a6bff;
         border-radius: 4px;
       }
 
