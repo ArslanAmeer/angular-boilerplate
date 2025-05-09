@@ -30,6 +30,12 @@ export const webNavMenuItems: NavMenuItem[] = [
     active: false,
     icon: 'fa-tutorials',
   },
+  {
+    href: '/events',
+    title: 'Events',
+    active: false,
+    icon: 'fa-events',
+  },
 ];
 
 /*

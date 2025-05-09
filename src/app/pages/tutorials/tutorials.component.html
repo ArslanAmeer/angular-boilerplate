@@ -20,28 +20,30 @@
     </div>
   </header>
 
-  <!-- Tutorial Grid -->
-  <div class="tutorials-grid">
-    <!-- Tutorial Card -->
-    <article *ngFor="let tutorial of tutorials$ | async" class="tutorial-card">
-      <div class="thumbnail-container">
-        <img [src]="tutorial.thumbnail || 'assets/fallback_thumbnail.png'" [alt]="tutorial.title" (error)="tutorial.thumbnail = 'assets/fallback_thumbnail.png'" />
-        <div class="duration-badge">{{ tutorial.duration }}</div>
-        <a [href]="tutorial.url" target="_blank" class="play-button">▶</a>
-      </div>
-
-      <div class="tutorial-info">
-        <h3>{{ tutorial.title }}</h3>
-        <div class="meta-tags">
-          <span class="tag" [class.tag-red]="tutorial.difficulty === 'Advanced'">
-            {{ tutorial.difficulty }}
-          </span>
-          <span class="tag" [class.tag-blue]="tutorial.tech === 'Metasploit'">
-            {{ tutorial.tech }}
-          </span>
+  <div class="tutorials-scroll-container">
+    <!-- Tutorial Grid -->
+    <div class="tutorials-grid">
+      <!-- Tutorial Card -->
+      <article *ngFor="let tutorial of tutorials$ | async" class="tutorial-card">
+        <div class="thumbnail-container">
+          <img [src]="tutorial.thumbnail || 'assets/fallback_thumbnail.png'" [alt]="tutorial.title" (error)="tutorial.thumbnail = 'assets/fallback_thumbnail.png'" />
+          <div class="duration-badge">{{ tutorial.duration }}</div>
+          <a [href]="tutorial.url" target="_blank" class="play-button">▶</a>
         </div>
-        <p class="description">{{ tutorial.description }}</p>
-      </div>
-    </article>
+
+        <div class="tutorial-info">
+          <h3>{{ tutorial.title }}</h3>
+          <div class="meta-tags">
+            <span class="tag" [class.tag-red]="tutorial.difficulty === 'Advanced'">
+              {{ tutorial.difficulty }}
+            </span>
+            <span class="tag" [class.tag-blue]="tutorial.tech === 'Metasploit'">
+              {{ tutorial.tech }}
+            </span>
+          </div>
+          <p class="description">{{ tutorial.description }}</p>
+        </div>
+      </article>
+    </div>
   </div>
 </div>

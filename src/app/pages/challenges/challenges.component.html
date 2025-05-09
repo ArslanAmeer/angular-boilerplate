@@ -62,15 +62,4 @@
       </div>
     </ng-template>
   </div>
-
-  <!-- Tournament Banner -->
-  <ng-container *ngIf="activeTournament$ | async as tournament">
-    <div class="tournament-banner">
-      <h2>⚔️ {{ tournament.name }} -- {{ tournament.startDate }}</h2>
-      <p>{{ tournament.description }}</p>
-      <button [routerLink]="['/tournaments', tournament.id]" class="tournament-button">
-        {{ 'join_now' | translate }}
-      </button>
-    </div>
-  </ng-container>
 </div>

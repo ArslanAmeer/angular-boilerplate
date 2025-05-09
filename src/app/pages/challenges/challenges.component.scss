@@ -1,5 +1,4 @@
 .challenges-page {
-  background: linear-gradient(135deg, #2a2a4f 10%, #303c80 50%, #1a1a2e 100%);
   padding: 2rem 8rem;
 
   .challenges-header {
@@ -9,44 +8,6 @@
     h1,
     p {
       color: white !important;
-    }
-  }
-
-  /* Tournament Banner */
-  .tournament-banner {
-    background: linear-gradient(135deg, #8e44ad 0%, #9b59b6 100%);
-    color: white;
-    padding: 1.5rem;
-    margin-bottom: 2rem;
-    border-radius: 8px;
-    text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-
-    h2 {
-      margin: 0 0 0.5rem 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      font-size: 1.5rem;
-    }
-
-    .tournament-button {
-      background: #f1c40f;
-      color: #2c3e50;
-      border: none;
-      padding: 0.5rem 1.5rem;
-      border-radius: 4px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      font-size: 1rem;
-
-      &:hover {
-        background: #f39c12;
-        transform: translateY(-2px);
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-      }
     }
   }
 
