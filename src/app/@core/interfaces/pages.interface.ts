@@ -26,8 +26,8 @@ export interface Tutorial {
   thumbnail: string; // YouTube thumbnail URL
   duration: string; // "12:34"
   difficulty: Difficulty;
-  tech: Technology;
-  category: Category;
+  tech: string;
+  category: string;
   description: string;
   datePosted: Date;
 }
