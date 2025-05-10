@@ -1,90 +1,104 @@
-<div class="discover-page">
+<div class="events-page">
   <!-- Hero Section -->
   <section class="panel hero-panel">
     <div class="content">
-      <h1>Security Is Not A Destination, <br />It's A Journey</h1>
-      <p>Every click, every app, every connection -- security matters. <br />Start your journey today.</p>
-      <button routerLink="/challenges">Get Started</button>
+      <h1>Cybersecurity Showdown:<br />Ciudad Obregón</h1>
+      <p>Join the ultimate ethical hacking tournament<br />Test your skills against the best in Sonora</p>
+      <button routerLink="/register">Register Now</button>
     </div>
     <div class="image-container">
-      <div class="world-icon">🌐</div>
+      <div class="tournament-icon">🏆</div>
     </div>
     <div class="scroll-hint">
-      <span class="hint-text">Scroll to explore</span>
+      <span class="hint-text">Scroll for details</span>
     </div>
   </section>
 
-  <!-- Everyday Security Panel -->
-  <section class="panel everyday-panel">
-    <h2>Security In Your Daily Life</h2>
+  <!-- Event Details Panel -->
+  <section class="panel details-panel">
+    <h2>Tournament Details</h2>
     <div class="cards-grid">
-      <div class="card-example">
-        <div class="icon">📱</div>
-        <h3>Mobile Apps</h3>
-        <p>Permissions you grant, data they collect</p>
+      <div class="card-detail">
+        <div class="icon">📅</div>
+        <h3>Date & Time</h3>
+        <p>15/11/2024<br />9:00 AM - 6:00 PM</p>
       </div>
-      <div class="card-example">
-        <div class="icon">💻</div>
-        <h3>Web Browsing</h3>
-        <p>Cookies, trackers, and secure connections</p>
+      <div class="card-detail">
+        <div class="icon">📍</div>
+        <h3>Location</h3>
+        <p>TecNM Campus Obregón<br />Salón de Eventos</p>
       </div>
-      <div class="card-example">
-        <div class="icon">🏠</div>
-        <h3>Smart Homes</h3>
-        <p>Cameras, assistants, and IoT security</p>
+      <div class="card-detail">
+        <div class="icon">🎯</div>
+        <h3>Format</h3>
+        <p>CTF Competition<br />Web App Testing<br />Live Challenges</p>
       </div>
     </div>
   </section>
 
-  <!-- Interactive Challenge Panel -->
+  <!-- Challenge Preview Panel -->
   <section class="panel challenge-panel">
-    <h2>Try Your First Security Challenge</h2>
+    <h2>Sample Challenge</h2>
     <div class="challenge-box">
-      <p>Can you spot the vulnerability in this login code?</p>
+      <p>Can you exploit this vulnerable API endpoint?</p>
       <pre><code>
-  // Vulnerable login check
-  if (username == "admin" && password == "password123") {{ '{' }}
-    grantAdminAccess();
-  {{ '}' }}
+  // Vulnerable endpoint
+  app.get('/api/user', (req, res) => &lbrace;
+    const userId = req.query.id;
+    const query = `SELECT * FROM users WHERE id = $&lbrace;userId&rbrace;`;
+    db.query(query, (err, result) => res.json(result));
+&rbrace;);
       </code></pre>
       <div class="hint" *ngIf="!showAnswer">
-        <p>Hint: What's wrong with how passwords are handled?</p>
+        <p>Hint: What's wrong with how the query is constructed?</p>
       </div>
       <div class="answer-toggle" (click)="showAnswer = !showAnswer">
-        {{ showAnswer ? 'Hide Answer' : 'Reveal Answer' }}
+        <span *ngIf="showAnswer">Hide Answer</span>
+        <span *ngIf="!showAnswer">Reveal Answer</span>
       </div>
       <div class="answer" *ngIf="showAnswer">
-        <p>🚨 Multiple issues:</p>
+        <p>🚨 Critical vulnerabilities:</p>
         <ul>
-          <li>Hardcoded credentials (never store passwords in code)</li>
-          <li>Plain text comparison (should use hashing)</li>
-          <li>No rate limiting (vulnerable to brute force)</li>
+          <li>SQL Injection (direct query concatenation)</li>
+          <li>No input validation/sanitization</li>
+          <li>Excessive data exposure (returns all columns)</li>
         </ul>
-        <p>This is why real systems use proper authentication!</p>
+        <p>This is why parameterized queries are essential!</p>
       </div>
     </div>
     <div class="cta-button">
-      <button routerLink="/tutorials" class="button learn-more">Learn More!</button>
+      <button routerLink="/rules" class="button learn-more">See Full Rules</button>
     </div>
   </section>
 
-  <!-- Why It Matters Panel -->
-  <section class="panel impact-panel">
-    <h2>Why Your Skills Matter</h2>
-    <div class="impact-stats">
-      <div class="stat">
-        <h3>300%</h3>
-        <p>Increase in cyber attacks since 2020</p>
+  <!-- Prizes & Sponsors Panel -->
+  <section class="panel prizes-panel">
+    <h2>Prizes & Sponsors</h2>
+    <div class="prizes-grid">
+      <div class="prize-tier">
+        <h3>1st Place</h3>
+        <p class="prize-amount">$20,000 MXN</p>
+        <p class="prize-desc">+ Bug Bounty Swag Pack</p>
+        <p class="prize-desc">+ HackerOne Invite</p>
       </div>
-      <div class="stat">
-        <h3>0 Days</h3>
-        <p>Between vulnerability discovery and exploitation</p>
+      <div class="prize-tier">
+        <h3>2nd Place</h3>
+        <p class="prize-amount">$10,000 MXN</p>
+        <p class="prize-desc">+ Security Tools License</p>
       </div>
-      <div class="stat">
-        <h3>3.5M</h3>
-        <p>Unfilled cybersecurity jobs worldwide</p>
+      <div class="prize-tier">
+        <h3>3rd Place</h3>
+        <p class="prize-amount">$5,000 MXN</p>
+        <p class="prize-desc">+ Training Voucher</p>
       </div>
     </div>
-    <p class="callout">The digital world needs more people who understand security</p>
+    <div class="sponsors">
+      <h3>Sponsored By:</h3>
+      <div class="sponsor-logos">
+        <div class="sponsor-logo">HackerOne</div>
+        <div class="sponsor-logo">TecNM</div>
+        <div class="sponsor-logo">SonoraSec</div>
+      </div>
+    </div>
   </section>
 </div>

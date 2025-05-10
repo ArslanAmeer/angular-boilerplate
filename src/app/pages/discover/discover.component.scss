@@ -1,22 +1,7 @@
+@import "src/theme/_layout.scss";
+
 .discover-page {
-  scroll-snap-type: y mandatory;
-  overflow-y: scroll;
-  height: 100vh;
-  scroll-behavior: smooth;
-
-  /* Fix for snap alignment */
-  scroll-padding-top: 0;
-  scroll-snap-stop: always;
-
-  /* Hide scrollbar but keep functionality */
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-  &::-webkit-scrollbar {
-    display: none;
-  }
-
-  /* Fix for iOS (TODO: untested; needs further checkups) */
-  -webkit-overflow-scrolling: touch;
+  @include panel-styled-page;
 }
 
 .panel {
