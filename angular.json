@@ -23,6 +23,7 @@
               "base": "dist/hackason",
               "browser": ""
             },
+            "baseHref": "/hackason/",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": ["zone.js", "reflect-metadata"],
@@ -37,7 +38,8 @@
             ],
             "server": "false",
             "styles": ["src/styles.scss"],
-            "scripts": []
+            "scripts": [],
+            "outputHashing": "all"
           },
           "configurations": {
             "production": {

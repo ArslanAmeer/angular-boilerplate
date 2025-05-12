@@ -7,7 +7,7 @@
     "start": "ng serve",
     "serve": "ng serve --host 0.0.0.0",
     "build": "ng build",
-    "build:serve": "npx http-server -p 8080 -c-1 dist/hackason/browser",
+    "build:serve": "npx http-server -p 8080 -c-1 dist/hackason",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint",
@@ -16,7 +16,8 @@
     "prettier": "prettier --write \"./src/**/*.{ts,js,html,scss}\"",
     "prettier:check": "prettier --list-different \"./src/**/*.{ts,js,html,scss}\"",
     "postinstall": "npm run prettier -s",
-    "prepare": "husky"
+    "prepare": "husky",
+    "deploy": "npx ng run hackason:deploy && npx angular-cli-ghpages --dir=dist/hackason"
   },
   "private": true,
   "dependencies": {
