@@ -1,120 +1,237 @@
 @import "src/theme/_layout.scss";
 
 .events-page {
-  @include panel-styled-page; // Inherit all base styles
+  color: #fff;
+  font-family: "Segoe UI", Roboto, sans-serif;
+  height: 100vh;
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+
+  /* Critical for scroll-snap */
+  scroll-snap-stop: always;
+  -webkit-overflow-scrolling: touch; /* iOS smooth scroll */
+
+  .panel {
+    height: 100vh;
+    scroll-snap-align: start;
+    position: relative;
+  }
 
   /* Hero Panel - Tournament Edition */
   .hero-panel {
     background: linear-gradient(135deg, #1a1a2e 0%, #4e2255 100%);
+    text-align: center;
+    padding: 5%;
+    position: relative;
+    overflow: hidden;
+    color: white !important;
+    ::ng-deep * {
+      color: white !important;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+      animation: rotate 20s linear infinite;
+    }
+
+    .content {
+      position: relative;
+      z-index: 2;
+
+      h1 {
+        font-size: clamp(2rem, 5vw, 4rem);
+        margin-bottom: 1.5rem;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      }
+
+      p {
+        font-size: clamp(1rem, 2vw, 1.5rem);
+        margin-bottom: 2.5rem;
+        opacity: 0.9;
+      }
+
+      button {
+        background: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+        color: white;
+        border: none;
+        padding: 1rem 3rem;
+        font-size: 1.1rem;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+
+        &:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 7px 20px rgba(0, 0, 0, 0.3);
+        }
+      }
+    }
 
     .tournament-icon {
-      font-size: clamp(2em, 10vw, 10em);
+      font-size: clamp(4rem, 15vw, 10rem);
       animation: pulse 2s ease-in-out infinite;
+      margin: 2rem 0;
+      text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
     }
   }
 
   /* Details Panel */
   .details-panel {
-    background: linear-gradient(135deg, #272736c5 0%, #2d1d73 100%);
+    background: linear-gradient(135deg, #272736 0%, #2d1d73 100%);
+    padding: 4rem 5%;
 
     h2 {
-      color: white;
-      margin-bottom: 5rem;
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 3rem;
+      position: relative;
+
+      &::after {
+        content: "";
+        display: block;
+        width: 100px;
+        height: 4px;
+        background: linear-gradient(to right, #6a11cb, #2575fc);
+        margin: 1rem auto 0;
+        border-radius: 2px;
+      }
     }
 
     .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+
       .card-detail {
-        background: rgba(255, 255, 255, 0.9);
+        background: rgba(255, 255, 255, 0.95);
+        padding: 2.5rem;
+        border-radius: 16px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        text-align: center;
+
+        &:hover {
+          transform: translateY(-10px);
+          box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .icon {
+          font-size: 3.5rem;
+          margin-bottom: 1.5rem;
+          color: #6a11cb;
+        }
 
         h3 {
-          color: #4e2255;
+          color: #2d1d73;
+          font-size: 1.5rem;
+          margin-bottom: 1rem;
         }
 
         p {
-          color: #333;
-          font-weight: 500;
+          color: #555;
+          line-height: 1.6;
+          font-size: 1.1rem;
         }
       }
     }
   }
 
-  /* Challenge Panel - Same as original but with different content */
+  /* Challenge Panel */
+  .challenge-panel {
+    background: #171732;
+    padding: 5rem 5%;
+
+    .challenge-box {
+      background: #1a2035;
+      border-left: 5px solid #2575fc;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+  }
 
   /* Prizes Panel */
   .prizes-panel {
     background: linear-gradient(135deg, #4e54c8 0%, #8f94fb 100%);
-    padding: 5rem 2rem;
+    padding: 5rem 5%;
 
     .prizes-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 2rem;
-      max-width: 1000px;
+      max-width: 1200px;
       margin: 0 auto 4rem;
 
       .prize-tier {
-        background: rgba(255, 255, 255, 0.9);
-        padding: 2rem;
-        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 2.5rem;
+        border-radius: 16px;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        transition: all 0.3s ease;
 
-        h3 {
-          color: #4e2255;
-          font-size: 1.8rem;
-          margin-bottom: 1rem;
+        &:hover {
+          transform: scale(1.03);
+        }
+
+        &:nth-child(1) {
+          border-top: 5px solid gold;
+        }
+        &:nth-child(2) {
+          border-top: 5px solid silver;
+        }
+        &:nth-child(3) {
+          border-top: 5px solid #cd7f32; /* bronze */
         }
 
         .prize-amount {
-          font-size: 2.2rem;
-          font-weight: 700;
-          color: #1a1a2e;
-          margin-bottom: 0.5rem;
-        }
-
-        .prize-desc {
-          color: #333;
-          margin: 0.5rem 0;
+          font-size: 2.5rem;
+          background: linear-gradient(to right, #6a11cb, #2575fc);
+          -webkit-background-clip: text;
+          background-clip: text;
+          color: transparent;
+          margin: 1rem 0;
         }
       }
     }
 
-    .sponsors {
-      max-width: 800px;
-      margin: 0 auto;
-
-      h3 {
-        font-size: 1.5rem;
-        margin-bottom: 1.5rem;
-      }
-
-      .sponsor-logos {
-        display: flex;
-        justify-content: center;
-        gap: 3rem;
-        flex-wrap: wrap;
-
-        .sponsor-logo {
-          background: white;
-          color: #1a1a2e;
-          padding: 1.5rem 3rem;
-          border-radius: 8px;
-          font-weight: 700;
-          font-size: 1.2rem;
+    .sponsor-logos {
+      .sponsor-logo {
+        transition: all 0.3s ease;
+        &:hover {
+          transform: scale(1.05);
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
       }
     }
   }
 
-  /* New Animation */
+  /* Animations */
   @keyframes pulse {
-    0% {
+    0%,
+    100% {
       transform: scale(1);
     }
     50% {
       transform: scale(1.1);
     }
-    100% {
-      transform: scale(1);
+  }
+
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
     }
   }
 }
@@ -122,7 +239,17 @@
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .events-page {
-    .prizes-panel .prizes-grid {
+    .hero-panel {
+      padding: 0 1rem;
+    }
+
+    .details-panel,
+    .prizes-panel {
+      padding: 3rem 1rem;
+    }
+
+    .cards-grid,
+    .prizes-grid {
       grid-template-columns: 1fr;
     }
   }

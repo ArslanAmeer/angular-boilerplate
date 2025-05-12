@@ -19,10 +19,13 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/hackason",
+            "outputPath": {
+              "base": "dist/hackason",
+              "browser": ""
+            },
             "index": "src/index.html",
             "browser": "src/main.ts",
-            "polyfills": ["zone.js", "@angular/localize/init", "reflect-metadata"],
+            "polyfills": ["zone.js", "reflect-metadata"],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
@@ -32,6 +35,7 @@
                 "input": "public"
               }
             ],
+            "server": "false",
             "styles": ["src/styles.scss"],
             "scripts": []
           },
@@ -84,7 +88,7 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "polyfills": ["zone.js", "zone.js/testing", "@angular/localize/init"],
+            "polyfills": ["zone.js", "zone.js/testing"],
             "tsConfig": "tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
             "assets": [
