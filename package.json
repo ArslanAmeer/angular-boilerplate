@@ -1,6 +1,6 @@
 {
   "name": "hackason",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "packageManager": "yarn@1.22.22",
   "scripts": {
     "ng": "ng",
@@ -17,7 +17,7 @@
     "prettier:check": "prettier --list-different \"./src/**/*.{ts,js,html,scss}\"",
     "postinstall": "npm run prettier -s",
     "prepare": "husky",
-    "deploy": "npx ng run hackason:deploy && npx angular-cli-ghpages --dir=dist/hackason"
+    "build:deploy": "npx ng build --configuration production && npx angular-cli-ghpages --dir=dist/hackason"
   },
   "private": true,
   "dependencies": {
