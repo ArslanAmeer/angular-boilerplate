@@ -17,7 +17,7 @@ import { map, Observable } from 'rxjs';
 })
 export class ChallengesComponent {
   // View Management
-  isListView = false;
+  isListView = true;
   selectedDifficulty = 'all';
   difficultyLevels = ['Beginner', 'Medium', 'Advanced'];
 
