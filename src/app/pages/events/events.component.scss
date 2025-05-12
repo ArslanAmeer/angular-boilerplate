@@ -1,12 +1,16 @@
 @import "src/theme/_layout.scss";
 
 .events-page {
-  color: #fff;
   font-family: "Segoe UI", Roboto, sans-serif;
   height: 100vh;
   scroll-snap-type: y mandatory;
   overflow-y: scroll;
   scroll-behavior: smooth;
+
+  &,
+  *:not(.card-detail):not(.card-detail *) {
+    color: white;
+  }
 
   /* Critical for scroll-snap */
   scroll-snap-stop: always;
@@ -25,10 +29,6 @@
     padding: 5%;
     position: relative;
     overflow: hidden;
-    color: white !important;
-    ::ng-deep * {
-      color: white !important;
-    }
 
     &::before {
       content: "";
