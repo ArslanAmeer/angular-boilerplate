@@ -86,7 +86,7 @@
   /* Details Panel */
   .details-panel {
     background: linear-gradient(135deg, #272736 0%, #2d1d73 100%);
-    padding: 4rem 5%;
+    padding: 7%;
 
     h2 {
       font-size: 2.5rem;
@@ -146,23 +146,27 @@
     }
   }
 
-  /* Challenge Panel */
-  .challenge-panel {
-    background: #171732;
-    padding: 5rem 5%;
-
-    .challenge-box {
-      background: #1a2035;
-      border-left: 5px solid #2575fc;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-  }
-
   /* Prizes Panel */
   .prizes-panel {
     background: linear-gradient(135deg, #4e54c8 0%, #8f94fb 100%);
-    padding: 5rem 5%;
+    padding: 7%;
+
+    h2 {
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 3rem;
+      position: relative;
+
+      &::after {
+        content: "";
+        display: block;
+        width: 100px;
+        height: 4px;
+        background: linear-gradient(to right, #6a11cb, #2575fc);
+        margin: 1rem auto 0;
+        border-radius: 2px;
+      }
+    }
 
     .prizes-grid {
       display: grid;
