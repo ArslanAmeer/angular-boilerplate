@@ -50,15 +50,12 @@ export class AuthenticationService {
 
   signup(credentials: Credentials): Observable<Credentials> {
     const newCredentials: Credentials = new Credentials({
-      username: credentials.username,
+      ...credentials,
       id: '',
       token: '123456',
       refreshToken: '123456',
       expiresIn: 3600,
-      roles: ['user'],
-      email: credentials.email,
-      firstName: '',
-      lastName: '',
+      roles: ['admin'],
     });
 
     this._credentialsService.setCredentials(newCredentials, true);
