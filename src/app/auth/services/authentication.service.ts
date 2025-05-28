@@ -48,16 +48,22 @@ export class AuthenticationService {
     return of(credentials);
   }
 
-  signup(credentials: { username: string; email: string; password: string }) {
-    return this.http.post<any>(`${this.apiUrl}/auth/signup`, credentials).pipe(
-      tap(() => {
-        // You might want to automatically login after registration
-        // this.login({ username: credentials.username, password: credentials.password });
-      }),
-      catchError((error) => {
-        return throwError(() => new Error(error.error?.message || 'Registration failed. Please try again.'));
-      }),
-    );
+  signup(credentials: { username: string; email: string; password: string }): Observable<Credentials> {
+    const newCredentials: Credentials = new Credentials({
+      username: credentials.username,
+      id: crypto.randomUUID(),
+      token: 'signup-token-abc123',
+      refreshToken: 'signup-refresh-token',
+      expiresIn: 3600,
+      roles: ['user'],
+      email: credentials.email,
+      firstName: '',
+      lastName: '',
+    });
+
+    this._credentialsService.setCredentials(newCredentials, true);
+
+    return of(newCredentials);
   }
 
   /**

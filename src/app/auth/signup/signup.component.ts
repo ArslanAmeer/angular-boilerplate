@@ -21,7 +21,9 @@ export class SignupComponent {
     private fb: FormBuilder,
     private authService: AuthenticationService,
     private router: Router,
-  ) {
+  ) {}
+
+  ngOnInit() {
     this.signupForm = this.fb.group(
       {
         username: ['', Validators.required],
