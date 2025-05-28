@@ -1,17 +1,36 @@
-<div class="login">
-  <div class="login-box">
-    <h2 translate>Login</h2>
-    <form>
+<div class="signup">
+  <div class="signup-box">
+    <h2>Sign Up</h2>
+    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
       <div class="input-field">
-        <input required type="text" />
-        <label translate>Username</label>
+        <input formControlName="username" required type="text" />
+        <label>Username</label>
+        <div *ngIf="signupForm.get('username')?.invalid && signupForm.get('username')?.touched" class="error-message">Username is required</div>
       </div>
       <div class="input-field">
-        <input required type="password" />
-        <label translate>Password</label>
+        <input formControlName="email" required type="email" />
+        <label>Email</label>
+        <div *ngIf="signupForm.get('email')?.invalid && signupForm.get('email')?.touched" class="error-message">Valid email is required</div>
       </div>
-      <button (click)="login()" type="submit">{{ 'Login' | translate }}</button>
+      <div class="input-field">
+        <input formControlName="password" required type="password" />
+        <label>Password</label>
+        <div *ngIf="signupForm.get('password')?.invalid && signupForm.get('password')?.touched" class="error-message">Password must be at least 6 characters</div>
+      </div>
+      <div class="input-field">
+        <input formControlName="confirmPassword" required type="password" />
+        <label>Confirm Password</label>
+        <div *ngIf="signupForm.hasError('mismatch')" class="error-message">Passwords do not match</div>
+      </div>
+      <button type="submit" [disabled]="signupForm.invalid || isLoading">
+        <span *ngIf="!isLoading">{{ 'Sign Up' }}</span>
+        <span *ngIf="isLoading">Loading...</span>
+      </button>
     </form>
+    <div class="login-link">
+      <span>Already have an account?</span>
+      <a routerLink="/login">Login</a>
+    </div>
   </div>
 </div>
 

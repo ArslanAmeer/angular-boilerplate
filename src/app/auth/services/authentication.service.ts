@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
-
+import { catchError, Observable, of, tap, throwError } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 import { CredentialsService } from '@app/auth';
 import { Credentials } from '@core/entities';
 
@@ -19,7 +19,12 @@ export interface LoginContext {
   providedIn: 'root',
 })
 export class AuthenticationService {
-  constructor(private readonly _credentialsService: CredentialsService) {}
+  private apiUrl = 'http://localhost:8080';
+
+  constructor(
+    private readonly _credentialsService: CredentialsService,
+    private http: HttpClient,
+  ) {}
 
   /**
    * Authenticates the user.
@@ -41,6 +46,18 @@ export class AuthenticationService {
     this._credentialsService.setCredentials(credentials, context.remember);
 
     return of(credentials);
+  }
+
+  signup(credentials: { username: string; email: string; password: string }) {
+    return this.http.post<any>(`${this.apiUrl}/auth/signup`, credentials).pipe(
+      tap(() => {
+        // You might want to automatically login after registration
+        // this.login({ username: credentials.username, password: credentials.password });
+      }),
+      catchError((error) => {
+        return throwError(() => new Error(error.error?.message || 'Registration failed. Please try again.'));
+      }),
+    );
   }
 
   /**

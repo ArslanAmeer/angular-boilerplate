@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-
-import { environment } from '@env/environment';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { AuthenticationService } from '@app/auth';
-import { ActivatedRoute, Router } from '@angular/router';
+import { matchValidator } from '@app/@core/helpers/validators';
 
 @UntilDestroy()
 @Component({
@@ -13,13 +13,51 @@ import { ActivatedRoute, Router } from '@angular/router';
   standalone: false,
 })
 export class SignupComponent {
-  version: string | null = environment.version;
+  signupForm: FormGroup;
+  isLoading = false;
+  errorMessage = '';
 
   constructor(
-    private readonly _router: Router,
-    private readonly _route: ActivatedRoute,
-    private readonly _authService: AuthenticationService,
-  ) {}
+    private fb: FormBuilder,
+    private authService: AuthenticationService,
+    private router: Router,
+  ) {
+    this.signupForm = this.fb.group(
+      {
+        username: ['', Validators.required],
+        email: ['', [Validators.required, Validators.email]],
+        password: ['', [Validators.required, Validators.minLength(6)]],
+        confirmPassword: ['', Validators.required],
+      },
+      {
+        validators: matchValidator('password', 'confirmPassword'),
+      },
+    );
+  }
 
-  signup() {}
+  onSubmit() {
+    if (this.signupForm.invalid) {
+      return;
+    }
+
+    this.isLoading = true;
+    this.errorMessage = '';
+
+    const { username, email, password } = this.signupForm.value;
+
+    this.authService
+      .signup({ username, email, password })
+      .pipe(untilDestroyed(this))
+      .subscribe({
+        next: () => {
+          this.router.navigate(['/login'], {
+            queryParams: { registered: true },
+          });
+        },
+        error: (error) => {
+          this.isLoading = false;
+          this.errorMessage = error.message || 'Registration failed';
+        },
+      });
+  }
 }

@@ -9,7 +9,7 @@ import { Observable, map } from 'rxjs';
   standalone: true,
   templateUrl: './tutorials.component.html',
   styleUrls: ['./tutorials.component.scss'],
-  imports: [CommonModule, FormsModule], // <-- FormsModule for ngModel
+  imports: [CommonModule, FormsModule],
 })
 export class TutorialsComponent {
   // Filter controls
