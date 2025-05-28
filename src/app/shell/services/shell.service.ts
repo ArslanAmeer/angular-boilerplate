@@ -20,7 +20,7 @@ export class Shell {
       path: '',
       component: ShellComponent,
       children: routes,
-      canActivate: [AuthenticationGuard],
+      canActivate: [],
 
       data: { reuse: true },
     };

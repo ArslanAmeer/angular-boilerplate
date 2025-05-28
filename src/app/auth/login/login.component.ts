@@ -41,8 +41,8 @@ export class LoginComponent {
             });
           }
         },
-        error: (error) => {
-          // Handle the error here
+        error: (err) => {
+          console.error('Login error:', err);
         },
       });
   }

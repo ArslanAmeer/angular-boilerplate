@@ -6,6 +6,7 @@
     </div>
 
     <div class="navbar-menu-items" dir="auto">
+      <!-- Dynamic Menu -->
       <ng-container *ngFor="let item of navMenuItems; let i = index">
         <ng-container *ngIf="shellService.allowedAccess(item)">
           <ng-container *ngIf="!item.divider; else divider">
@@ -30,6 +31,18 @@
           </ng-container>
         </ng-container>
       </ng-container>
+
+      <div class="auth-box">
+        <ng-container *ngIf="!credentialsService.isAuthenticated()">
+          <a class="auth-item" routerLink="/login">Login</a>
+          <a class="auth-item">/</a>
+          <a class="auth-item" routerLink="/signup">Sign Up</a>
+        </ng-container>
+
+        <ng-container *ngIf="credentialsService.isAuthenticated()">
+          <a class="auth-item">Log Out</a>
+        </ng-container>
+      </div>
     </div>
   </div>
 </nav>
