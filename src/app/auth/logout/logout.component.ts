@@ -16,23 +16,16 @@ export class LogoutComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    if (!this._credentialsService.isAuthenticated()) {
-      this._credentialsService.setCredentials();
-      this._router.navigate(['/login']).then(() => {
-        window.location.reload();
-      });
-    } else {
-      this._authService.logout().subscribe({
-        next: () => {
-          this._credentialsService.setCredentials();
-          this._router.navigate(['/login']).then(() => {
-            window.location.reload();
-          });
-        },
-        error: () => {
-          console.error('Error logging out');
-        },
-      });
-    }
+    this._authService.logout().subscribe({
+      next: () => {
+        this._credentialsService.setCredentials();
+        this._router.navigate(['/discover']).then(() => {
+          window.location.reload();
+        });
+      },
+      error: () => {
+        console.error('Error logging out');
+      },
+    });
   }
 }
