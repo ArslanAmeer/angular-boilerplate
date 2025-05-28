@@ -48,12 +48,12 @@ export class AuthenticationService {
     return of(credentials);
   }
 
-  signup(credentials: { username: string; email: string; password: string }): Observable<Credentials> {
+  signup(credentials: Credentials): Observable<Credentials> {
     const newCredentials: Credentials = new Credentials({
       username: credentials.username,
-      id: crypto.randomUUID(),
-      token: 'signup-token-abc123',
-      refreshToken: 'signup-refresh-token',
+      id: '',
+      token: '123456',
+      refreshToken: '123456',
       expiresIn: 3600,
       roles: ['user'],
       email: credentials.email,

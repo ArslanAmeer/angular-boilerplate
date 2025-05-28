@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { AuthenticationService } from '@app/auth';
 import { matchValidator } from '@app/@core/helpers/validators';
+import { Credentials } from '@app/@core/entities';
 
 @UntilDestroy()
 @Component({
@@ -45,10 +46,10 @@ export class SignupComponent {
     this.isLoading = true;
     this.errorMessage = '';
 
-    const { username, email, password } = this.signupForm.value;
+    const credentials = this.signupForm.value as Credentials;
 
     this.authService
-      .signup({ username, email, password })
+      .signup(credentials)
       .pipe(untilDestroyed(this))
       .subscribe({
         next: () => {

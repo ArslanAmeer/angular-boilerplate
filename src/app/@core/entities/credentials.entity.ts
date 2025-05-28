@@ -7,6 +7,7 @@ export class Credentials extends InitializableEntity {
   firstName? = '';
   lastName? = '';
   email? = '';
+  password? = '';
 
   @Expose({ name: 'access_token' })
   token = '';
