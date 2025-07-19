@@ -1,6 +1,6 @@
 import { Component, ElementRef, HostListener, Input } from '@angular/core';
 import { I18nService } from './i18n.service';
-import { NgClass, NgForOf } from '@angular/common';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-language-selector',

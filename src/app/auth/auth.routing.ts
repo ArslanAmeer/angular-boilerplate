@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { marker } from '@biesbjerg/ngx-translate-extract-marker';
 import { LoginComponent } from '@app/auth/login/login.component';
 import { AlreadyLoggedCheckGuard } from '@app/auth/guard/authentication.guard';
 import { LogoutComponent } from '@app/auth/logout/logout.component';
+import { marker } from '@colsen1991/ngx-translate-extract-marker';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
