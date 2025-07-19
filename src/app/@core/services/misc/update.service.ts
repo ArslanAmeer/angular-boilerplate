@@ -1,9 +1,9 @@
 import { ApplicationRef, Component, Inject, Injectable, Optional } from '@angular/core';
 import { SwUpdate } from '@angular/service-worker';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
-import { HotToastRef, HotToastService } from '@ngneat/hot-toast';
 import { concat, interval } from 'rxjs';
 import { first, startWith } from 'rxjs/operators';
+import { HotToastRef, HotToastService } from '@ngxpert/hot-toast';
 
 /* The `AppUpdateService` is responsible for checking for app updates using a
 service worker and displaying update alerts to the user. */

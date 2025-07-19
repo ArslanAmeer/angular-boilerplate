@@ -2,7 +2,7 @@
  * Entry point of global application style.
  * Component-specific style should not go here and be included directly as part of the components.
  */
-@use "@ngneat/hot-toast/src/styles/styles.scss";
+@use "@ngxpert/hot-toast/src/styles/styles.scss";
 
 // Sanitize.css
 @use "sanitize.css/sanitize.css";
