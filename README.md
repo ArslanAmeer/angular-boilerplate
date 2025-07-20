@@ -98,8 +98,8 @@ Check out working demo [here](https://angular-boilerplate.arslanameer.com)
 
 ## 💻 Current Stack Version:
 
-- Node `^v20`
-- Angular `^v19`
+- Node `^v22`
+- Angular `^v20`
 
 <p align="right"> &nbsp;</p>
 
@@ -143,7 +143,7 @@ _(Latest)_
 
 <p align="right"> &nbsp;</p>
 
-## [Version 0.0.0] - 2024-10-05
+## [Version 0.0.0] - 2025-07-20
 
 ### Added
 
