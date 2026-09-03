@@ -4,7 +4,7 @@ This app has third-party dependencies (both production and development). These d
 
 ## Highlighted dependencies
 
-- [@ngneat/hot-toast](https://github.com/ngneat/hot-toast): Toast notifications for Angular.
+- [@ngxpert/hot-toast](https://github.com/ngxpert/hot-toast): Toast notifications for Angular.
 - [@ngneat/overview](https://github.com/ngneat/overview): A powerful solution for Angular app walkthroughs.
 - [@ngneat/until-destroy](https://github.com/ngneat/until-destroy): Automatic cleanup of Angular subscriptions.
 - [@ngx-translate/core](https://www.npmjs.com/package/@ngx-translate/core): Internationalization (i18n) library for Angular applications.
@@ -24,6 +24,5 @@ This app has third-party dependencies (both production and development). These d
 - [prettier](https://www.npmjs.com/package/prettier): Code formatter for consistent style.
 - [pretty-quick](https://www.npmjs.com/package/pretty-quick): Runs Prettier on staged files.
 - [stylelint](https://www.npmjs.com/package/stylelint): Linter for CSS/SCSS.
-- [stylelint-config-prettier](https://github.com/prettier/stylelint-config-prettier): Disables stylelint rules that conflict with Prettier.
 - [typescript](https://www.npmjs.com/package/typescript): Superset of JavaScript that adds static types.
 - [ts-node](https://www.npmjs.com/package/ts-node): TypeScript execution environment for Node.js.
