@@ -1,12 +1,14 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { UseRandomUser } from '@core/usecases';
 import { RandomUserEntity } from '@core/entities';
 import { HotToastService } from '@ngxpert/hot-toast';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
   styleUrl: './list.component.scss',
+  changeDetection: ChangeDetectionStrategy.Eager,
   standalone: false,
 })
 export class ListComponent implements OnInit {
@@ -15,6 +17,7 @@ export class ListComponent implements OnInit {
 
   private readonly _useRandomUser = new UseRandomUser();
   private readonly _toast = inject(HotToastService);
+  private readonly _translateService = inject(TranslateService);
 
   ngOnInit() {
     this._useRandomUser.getAllUsers().subscribe({
@@ -29,6 +32,6 @@ export class ListComponent implements OnInit {
   }
 
   userClicked() {
-    this._toast.show('User clicked');
+    this._toast.show(this._translateService.instant('User clicked'));
   }
 }

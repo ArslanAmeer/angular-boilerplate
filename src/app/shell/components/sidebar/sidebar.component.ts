@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, inject } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { environment } from '@env/environment';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
@@ -13,20 +13,22 @@ import { NavMenuItem } from '@core/interfaces';
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss'],
+  changeDetection: ChangeDetectionStrategy.Eager,
   standalone: false,
 })
 export class SidebarComponent implements OnInit {
+  shellService = inject(ShellService);
+
   version: string = environment.version;
   year: number = new Date().getFullYear();
   sidebarItems: NavMenuItem[] = [];
   sidebarExtendedItem = -1;
   navExpanded = true;
 
-  constructor(
-    private readonly _router: Router,
-    private readonly _credentialsService: CredentialsService,
-    public shellService: ShellService,
-  ) {
+  private readonly _router = inject(Router);
+  private readonly _credentialsService = inject(CredentialsService);
+
+  constructor() {
     this.sidebarItems = webSidebarMenuItems;
   }
 

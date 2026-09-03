@@ -56,11 +56,13 @@ module.exports = tseslint.config(
       ],
       'no-duplicate-imports': 'error',
       'no-var': 'error',
-      '@angular-eslint/no-conflicting-lifecycle': 'error',
+      // This project intentionally keeps larger page sections as NgModules so each one can be
+      // lazy-loaded as a self-contained unit (see PagesModule -> UsersModule). The components
+      // declared by those modules are deliberately non-standalone, so this rule is off.
+      '@angular-eslint/prefer-standalone': 'off',
       '@angular-eslint/no-output-native': 'error',
       '@angular-eslint/no-inputs-metadata-property': 'error',
       '@angular-eslint/no-outputs-metadata-property': 'error',
-      '@angular-eslint/no-host-metadata-property': 'error',
       '@angular-eslint/no-input-rename': 'error',
       '@angular-eslint/no-output-rename': 'error',
       '@angular-eslint/use-lifecycle-interface': 'error',

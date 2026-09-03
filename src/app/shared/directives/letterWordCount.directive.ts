@@ -1,4 +1,4 @@
-import { Directive, ElementRef, Input, OnInit, Renderer2 } from '@angular/core';
+import { Directive, ElementRef, inject, Input, OnInit, Renderer2 } from '@angular/core';
 
 @Directive({
   selector: '[appLetterWordCount]',
@@ -53,10 +53,8 @@ export class LetterWordCountDirective implements OnInit {
    */
   @Input() showMaxLimit = false;
 
-  constructor(
-    private readonly _el: ElementRef,
-    private readonly _renderer: Renderer2,
-  ) {}
+  private readonly _el = inject(ElementRef);
+  private readonly _renderer = inject(Renderer2);
 
   ngOnInit() {
     if (this.targetElement) {

@@ -2,10 +2,10 @@ import { ApplicationConfig, enableProdMode, importProvidersFrom, provideZoneChan
 import { PreloadAllModules, provideRouter, RouteReuseStrategy, withEnabledBlockingInitialNavigation, withInMemoryScrolling, withPreloading, withRouterConfig } from '@angular/router';
 
 import { routes } from './app.routes';
-import { TranslateModule } from '@ngx-translate/core';
+import { provideTranslateService } from '@ngx-translate/core';
 import { environment } from '@env/environment';
 import { ShellModule } from './shell/shell.module';
-import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi, withXhr } from '@angular/common/http';
 import { ApiPrefixInterceptor, ErrorHandlerInterceptor } from '@core/interceptors';
 import { RouteReusableStrategy } from '@core/helpers';
 import { provideServiceWorker } from '@angular/service-worker';
@@ -21,9 +21,11 @@ export const appConfig: ApplicationConfig = {
     // provideZoneChangeDetection is required for Angular's zone.js
     provideZoneChangeDetection({ eventCoalescing: true }),
 
-    // import providers from other modules (e.g. TranslateModule, ShellModule, socketModule), which follow the older pattern to import modules
+    // provideTranslateService registers ngx-translate at the application root
+    provideTranslateService(),
+
+    // import providers from other modules (e.g. ShellModule, socketModule), which follow the older pattern to import modules
     importProvidersFrom(
-      TranslateModule.forRoot(),
       ShellModule,
       SocketIoModule.forRoot({
         rootUrl: null, // TODO: provide your own socket.io server URL
@@ -64,7 +66,7 @@ export const appConfig: ApplicationConfig = {
     }),
 
     // provideHttpClient is required for Angular's HttpClient with additional configuration, which includes interceptors from DI (dependency injection) , means to use class based interceptors
-    provideHttpClient(withInterceptorsFromDi()),
+    provideHttpClient(withXhr(), withInterceptorsFromDi()),
     {
       provide: HTTP_INTERCEPTORS,
       useClass: ApiPrefixInterceptor,

@@ -1,5 +1,5 @@
 {
-  "extends": ["stylelint-config-standard", "stylelint-config-recommended-scss", "stylelint-config-prettier"],
+  "extends": ["stylelint-config-standard", "stylelint-config-recommended-scss"],
   "rules": {
     "font-family-name-quotes": "always-where-recommended",
     "function-url-quotes": [
@@ -9,7 +9,6 @@
       }
     ],
     "selector-attribute-quotes": "always",
-    "string-quotes": "double",
     "max-nesting-depth": 3,
     "selector-max-compound-selectors": 3,
     "selector-max-specificity": "0,3,2",
@@ -38,8 +37,6 @@
       }
     ],
     "unit-allowed-list": ["px", "%", "em", "rem", "vw", "vh", "deg", "s"],
-    "max-empty-lines": 2,
-    "max-line-length": 120,
     "no-invalid-position-at-import-rule": null,
     "scss/comment-no-empty": null
   }

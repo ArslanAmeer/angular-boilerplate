@@ -1,4 +1,4 @@
-import { Directive, ElementRef, HostListener, Input, OnInit, Optional, Self } from '@angular/core';
+import { Directive, ElementRef, HostListener, inject, Input, OnInit } from '@angular/core';
 import { NgControl } from '@angular/forms';
 
 @Directive({
@@ -6,15 +6,13 @@ import { NgControl } from '@angular/forms';
   standalone: true,
 })
 export class NumberInputDirective implements OnInit {
+  ngControl = inject(NgControl, { optional: true, self: true });
+
   @Input() type: 'number' | 'phone' | 'zipcode' = 'number';
   @Input() customRegex?: string;
   @Input() maxLength = 14;
+  private readonly _el = inject(ElementRef);
   private _regex = new RegExp(/^\d+$/);
-
-  constructor(
-    private readonly _el: ElementRef,
-    @Optional() @Self() public ngControl: NgControl,
-  ) {}
 
   ngOnInit() {
     switch (this.type) {

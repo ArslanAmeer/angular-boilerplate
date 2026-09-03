@@ -1,4 +1,4 @@
-import { ApplicationRef, Component, Inject, Injectable, Optional } from '@angular/core';
+import { ApplicationRef, Component, Injectable, ChangeDetectionStrategy, inject } from '@angular/core';
 import { SwUpdate } from '@angular/service-worker';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { concat, interval } from 'rxjs';
@@ -12,13 +12,14 @@ service worker and displaying update alerts to the user. */
   providedIn: 'root',
 })
 export class AppUpdateService {
+  private readonly _swUpdate = inject(SwUpdate);
+  private readonly _toastService = inject(HotToastService);
+
   private _isUpdateToastShown = false;
 
-  constructor(
-    private readonly _swUpdate: SwUpdate,
-    private readonly _toastService: HotToastService,
-    appRef: ApplicationRef,
-  ) {
+  constructor() {
+    const appRef = inject(ApplicationRef);
+
     console.log('%c Update service is running...', 'color: green; font-weight: bold;');
 
     if (this._swUpdate?.isEnabled) {
@@ -89,8 +90,9 @@ export class AppUpdateService {
     <a style="color: #E9380BFF" (click)="toastRef.close({ dismissedByAction: true })">Please Click to Update</a>
     or <a style="color: #E9380BFF" (click)="toastRef.close({ dismissedByAction: false })">Close</a>
   `,
+  changeDetection: ChangeDetectionStrategy.Eager,
   standalone: true,
 })
 export class UpdateComponent {
-  constructor(@Optional() @Inject(HotToastRef) public toastRef: HotToastRef<string>) {}
+  toastRef = inject<HotToastRef<string>>(HotToastRef, { optional: true });
 }

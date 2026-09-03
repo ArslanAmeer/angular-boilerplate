@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { CredentialsService, PERMISSIONS, ROLE } from '@app/auth';
 import { Credentials } from '@core/entities';
 import { appSetting } from '@core/constants';
@@ -7,9 +7,11 @@ import { appSetting } from '@core/constants';
   providedIn: 'root',
 })
 export class PermissionService {
+  private readonly _credentialsService = inject(CredentialsService);
+
   private readonly _credentials: Credentials;
 
-  constructor(private readonly _credentialsService: CredentialsService) {
+  constructor() {
     this._credentials = this._credentialsService.credentials;
     if (!this._credentials) {
       this._credentials = this._credentialsService.credentials;

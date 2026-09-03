@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener, Input } from '@angular/core';
+import { Component, ElementRef, HostListener, Input, ChangeDetectionStrategy, inject } from '@angular/core';
 import { I18nService } from './i18n.service';
 import { NgClass } from '@angular/common';
 
@@ -6,6 +6,7 @@ import { NgClass } from '@angular/common';
   selector: 'app-language-selector',
   templateUrl: './language-selector.component.html',
   styleUrls: ['./language-selector.component.scss'],
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [NgClass],
 })
 export class LanguageSelectorComponent {
@@ -14,10 +15,8 @@ export class LanguageSelectorComponent {
   isDropdownOpen = false;
   protected readonly open = open;
 
-  constructor(
-    private readonly _i18nService: I18nService,
-    private readonly _eRef: ElementRef,
-  ) {}
+  private readonly _i18nService = inject(I18nService);
+  private readonly _eRef = inject(ElementRef);
 
   get currentLanguage(): string {
     const language = this._i18nService.language;

@@ -3,7 +3,7 @@ import { Route, Router, Routes } from '@angular/router';
 import { AuthenticationGuard, PERMISSIONS, PermissionService } from '@app/auth';
 import { ShellComponent } from '@app/shell/shell.component';
 import { BehaviorSubject } from 'rxjs';
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { NavMenuItem } from '@core/interfaces';
 
 /**
@@ -31,15 +31,14 @@ export class Shell {
   providedIn: 'root',
 })
 export class ShellService {
+  readonly _permissionService = inject(PermissionService);
+
   navicon = new BehaviorSubject<NavMode>(NavMode.Free);
   navModeSubject = new BehaviorSubject<NavMode>(NavMode.Free);
   navMode$ = this.navModeSubject.asObservable();
   navicon$ = this.navModeSubject.asObservable();
 
-  constructor(
-    private readonly _router: Router,
-    public readonly _permissionService: PermissionService,
-  ) {}
+  private readonly _router = inject(Router);
 
   allowedAccess(item: NavMenuItem): boolean {
     if (item.roles && item.roles.length) {

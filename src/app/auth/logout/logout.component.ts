@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService, CredentialsService } from '@auth';
 
@@ -6,14 +6,13 @@ import { AuthenticationService, CredentialsService } from '@auth';
   selector: 'app-logout',
   templateUrl: './logout.component.html',
   styleUrls: ['./logout.component.scss'],
+  changeDetection: ChangeDetectionStrategy.Eager,
   standalone: false,
 })
 export class LogoutComponent implements OnInit {
-  constructor(
-    private readonly _authService: AuthenticationService,
-    private readonly _router: Router,
-    private readonly _credentialsService: CredentialsService,
-  ) {}
+  private readonly _authService = inject(AuthenticationService);
+  private readonly _router = inject(Router);
+  private readonly _credentialsService = inject(CredentialsService);
 
   ngOnInit() {
     if (!this._credentialsService.isAuthenticated()) {

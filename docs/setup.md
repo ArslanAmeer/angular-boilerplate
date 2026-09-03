@@ -2,7 +2,7 @@
 
 ## Requirements
 
-- Node 20+
+- Node 22.22+ (or 24.15+ / 26+)
 - Yarn 1.22+
 
 ## Install dependencies
