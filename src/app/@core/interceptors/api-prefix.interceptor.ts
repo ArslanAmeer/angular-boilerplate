@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
 import { Observable, Subject, takeUntil, throwError } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
@@ -9,12 +9,10 @@ import { CredentialsService } from '@auth';
   providedIn: 'root',
 })
 export class ApiPrefixInterceptor implements HttpInterceptor {
-  private readonly _ongoingRequests = new Map<string, Subject<any>>();
+  private readonly _credentialsService = inject(CredentialsService);
+  private readonly _translateService = inject(TranslateService);
 
-  constructor(
-    private readonly _credentialsService: CredentialsService,
-    private readonly _translateService: TranslateService,
-  ) {}
+  private readonly _ongoingRequests = new Map<string, Subject<any>>();
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     // If the request has the 'noauth' header, don't add the Authorization header
@@ -24,7 +22,7 @@ export class ApiPrefixInterceptor implements HttpInterceptor {
 
     let headers = request.headers;
     const { token } = this._credentialsService.credentials || {};
-    const currentLang = this._translateService.currentLang.substring(0, 2);
+    const currentLang = (this._translateService.currentLang() ?? '').substring(0, 2);
 
     if (token) {
       if (!(request.body instanceof FormData)) {

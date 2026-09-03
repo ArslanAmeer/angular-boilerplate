@@ -1,8 +1,8 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, ChangeDetectionStrategy, inject } from '@angular/core';
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { I18nService, LanguageSelectorComponent } from '@app/i18n';
 import { Title } from '@angular/platform-browser';
-import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { TranslateService } from '@ngx-translate/core';
 import { environment } from '@env/environment';
 import { filter, merge } from 'rxjs';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
@@ -12,21 +12,20 @@ import { SocketIoService } from '@core/socket-io';
 @UntilDestroy()
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, TranslateModule],
+  imports: [RouterOutlet],
   template: '<router-outlet></router-outlet>',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './app.component.scss',
 })
 export class AppComponent implements OnInit, OnDestroy {
   title = 'angular-boilerplate';
 
-  constructor(
-    private readonly _router: Router,
-    private readonly _titleService: Title,
-    private readonly _translateService: TranslateService,
-    private readonly _i18nService: I18nService,
-    private readonly _socketService: SocketIoService,
-    private readonly _updateService: AppUpdateService,
-  ) {}
+  private readonly _router = inject(Router);
+  private readonly _titleService = inject(Title);
+  private readonly _translateService = inject(TranslateService);
+  private readonly _i18nService = inject(I18nService);
+  private readonly _socketService = inject(SocketIoService);
+  private readonly _updateService = inject(AppUpdateService);
 
   ngOnInit() {
     // Setup logger

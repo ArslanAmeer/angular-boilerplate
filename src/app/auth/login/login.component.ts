@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
 
 import { environment } from '@env/environment';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
@@ -10,16 +10,15 @@ import { ActivatedRoute, Router } from '@angular/router';
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
+  changeDetection: ChangeDetectionStrategy.Eager,
   standalone: false,
 })
 export class LoginComponent {
   version: string | null = environment.version;
 
-  constructor(
-    private readonly _router: Router,
-    private readonly _route: ActivatedRoute,
-    private readonly _authService: AuthenticationService,
-  ) {}
+  private readonly _router = inject(Router);
+  private readonly _route = inject(ActivatedRoute);
+  private readonly _authService = inject(AuthenticationService);
 
   login() {
     // Here You can call the login method from the AuthenticationService directly and pass the required parameters.

@@ -1,10 +1,27 @@
 import { TestBed } from '@angular/core/testing';
+import { provideRouter } from '@angular/router';
+import { provideTranslateService } from '@ngx-translate/core';
+
 import { AppComponent } from './app.component';
+import { AppUpdateService } from '@core/services';
+import { SocketIoService } from '@core/socket-io';
+
+/** Avoids opening a real socket connection during tests. */
+class MockSocketIoService {
+  connect() {}
+  disconnect() {}
+}
+
+/** Avoids pulling in the service worker and toast stack during tests. */
+class MockAppUpdateService {
+  subscribeForUpdates() {}
+}
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [AppComponent],
+      providers: [provideRouter([]), provideTranslateService(), { provide: SocketIoService, useClass: MockSocketIoService }, { provide: AppUpdateService, useClass: MockAppUpdateService }],
     }).compileComponents();
   });
 
@@ -20,10 +37,10 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('angular-boilerplate');
   });
 
-  it('should render title', () => {
+  it('should render the router outlet', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, angular-boilerplate');
+    expect(compiled.querySelector('router-outlet')).toBeTruthy();
   });
 });

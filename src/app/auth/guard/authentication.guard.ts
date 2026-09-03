@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { ActivatedRouteSnapshot, Router, RouterStateSnapshot } from '@angular/router';
 
 import { Logger } from '@app/@core/services';
@@ -14,10 +14,8 @@ authenticated and redirects them to the dashboard if they are. */
   providedIn: 'root',
 })
 export class AlreadyLoggedCheckGuard {
-  constructor(
-    private readonly _credentialsService: CredentialsService,
-    private readonly _router: Router,
-  ) {}
+  private readonly _credentialsService = inject(CredentialsService);
+  private readonly _router = inject(Router);
 
   async canActivate(): Promise<boolean> {
     const isAuthenticated = this._credentialsService.isAuthenticated();
@@ -36,10 +34,8 @@ to the login page if not. */
   providedIn: 'root',
 })
 export class AuthenticationGuard {
-  constructor(
-    private readonly _router: Router,
-    private readonly _credentialsService: CredentialsService,
-  ) {}
+  private readonly _router = inject(Router);
+  private readonly _credentialsService = inject(CredentialsService);
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     if (this._credentialsService.isAuthenticated()) {

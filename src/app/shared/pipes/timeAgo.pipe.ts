@@ -1,4 +1,4 @@
-import { Pipe, PipeTransform } from '@angular/core';
+import { Pipe, PipeTransform, inject } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { formatDate } from '@angular/common';
 
@@ -7,7 +7,7 @@ import { formatDate } from '@angular/common';
   standalone: true,
 })
 export class TimeAgoPipe implements PipeTransform {
-  constructor(private readonly _translateService: TranslateService) {}
+  private readonly _translateService = inject(TranslateService);
 
   transform(value: string, ...args: unknown[]): string | null {
     if (!value) return null;

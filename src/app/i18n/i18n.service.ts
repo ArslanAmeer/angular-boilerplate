@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
 import { BehaviorSubject, Observable, Subscription } from 'rxjs';
 
@@ -20,19 +20,21 @@ export class I18nService {
   defaultLanguage!: string;
   supportedLanguages!: string[];
 
+  private readonly _translateService = inject(TranslateService);
+
   private _langChangeSubscription!: Subscription;
   private readonly _languageSubject: BehaviorSubject<string>;
 
-  constructor(private readonly _translateService: TranslateService) {
+  constructor() {
     // Initialize the BehaviorSubject with an initial value
     this._languageSubject = new BehaviorSubject<string>(localStorage.getItem(languageKey) || environment.defaultLanguage || this._translateService.getBrowserCultureLang() || '');
 
     // Embed languages to avoid extra HTTP requests
-    _translateService.setTranslation('de-DE', deDE);
-    _translateService.setTranslation('en-US', enUS);
-    _translateService.setTranslation('es-ES', esES);
-    _translateService.setTranslation('fr-FR', frFR);
-    _translateService.setTranslation('it-IT', itIT);
+    this._translateService.setTranslation('de-DE', deDE);
+    this._translateService.setTranslation('en-US', enUS);
+    this._translateService.setTranslation('es-ES', esES);
+    this._translateService.setTranslation('fr-FR', frFR);
+    this._translateService.setTranslation('it-IT', itIT);
   }
 
   /**
@@ -48,7 +50,7 @@ export class I18nService {
    * @return The current language code.
    */
   get language(): string {
-    return this._translateService.currentLang;
+    return this._translateService.currentLang() ?? '';
   }
 
   /**

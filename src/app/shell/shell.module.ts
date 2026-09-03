@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateDirective, TranslatePipe } from '@ngx-translate/core';
 import { RouterModule } from '@angular/router';
 
 import { AuthModule } from '@app/auth';
@@ -13,7 +13,7 @@ import { PagesModule } from '@pages/pages.module';
 import { LanguageSelectorComponent } from '@app/i18n';
 
 @NgModule({
-  imports: [CommonModule, TranslateModule, AuthModule, RouterModule, HumanizePipe, FormsModule, PagesModule, LanguageSelectorComponent],
+  imports: [CommonModule, TranslateDirective, TranslatePipe, AuthModule, RouterModule, HumanizePipe, FormsModule, PagesModule, LanguageSelectorComponent],
   declarations: [ShellComponent, HeaderComponent, SidebarComponent],
 })
 export class ShellModule {}

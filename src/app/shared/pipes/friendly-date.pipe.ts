@@ -1,4 +1,4 @@
-import { Pipe, PipeTransform } from '@angular/core';
+import { Pipe, PipeTransform, inject } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 
 @Pipe({
@@ -6,7 +6,7 @@ import { TranslateService } from '@ngx-translate/core';
   standalone: true,
 })
 export class FriendlyDatePipe implements PipeTransform {
-  constructor(private readonly _translateService: TranslateService) {}
+  private readonly _translateService = inject(TranslateService);
 
   transform(value: Date | string, forceYear = false): string {
     if (!value) return '-';

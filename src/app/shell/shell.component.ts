@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, inject } from '@angular/core';
 import { ShellService } from '@app/shell/services/shell.service';
 import { UntilDestroy } from '@ngneat/until-destroy';
 import { Router } from '@angular/router';
@@ -7,15 +7,14 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-shell',
   templateUrl: './shell.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   standalone: false,
 })
 export class ShellComponent implements OnInit {
   isSidebarActive = false;
 
-  constructor(
-    private readonly _shellService: ShellService,
-    private readonly _router: Router,
-  ) {}
+  private readonly _shellService = inject(ShellService);
+  private readonly _router = inject(Router);
 
   ngOnInit() {
     // this._socketService.connect();

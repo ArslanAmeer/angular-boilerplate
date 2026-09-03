@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs';
 
@@ -6,7 +6,7 @@ import { map } from 'rxjs';
   providedIn: 'root',
 })
 export class RandomUserService {
-  constructor(private readonly _http: HttpClient) {}
+  private readonly _http = inject(HttpClient);
 
   find() {
     return this._http

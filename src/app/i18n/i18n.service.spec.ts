@@ -1,3 +1,4 @@
+import { signal } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import { Subject } from 'rxjs';
@@ -8,13 +9,14 @@ const defaultLanguage = 'en-US';
 const supportedLanguages = ['eo', 'en-US', 'fr-FR'];
 
 class MockTranslateService {
-  currentLang = '';
+  // ngx-translate v18 exposes the active language as a signal
+  currentLang = signal<string | null>(null);
   onLangChange = new Subject();
 
   use(language: string) {
-    this.currentLang = language;
+    this.currentLang.set(language);
     this.onLangChange.next({
-      lang: this.currentLang,
+      lang: language,
       translations: {},
     });
   }

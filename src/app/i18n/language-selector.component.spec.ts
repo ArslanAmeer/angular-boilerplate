@@ -1,5 +1,5 @@
 import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
-import { TranslateModule } from '@ngx-translate/core';
+import { provideTranslateService } from '@ngx-translate/core';
 
 import { I18nService } from './i18n.service';
 import { LanguageSelectorComponent } from './language-selector.component';
@@ -10,9 +10,8 @@ describe('LanguageSelectorComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [TranslateModule.forRoot()],
-      declarations: [LanguageSelectorComponent],
-      providers: [I18nService],
+      imports: [LanguageSelectorComponent],
+      providers: [provideTranslateService(), I18nService],
     }).compileComponents();
   }));
 
