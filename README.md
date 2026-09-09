@@ -1,7 +1,7 @@
 # <p align="center" style="font-size:40px; font-weight: bold;">Angular Boilerplate</p>
 
 <p align="center">
-     <img src="public/icons/icon-512x512.png" alt="angular" width="90">
+     <img src="https://brandlogos.net/wp-content/uploads/2025/04/angular_icon-logo_brandlogos.net_jn7wi-300x318.png" alt="angular" width="90">
      <img src="https://cdn-icons-png.flaticon.com/512/1408/1408941.png" alt="document" width="90">
 </p>
 
